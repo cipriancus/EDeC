@@ -1,0 +1,111 @@
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.site-wrapper {
+	display: table;
+	width: 100%;
+	min-height: 100%;
+}
+
+.cover-container {
+	width: 100%;
+}
+/*----------------------------ALINIERE HEADER--------------------------------*/
+.header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display: inline;
+	height: 50px;
+	background-color: blue;
+	margin-left: -8px;
+}
+
+.header_wrapper {
+	margin-top: 10px;
+}
+
+.header .logo_wrapper {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+/*----------------------------------------------------------------------------*/
+.content {
+	margin-top: 60px;
+	width: 100%;
+	display: inline;
+}
+
+.content .left_content {
+	width: 50%;
+	margin-top: 60px;
+}
+
+.content .right_content {
+	width: 50%;
+	float: right;
+}
+
+.right_content_wrapper{
+	margin-left:70px;
+	border:2px solid black;
+	padding-left:30px;
+	padding-bottom: 50px;
+	background-color: aliceblue;
+}
+
+/*---------------------------------CULORI LOGIN FACEBOOK SI TWEETER---------*/
+.btn-fb {
+	color: #fff;
+	background-color: #3b5998;
+	padding: 10px;
+}
+
+.btn-fb:hover {
+	color: #fff;
+	background-color: #496ebc;
+}
+
+.btn-tw {
+	color: #fff;
+	background-color: #55acee;
+	padding: 10px;
+}
+
+.btn-tw:hover {
+	color: #fff;
+	background-color: #59b5fa;
+}
+/*---------------------------------------------------------------------*/
+.content .right_content input {
+	/*continutul din form sa fie linie cu linie*/
+	display: table;
+	margin-bottom: 15px;
+}
+
+.footer {
+	margin-left: -8px;
+	position: absolute;
+	bottom: 0;
+	overflow: hidden;
+	background-color: chocolate;
+	width: 100%;
+}
+
+.footer .footer_wrapper {
+	width: 75%;
+	float: left;
+}
+
+.footer_wrapper .footer_content {
+	float: right;
+	text-align: center;;
+}
+
+button{
+	
+}
