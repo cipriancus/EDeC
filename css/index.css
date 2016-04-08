@@ -1,6 +1,10 @@
+body{
+	background-color: #212121;
+}
+
 a {
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 
 .site-wrapper {
@@ -9,56 +13,34 @@ a {
 	min-height: 100%;
 }
 
-.cover-container {
-	width: 100%;
-}
-/*----------------------------ALINIERE HEADER--------------------------------*/
-.header {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	display: inline;
-	height: 50px;
-	background-color: blue;
-	margin-left: -8px;
+.site-wrapper .login-wrapper{
+	height: 100%;
+	color:white;
+	position: relative;
+	padding-top: 30vh;
 }
 
-.header_wrapper {
-	margin-top: 10px;
+.site-wrapper .login-wrapper .login-form{
+	width:650px;
+	height:170px;
+	margin: 0 auto;
+	background-color: #1f1f1f;
+	box-shadow:0 0 10px 8px #000;
 }
 
-.header .logo_wrapper {
-	width: 50%;
+
+.site-wrapper .login-wrapper .login-form .login-form-logo{
+	margin-left: 25px;
+	width: 30%;
 	float: left;
-	text-align: center;
+	margin-top:10px;
 }
 
-/*----------------------------------------------------------------------------*/
-.content {
-	margin-top: 60px;
-	width: 100%;
-	display: inline;
-}
-
-.content .left_content {
+.site-wrapper .login-wrapper .login-form .login-form-buttons-wrapper{
 	width: 50%;
-	margin-top: 60px;
+	float:right;
 }
-
-.content .right_content {
-	width: 50%;
-	float: right;
-}
-
-.right_content_wrapper{
-	margin-left:70px;
-	border:2px solid black;
-	padding-left:30px;
-	padding-bottom: 50px;
-	background-color: aliceblue;
-}
-
-/*---------------------------------CULORI LOGIN FACEBOOK SI TWEETER---------*/
+/*---------------------------------CULORI LOGIN FACEBOOK SI TWITER---------*/
 .btn-fb {
 	color: #fff;
 	background-color: #3b5998;
@@ -81,31 +63,24 @@ a {
 	background-color: #59b5fa;
 }
 /*---------------------------------------------------------------------*/
-.content .right_content input {
-	/*continutul din form sa fie linie cu linie*/
-	display: table;
-	margin-bottom: 15px;
-}
 
 .footer {
 	margin-left: -8px;
 	position: absolute;
 	bottom: 0;
-	overflow: hidden;
-	background-color: chocolate;
 	width: 100%;
 }
 
 .footer .footer_wrapper {
-	width: 75%;
+	width: 55%;
 	float: left;
 }
 
 .footer_wrapper .footer_content {
 	float: right;
-	text-align: center;;
+	text-align: center;
 }
 
-button{
-	
+.footer_wrapper .footer_content a{
+	color:white;
 }

@@ -1,0 +1,81 @@
+body{
+	background-color: #212121;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.site-wrapper {
+	display: table;
+	width: 100%;
+	min-height: 100%;
+}
+
+.site-wrapper .register-wrapper{
+	height: 100%;
+	color:white;
+	position: relative;
+	padding-top: 30vh;
+}
+
+.site-wrapper .register-wrapper .register-form{
+	width:650px;
+	height:170px;
+	margin: 0 auto;
+	background-color: #1f1f1f;
+	box-shadow:0 0 10px 8px #000;
+}
+
+.site-wrapper .register-wrapper .register-form .hobby-form{
+	padding-left:20px;
+	padding-top:20px;
+	
+}
+
+.site-wrapper .register-wrapper .register-form .hobby-form input{
+  font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    overflow: hidden;
+    resize:none;
+    height:20px;
+    color:white;
+}
+
+.site-wrapper .register-wrapper .register-form .hobby-form button{
+ 
+ 	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+    
+.footer {
+	margin-left: -8px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer .footer_wrapper {
+	width: 55%;
+	float: left;
+}
+
+.footer_wrapper .footer_content {
+	float: right;
+	text-align: center;
+}
+
+.footer_wrapper .footer_content a{
+	color:white;
+}
