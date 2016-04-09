@@ -1,29 +1,71 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Settings</title>
-    </head>
-    <body>
-        <h1>Profile settings</h1>
-        <ul>
-            <li>
-                Username <input type="text" name="username"><br>
-            </li>
-            <li>
-                Public name <input type="text" name="publicName"><br>
-            </li>
-            <li>
-                E-mail <input type="text" name="email"><br>
-            </li>
-            <li>
-                Password <input type="password" name="password"><br>
-            </li>
-            <li>
-                Confirm password <input type="password" name="confirmPassword"><br>
-            </li>
-            <li>
-                <input type="submit" value="Submit"><br>
-            </li>
-        </ul>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="../css/profile.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../resources/images/logo.png">
+<title>Settings Page</title>
+</head>
+
+<body>
+
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+
+				<div class="content">
+					<header>
+						<div class="header-wrapper">
+
+							<div class="leftMenuBar">
+								<ul>
+									<li id="menuItem"><a href="#">OHome</a></li>
+									<li id="menuItem"><input type="text" name="searchBox"
+										class="searchBox"></li>
+									<li id="menuItem"><a href="#"> <img
+											class="searchButton" src="../resources/images/search.png"
+											alt="Search Button" align="center" />
+									</a></li>
+								</ul>
+							</div>
+
+							<div class="rightMenuBar">
+								<ul>
+									<li id="menuItem"><a href="#">Groups</a></li>
+									<li id="menuItem"><a href="#">Profile</a></li>
+									<li id="menuItem"><a href="#">Settings</a></li>
+									<li id="menuItem"><a href="#">Logout</a></li>
+								</ul>
+							</div>
+
+						</div>
+					</header>
+
+					<div class="main">
+						<div class="main-wrapper">
+							<div class="feed">
+								<div class="feedContent">
+									<div class="news">
+										<form id="settingsForm" action="#" method="POST">
+
+											<input type="email" name="email" placeholder="Insert email">
+											<input type="text" name="firstName" placeholder="Insert First Name">
+											<input type="text" name="lastName" placeholder="Insert Second Name">
+											<input type="password" name="password" placeholder="Insert Password">
+											<input type="password" name="passwordConf" placeholder="Insert Confirmation Password">
+											<button>Submit</button>
+										</form>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
