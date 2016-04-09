@@ -1,6 +1,11 @@
 body {
 	background:
+<<<<<<< HEAD
 		url(http://zurb.com/playground/uploads/upload/upload/87/wood-bg.jpg);
+=======
+		url(http://zurb.com/playground/uploads/upload/upload/87/wood-bg.jpg)
+		repeat;
+>>>>>>> origin/gh-pages
 }
 
 header {
@@ -78,6 +83,7 @@ a:hover {
 
 @media ( min-width : 1025px) {
 	.content .main {
+<<<<<<< HEAD
 		padding-left: 10vw;
 		padding-right: 10vw;
 	}
@@ -87,6 +93,12 @@ a:hover {
 	width:75%;
 }
 
+=======
+		padding-left: 20vw;
+		padding-right: 20vw;
+	}
+}
+>>>>>>> origin/gh-pages
 
 .main .profile {
 	width: 25%;
@@ -156,6 +168,7 @@ a:hover {
 	padding-top: 140px;
 }
 
+<<<<<<< HEAD
 .main .feed .feedContent .news{
 background:#fff;
 background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from(#fff), to(#fff), color-stop(.1,#f3f3f3));
@@ -181,10 +194,15 @@ margin:2% 0 2% 0;
 	padding:2%;
 	color: #aaa;
 	outline: none
+=======
+.main .feed .feedContent {
+	
+>>>>>>> origin/gh-pages
 }
 
 .main .feed .feedContent .news {
 	background-color: white;
+<<<<<<< HEAD
 }
 
 
@@ -201,3 +219,6 @@ margin:2% 0 2% 0;
 
 
 
+=======
+}
+>>>>>>> origin/gh-pages
