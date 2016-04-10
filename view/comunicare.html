@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="styleee.css">
+	<script>
+function scrollIt() {
+    var box = document.getElementById("scroly");
+	box.scrollTop = box.scrollHeight;
+}
+</script>
+<script type="text/javascript">
+	function appendMessage()
+            {
+            	var continutTextarea = document.getElementById("textToAppend").value;
+            	var paragraf = document.createElement("p");
+				var node = document.createTextNode(continutTextarea);
+				paragraf.appendChild(node);
+				var element = document.getElementById("scroly");
+				//alert("Hello World " + continutTextarea);
+				element.appendChild(paragraf);
+				scrollIt();
+				document.getElementById("textToAppend").value="";
+            			return true;
+            }
+         //-->
+      </script>
+	<script>
+	$(".obx").animate({ scrollTop: $(document).height() }, "slow");
+  return false;</script>
+	<title>Chat page</title>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css"/>
+	</head>
+	<body onload="scrollIt()">
+	<div id="bigone">
+	<div id="leftList">
+  <ul>
+    <li>
+      <img src="http://lorempixum.com/100/100/nature/1" >
+      <h3>The Grasslands</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+      
+    <li>
+      <img src="http://lorempixum.com/100/100/nature/2" >
+      <h3>Paradise Found</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li>
+      <img src="http://static.ziarelive.ro/images/thumbs/2016-04/234/nationala-romaniei-a-coborat-3-trei-pozitii-in-clasamentul-fifa-topul-are-un-nou-lider-dupa-ce-belgia-a-cazut-pe-locul-doi.jpg" >
+      <h3>Smoke On The Water</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li>
+      <img src="http://nicuzegheanu.ro/wp-content/uploads/2013/11/dacia-100x100.jpg" >
+      <h3>Headline</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+  </ul>
+</div>
+	<div class="grupCentru">
+	<div class="obx" style="overflow-y: auto;
+    height: 500px;" id="scroly">
+	<p>all these on page load.
+
+var box = document.getElementById('.obx');
+box.scrollTop = box.scrollHeight;
+also call this when you post a new chat.
+</p>
+<p>
+$(function(){
+	$('#carousel').infiniteCarousel({imagePath: '/jquery/infinitecarousel2/images/'});
+});
+</p>
+	<p>Mihaita: cel mai frumos sport ever</p>
+	<p>Razvan: adevarat</p><p>Un aparat revolutionar is inovator despre indecsii partiali care stocheaza doar anumite inregistrari dorite de noi :D
+	  	România este țară carpatică deoarece 2/3 din lanțul carpatic se află pe teritoriul său.Munții Carpați determină etajarea biopedoclimatică, reprezentând un veritabil nod orografic și totodată o barieră în calea maselor de aer, dețin resurse naturale importante si au avut o importanță deosebită în dezvoltarea vieții economice.
+
+România este țară danubiană deoarece întreg sectorul inferior al fluviului (1075 km) se află pe teritoriul României sau reprezintă părți din sectorul de graniță cu statele Serbia, Bulgaria, Ucraina.Dunărea reprezintă o axă importantă de navigație încă din Antichitate.În prezent, prin intermediul Dunării, Rinului și canalelor Main-Rin și Dunăre-Marea Neagră se realizează legătura între Marea Neagră și Marea Nordului.România este o țară pontică deoarece are ieșire la Marea Neagră, lungimea țărmului românesc fiind de 245 km(variază în funcție de procesele de acumulare sau eroziune), iar existența litoralului românesc al Mării Negre conferă României multiple avantaje economice. Are un grad mare de populare, densitatea medie a populației fiind în jur de 90 loc./km²), depășind media europeană.Ponderea majoritară a populației este între 53-54%, mai redusă comparativ cu cea europeană. Rolul spațiului românesc este considerat ca fiind de apărător al creștinismului ortodox si păstrător al latinității într-o "mare slavă"(exceptând Ungaria). Prezența României în ambele conflagrații mondiale, a facut-o sa iasa din prima câștigătoare (formarea României Mari), din cea de-a doua a ieșit perdantă) pierderea Basarabiei, nordul Bucovinei, Ținutul Herța). Sub aspect cultural, spațiul românesc actual a mai fost numit și „spațiul mioritic” (Lucian Blaga), reprezentând spiritualitatea creatoare a satului autohton, cu un specific aparte în diversitatea culturilor europene.[2] Poziția geopolitică actuală este de cea membră NATO din anul 2004 si membru UE din anul 2007.
+
+</p>
+	  </div>
+	  <form method="POST" action="" style="margin-top: 30px;">
+				<textarea type="text" name="nume" rows="6" cols="60" placeholder="Write me..." maxlength="500" id="textToAppend" ></textarea>
+				<input type="submit" value="Send" class="button_example" onclick="appendMessage(); return false;" />
+				</form>
+
+	 </div>
+	 <div class="grupRight">
+	 		<ul>
+    <li>
+      <img src="http://lorempixum.com/100/100/nature/1" >
+      <h3>The Grasslands</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+      
+    <li>
+      <img src="http://lorempixum.com/100/100/nature/2" >
+      <h3>Paradise Found</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li>
+      <img src="http://static.ziarelive.ro/images/thumbs/2016-04/234/nationala-romaniei-a-coborat-3-trei-pozitii-in-clasamentul-fifa-topul-are-un-nou-lider-dupa-ce-belgia-a-cazut-pe-locul-doi.jpg" >
+      <h3>Smoke On The Water</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+
+    <li>
+      <img src="http://nicuzegheanu.ro/wp-content/uploads/2013/11/dacia-100x100.jpg" >
+      <h3>Headline</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
+    </li>
+  </ul>
+	 </div>
+	 </div>
+
+	  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){       
+$('.leftList').slick({
+    dots: false,
+    infinite: true,
+    speed: 700,
+    autoplay:true,
+    autoplaySpeed: 2000,
+    arrows:true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+ });
+    
+        });
+</script>
+	</body>
+</html>
