@@ -1,0 +1,101 @@
+html{ 
+min-height:100%}
+body{
+	font:1m Georgia;
+	font-size:20px;
+    background-image:url("http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+
+  }
+.contact{ margin-top:200px;}
+
+/*---------------heading-------*/
+.heading{
+	width:650px;
+	height:130px;
+	margin: 0 auto;
+	background-color: #FFF8DC;
+	box-shadow:0 0 10px 8px white;
+	margin-left:20px;
+	margin-bottom:50px;
+}
+h1{
+	color:#CE0C0C;
+	font-size:40px;
+	margin-left:200px;
+}
+h5{
+	color:rgb(218, 218, 218);
+	font-size:20px;
+	font-style:italic;
+	color:rgb(0, 0, 0);
+}
+.container{
+	width:75%;
+	padding-left:250px;
+	color:black;
+	font-style:italic;
+	  font-weight: bold;
+
+}
+/*------------------------buttonul de submit---------------------*/ 
+input[type=submit]
+{
+	background-color: #575A57;
+    border-radius: 4px;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+	width:100px;
+	transition-duration: 0.7s;
+}
+input[type=submit]:hover
+{
+	background-color:#7B2A0C;
+}
+input,textarea{
+	padding:10px;
+	width:70%;
+}
+label input,
+label textarea {
+	margin-top:5px;
+}
+
+
+label,
+input,
+textarea{
+	display:block;
+}
+input,
+textarea{
+	margin-bottom:10px;}
+
+/*------------Josul paginii*---------------------*/
+.footer_wrapper .footer_content img
+{
+		width:30px;
+		margin-left:5px;
+		display:inline;
+}
+.footer_wrapper .footer_content b{margin-left:-10px;}
+
+
+.footer {
+	margin-top:200px;
+	margin-left:550px;
+	font-size:20px;
+	font-style:italic;
+	color:white;
+	}
+
+.footer-content{
+	margin-left:-30px;
+	
+}
+
+
