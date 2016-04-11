@@ -295,6 +295,8 @@ a:hover {
 }
 
 #centerMessage ul {
+	position: absolute;
+	bottom: 0;
 	list-style: none;
 }
 
@@ -311,7 +313,7 @@ a:hover {
 #centerMessage form {
 	width: 100%;
 	position: absolute;
-	bottom: 0;
+	top: 0;
 }
 
 #centerMessage form textarea {
