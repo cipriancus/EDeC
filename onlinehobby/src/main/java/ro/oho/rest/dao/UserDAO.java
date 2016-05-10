@@ -23,7 +23,9 @@ public class UserDAO {
 
 	private static final String INSERT_USER = "{call userskills.addUser(?,?,?,?,?,?)}";
 
-	private static final String DELETE_USER = "DELETE FROM user where id=?";
+	private static final String DELETE_USER = "{call adminskills.deleteUser(?)}";
+	
+	private static final String ADMIN_USER = "{call adminskills.setGrade(?,'Administrator')}";
 
 	private static final String LOGIN_USER = "{call userSkills.loginUser(?,?)}";
 
@@ -40,6 +42,14 @@ public class UserDAO {
 		cstmt.setString(6, user.getPassword());
 		cstmt.execute();
 
+		return true;
+	}
+
+	public boolean adminUser(String username) throws SQLException {
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		CallableStatement cstmt = con.prepareCall(ADMIN_USER);
+		cstmt.setString(1, username);
+		cstmt.execute();
 		return true;
 	}
 
@@ -139,16 +149,12 @@ public class UserDAO {
 		return true;
 	}
 
-	public void deleteUser(int userId) {
+	public boolean deleteUser(String username) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
-
-		try {
-			PreparedStatement prepareStatement = con.prepareStatement(DELETE_USER);
-			prepareStatement.setInt(1, userId);
-			prepareStatement.execute();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		CallableStatement cstmt = con.prepareCall(DELETE_USER);
+		cstmt.setString(1, username);
+		cstmt.execute();
+		return true;
 	}
 
 }

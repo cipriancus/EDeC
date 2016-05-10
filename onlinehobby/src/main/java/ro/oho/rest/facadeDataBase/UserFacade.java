@@ -22,8 +22,12 @@ public class UserFacade {
 		return userRepository.getUserByUserName(username);
 	}
 
-	public void deleteAccount(int id) {
-		userRepository.deleteUser(id);
+	public boolean adminUser(String username)throws SQLException {
+		return userRepository.adminUser(username);
+	}
+	
+	public boolean deleteUser(String username) throws SQLException{
+		return userRepository.deleteUser(username);
 	}
 
 	public boolean updateUser(User user)throws SQLException{
