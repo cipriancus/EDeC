@@ -2,11 +2,16 @@ package ro.oho.rest.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import oracle.jdbc.OracleTypes;
+import oracle.jdbc.oracore.OracleType;
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 import ro.oho.rest.model.ConnectionHelperClass;
 import ro.oho.rest.model.User;
@@ -24,13 +29,24 @@ public class UserDAO {
 	private static final String INSERT_USER = "{call userskills.addUser(?,?,?,?,?,?)}";
 
 	private static final String DELETE_USER = "{call adminskills.deleteUser(?)}";
-	
+
 	private static final String ADMIN_USER = "{call adminskills.setGrade(?,'Administrator')}";
 
 	private static final String LOGIN_USER = "{call userSkills.loginUser(?,?)}";
 
 	private static final String UPDATE_USER = "{call userSkills.updateUser(?, ?, ?, ?, ?, ?)}";
 
+	private static final String GET_USER = "{call paginare(?, ?)}";
+	
+	private static final String GENERATE_CVS="{call generate()}";
+
+	public boolean generateCVS()throws SQLException{
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		CallableStatement cstmt = con.prepareCall(GENERATE_CVS);
+		cstmt.execute();
+		return true;
+	}
+	
 	public boolean createUser(User user) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		CallableStatement cstmt = con.prepareCall(INSERT_USER);
@@ -41,8 +57,24 @@ public class UserDAO {
 		cstmt.setString(5, user.getUsername());
 		cstmt.setString(6, user.getPassword());
 		cstmt.execute();
-
 		return true;
+	}
+
+	public List<String> getUserPage(int page) throws SQLException {
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		CallableStatement cstmt = con.prepareCall(GET_USER);
+		cstmt.setInt(1, page);
+		cstmt.registerOutParameter(2,OracleTypes.CURSOR);
+		cstmt.execute();
+
+		ResultSet rs = (ResultSet) cstmt.getObject(2);
+		List<String> list = new ArrayList<String>();
+		while (rs.next()) {
+			String user = rs.getInt("idUser") + " " + rs.getString("nameuser") + " " + rs.getString("surnameuser") + " "
+					+ rs.getDate("date_of_birth") + " " + rs.getString("email") + " " + rs.getString("username")+" "+rs.getInt("idgrad");
+			list.add(user);
+		}
+		return list;
 	}
 
 	public boolean adminUser(String username) throws SQLException {

@@ -48,4 +48,11 @@ public class UserFacade {
 		return false;
 	}
 
+	public List<String> getUserPage(int page) throws SQLException{
+		return userRepository.getUserPage(page);
+	}
+	
+	public boolean generateCVS()throws SQLException{
+		return userRepository.generateCVS();
+	}
 }

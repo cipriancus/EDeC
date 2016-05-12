@@ -1,5 +1,13 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="ro.oho.rest.facadeDataBase.UserFacade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="ro.oho.rest.model.User"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.SQLException"%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +54,14 @@
 
 	<br>
 	<br>
-	<form action="" method="post">
+	<form action="CVS" method="post">
 		Generare CSV : <input type="submit" value="Generare">
+	</form>
+	
+	<form action="Page" method="post">
+		Get page : <input type="text" name="page"
+			value="1">
+		<input type="submit" value="Get Page">
 	</form>
 </body>
 </html>
