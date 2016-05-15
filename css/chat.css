@@ -229,7 +229,7 @@ a:hover {
 .obx{
 	    height: 500px;
     overflow-y: auto;
-    display: none;
+    /*display: none;**/
 }
 
 ::-webkit-scrollbar-track {
@@ -244,7 +244,7 @@ a:hover {
 
 .grupCentru{
 			width: 550px;
-			margin-top: 70px;
+			margin-top: 50px;
 			/*float:left;*/
 			display: inline-block;
 		}
@@ -260,10 +260,14 @@ a:hover {
 }
 .grupRight{
 	float: right;
-	    margin: 50px;
-    width: 300px;
+	    margin: 10px;
+    width: 400px;
     height: 400px;
     display: inline-block;
+}
+#formText
+{
+	margin-bottom: 20px;
 }
 ul {
   list-style-type: none;

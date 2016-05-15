@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../css/chat.css">
 
 <title>OHO- Chat page</title>
+<script type="text/javascript" src="../scripting/comunicare.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,8 @@
 
 						</div>
 					</header>
-					</div></div></div></div>
+					</div></div></div>
+</div>
 	<div id="bigone">
 	<div id="leftList">
   <ul>
@@ -70,8 +72,11 @@
   </ul>
 </div>
 	<div class="grupCentru">
-	<div class="obx" style="overflow-y: auto;
-    height: 500px;" id="scroly">
+	<form method="POST" action="" onsubmit="return false;" id="formText">
+				<textarea type="text" name="nume" rows="6" cols="60" placeholder="Write me..." maxlength="500" id="textToAppend" onkeyup="enterPressed(this)"></textarea>
+				<button id ="sendBtn" class="button_example" onclick="appendMessage()"> SEND </button>
+				</form>
+	<div class="obx" id="scroly">
 	<p>all these on page load.
 
 var box = document.getElementById('.obx');
@@ -91,10 +96,6 @@ România este țară danubiană deoarece întreg sectorul inferior al fluviului 
 
 </p>
 	  </div>
-	  <form method="POST" action="" style="margin-top: 30px;">
-				<textarea type="text" name="nume" rows="6" cols="60" placeholder="Write me..." maxlength="500" id="textToAppend" ></textarea>
-				<input type="submit" value="Send" class="button_example" onclick="appendMessage(); return false;" />
-				</form>
 
 	 </div>
 	 <div class="grupRight">
