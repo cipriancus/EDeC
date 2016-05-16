@@ -33,7 +33,7 @@
 		out.print(" !");
 		out.print("<p> Nume: " + user.getNume() + "</p>");
 		out.print("<p> Prenume: " + user.getPrenume() + "</p>");
-		out.print("<p> Username: " + user.getUsername() + "</p>");
+		//out.print("<p> Username: " + user.getUsername() + "</p>");
 	%>
 	<br>
 	<br>
@@ -78,7 +78,7 @@
 		List<Postare> allPostari = new ArrayList<Postare>();
 
 		PostariFacade postariFacade = new PostariFacade();
-		allPostari.addAll(postariFacade.getAllPostariForId(user.getIdUser()));
+	//	allPostari.addAll(postariFacade.getAllPostariForId(user.getIdUser()));
 
 		for (Postare iterator : allPostari) {
 			out.print("<p>");
@@ -100,7 +100,7 @@
 	<%
 		HobbyFacade hobbyFacade = new HobbyFacade();
 		List<Hobby> allHobbies = new ArrayList<Hobby>();
-		allHobbies.addAll(hobbyFacade.getAllUserHobby(user.getIdUser()));
+		//allHobbies.addAll(hobbyFacade.getAllUserHobby(user.getIdUser()));
 
 		for (Hobby iterator : allHobbies) {
 			out.print("<h3>");

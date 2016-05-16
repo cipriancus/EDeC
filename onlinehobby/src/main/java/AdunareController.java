@@ -1,7 +1,7 @@
-package ro.oho.rest.controller;
-
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,12 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ro.oho.rest.model.User;
-
-import javax.servlet.RequestDispatcher;
-
-@WebServlet("/home")
-public class FirstPage extends HttpServlet {
-
+@WebServlet("/Adunare")
+public class AdunareController extends HttpServlet{
 	/**
 	 * 
 	 */
@@ -26,25 +22,10 @@ public class FirstPage extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
-			HttpSession sessionUser = request.getSession(false);
-			
-			User user = null;
-			if(sessionUser !=null){
-			user = (User) sessionUser.getAttribute("user");
-			}
-			
-			if (user == null) {
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/adunare.jsp");
-				rd.forward(request, response);
-			} else {
-				if (user.getGrad() == 1) {
-					RequestDispatcher rd1 = request.getRequestDispatcher("jsp/welcome_page_admin.jsp");
-					rd1.forward(request, response);
-				} else {
-					RequestDispatcher rd1 = request.getRequestDispatcher("jsp/welcome_page_user.jsp");
-					rd1.forward(request, response);
-				}
-			}
+		String numar1=request.getParameter("numar1");
+		String numar2=request.getParameter("numar2");
+		
+		int suma=Integer.parseInt(numar1)+Integer.parseInt(numar2);
 		} finally {
 			out.close();
 		}

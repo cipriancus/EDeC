@@ -18,10 +18,6 @@ import ro.oho.rest.model.User;
 
 public class UserDAO {
 
-	// private static final String GET_ALL_USER = "SELECT * FROM usersoho ";
-
-	private static final String GET_ALL_USER = "SELECT * FROM usersoho";
-
 	private static final String GET_USER_BY_ID = "SELECT * FROM usersoho where idUser=?";
 
 	private static final String GET_USER_BY_USERNAME = "SELECT * FROM usersoho where username=?";
@@ -32,9 +28,9 @@ public class UserDAO {
 
 	private static final String ADMIN_USER = "{call adminskills.setGrade(?,'Administrator')}";
 
-	private static final String LOGIN_USER = "{call userSkills.loginUser(?,?)}";
+	private static final String LOGIN_USER = "{call userSkills.loginUser(?)}";
 
-	private static final String UPDATE_USER = "{call userSkills.updateUser(?, ?, ?, ?, ?, ?)}";
+	private static final String UPDATE_USER = "{call userSkills.updateUser(?, ?, ?, ?, ?)}";
 
 	private static final String GET_USER = "{call paginare(?, ?)}";
 	
@@ -54,8 +50,6 @@ public class UserDAO {
 		cstmt.setString(2, user.getPrenume());
 		cstmt.setString(3, user.getDataNasterii());
 		cstmt.setString(4, user.getEmail());
-		cstmt.setString(5, user.getUsername());
-		cstmt.setString(6, user.getPassword());
 		cstmt.execute();
 		return true;
 	}
@@ -85,39 +79,12 @@ public class UserDAO {
 		return true;
 	}
 
-	public boolean login(String username, String password) throws SQLException {
+	public boolean login(String username) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		CallableStatement cstmt = con.prepareCall(LOGIN_USER);
 		cstmt.setString(1, username);
-		cstmt.setString(2, password);
 		cstmt.execute();
 		return true;
-	}
-
-	public List<User> getAllUsers() {
-		Connection con = ConnectionHelperClass.getOracleConnection();
-		List<User> list = new ArrayList<User>();
-
-		try {
-			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_USER);
-			ResultSet resultSet = prepareStatement.executeQuery();
-			while (resultSet.next()) {
-				User user = new User();
-				user.setIdUser(resultSet.getInt("idUser"));
-				user.setUsername(resultSet.getString("username"));
-				user.setDataNasterii(resultSet.getString("date_of_birth"));
-				user.setPassword(resultSet.getString("parola"));
-				user.setNume(resultSet.getString("nameuser"));
-				user.setPrenume(resultSet.getString("surnameuser"));
-				user.setEmail(resultSet.getString("email"));
-				user.setGrad(resultSet.getInt("grade"));
-
-				list.add(user);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return list;
 	}
 
 	public User getUserById(int id) {
@@ -130,9 +97,7 @@ public class UserDAO {
 			ResultSet resultSet = prepareStatement.executeQuery();
 			resultSet.next();
 			user.setIdUser(resultSet.getInt("idUser"));
-			user.setUsername(resultSet.getString("username"));
 			user.setDataNasterii(resultSet.getString("date_of_birth"));
-			user.setPassword(resultSet.getString("parola"));
 			user.setNume(resultSet.getString("nameuser"));
 			user.setPrenume(resultSet.getString("surnameuser"));
 			user.setEmail(resultSet.getString("email"));
@@ -154,9 +119,7 @@ public class UserDAO {
 			ResultSet resultSet = prepareStatement.executeQuery();
 			resultSet.next();
 			user.setIdUser(resultSet.getInt("idUser"));
-			user.setUsername(resultSet.getString("username"));
 			user.setDataNasterii(resultSet.getString("date_of_birth"));
-			user.setPassword(resultSet.getString("parola"));
 			user.setNume(resultSet.getString("nameuser"));
 			user.setPrenume(resultSet.getString("surnameuser"));
 			user.setEmail(resultSet.getString("email"));
@@ -171,12 +134,10 @@ public class UserDAO {
 	public boolean updateUser(User userEntity) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		CallableStatement cstmt = con.prepareCall(UPDATE_USER);
-		cstmt.setString(1, userEntity.getUsername());
 		cstmt.setString(2, userEntity.getNume());
 		cstmt.setString(3, userEntity.getPrenume());
 		cstmt.setString(4, userEntity.getDataNasterii().substring(0, 10));
 		cstmt.setString(5, userEntity.getEmail());
-		cstmt.setString(6, userEntity.getPassword());
 		cstmt.execute();
 		return true;
 	}
