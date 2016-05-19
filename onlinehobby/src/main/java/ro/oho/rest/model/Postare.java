@@ -7,7 +7,7 @@ public class Postare {
 	private HobbyFacade hobbyFacade=new HobbyFacade();
 	
 	private int idHobby;
-	private int idUser;
+	private long idUser;
 	private int idPost;
 	private String Date_of_post;
 	private String Mesaj;
@@ -36,12 +36,12 @@ public class Postare {
 		this.idHobby = idHobby;
 	}
 
-	public int getIdUser() {
+	public long getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
+	public void setIdUser(long id) {
+		this.idUser = id;
 	}
 
 	public String getMesaj() {
@@ -52,10 +52,4 @@ public class Postare {
 		Mesaj = mesaj;
 	}
 
-	@Override
-	public String toString() {
-		UserDAO userDAO = new UserDAO();
-		return userDAO.getUserById(this.idUser).getNume() + " " + userDAO.getUserById(this.idUser).getPrenume()
-				+ " a postat in hobby-ul " + hobbyFacade.getHobbyNameForId(idHobby) + " " + Mesaj + " la data de " + Date_of_post;
-	}
 }

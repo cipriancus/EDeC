@@ -17,7 +17,7 @@ public class HobbyFacade {
 		return hobbyDAO.getHobbyForName(name).getIdHobby();
 	}
 	
-	public List<Hobby> getAllUserHobby(int id){
+	public List<Hobby> getAllUserHobby(long id){
 		return hobbyDAO.getAllUserHobby(id);
 	}
 	

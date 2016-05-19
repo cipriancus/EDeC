@@ -10,12 +10,8 @@ public class UserFacade {
 
 	private static final UserDAO userRepository = new UserDAO();
 
-	public User getUserById(int id) {
+	public User getUserById(long id) {
 		return userRepository.getUserById(id);
-	}
-
-	public User getUserByUserName(String username) {
-		return userRepository.getUserByUserName(username);
 	}
 
 	public boolean adminUser(String username)throws SQLException {
@@ -34,11 +30,11 @@ public class UserFacade {
 		return userRepository.createUser(user);
 	}
 
-	public boolean loginUser(String userName) throws SQLException{
-		if (userRepository.login(userName) != false) {
+	public boolean loginUser(long idUser){
+		if (userRepository.login(idUser) != false) {
 			
-			User user = getUserByUserName(userName);
-			if (user.getEmail().equals(userName))
+			User user = getUserById(idUser);
+			if (user.getIdUser()==idUser)
 				return true;
 		}
 		return false;

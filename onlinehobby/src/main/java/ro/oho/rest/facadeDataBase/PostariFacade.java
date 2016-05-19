@@ -10,8 +10,12 @@ public class PostariFacade {
 
 	private PostareDAO postareRepository=new PostareDAO();
 	
-	public List<Postare> getAllPostariForId(int id) {
+	public List<Postare> getAllPostariForId(long id) {
 		return postareRepository.getAllPostariForId(id);
+	}
+	
+	public List<Postare> getAllUserPostariForId(long id) {
+		return postareRepository.getAllUserPostariForId(id);
 	}
 	
 	public boolean postInHobby(String username,String hobbyName,String message)throws SQLException{

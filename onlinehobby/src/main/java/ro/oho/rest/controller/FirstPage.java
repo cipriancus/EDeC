@@ -34,16 +34,11 @@ public class FirstPage extends HttpServlet {
 			}
 			
 			if (user == null) {
-				RequestDispatcher rd = request.getRequestDispatcher("jsp/adunare.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("jsp/login_form.jsp");
 				rd.forward(request, response);
 			} else {
-				if (user.getGrad() == 1) {
-					RequestDispatcher rd1 = request.getRequestDispatcher("jsp/welcome_page_admin.jsp");
+					RequestDispatcher rd1 = request.getRequestDispatcher("jsp/first_page.jsp");
 					rd1.forward(request, response);
-				} else {
-					RequestDispatcher rd1 = request.getRequestDispatcher("jsp/welcome_page_user.jsp");
-					rd1.forward(request, response);
-				}
 			}
 		} finally {
 			out.close();

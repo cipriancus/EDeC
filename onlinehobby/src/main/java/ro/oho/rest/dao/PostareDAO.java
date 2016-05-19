@@ -13,19 +13,42 @@ import ro.oho.rest.model.Postare;
 
 public class PostareDAO {
 	private static final String GET_ALL_POSTARI_ID = "select * from hobbypost p join userhobby	h on p.idhobby=	h.idhobby where h.iduser=? order by date_of_post desc";
+	private static final String GET_ALL_USER_POSTARI_ID = "select * from hobbypost p join userhobby	h on p.idhobby=h.idhobby where p.iduser=? order by date_of_post desc";
 	private static final String INSERT_POST = "{call userSkills.postIt(?,?,?)}";
 
-	public List<Postare> getAllPostariForId(int id) {
+	public List<Postare> getAllPostariForId(long id) {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		List<Postare> list = new ArrayList<Postare>();
 		try {
 			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_POSTARI_ID);
-			prepareStatement.setInt(1, id);
+			prepareStatement.setLong(1, id);
 			ResultSet resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				Postare postare = new Postare();
 				postare.setIdHobby(resultSet.getInt("idHobby"));
-				postare.setIdUser(resultSet.getInt("idUser"));
+				postare.setIdUser(resultSet.getLong("idUser"));
+				postare.setMesaj(resultSet.getString("message"));
+				postare.setDate_of_post(resultSet.getString("date_of_post"));
+				postare.setIdPost(resultSet.getInt("idPost"));
+				list.add(postare);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public List<Postare> getAllUserPostariForId(long id) {
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		List<Postare> list = new ArrayList<Postare>();
+		try {
+			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_USER_POSTARI_ID);
+			prepareStatement.setLong(1, id);
+			ResultSet resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Postare postare = new Postare();
+				postare.setIdHobby(resultSet.getInt("idHobby"));
+				postare.setIdUser(resultSet.getLong("idUser"));
 				postare.setMesaj(resultSet.getString("message"));
 				postare.setDate_of_post(resultSet.getString("date_of_post"));
 				postare.setIdPost(resultSet.getInt("idPost"));

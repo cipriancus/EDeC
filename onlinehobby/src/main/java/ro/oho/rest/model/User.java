@@ -8,7 +8,42 @@ public class User {
 	private String dataNasterii;
 	private String email;
 	private int grad;
+	private String authToken;
+	private String authSite;
+	private String picture;
+	
+	public String getPicture(){
+		return picture;
+	}
+	
+	public void setPicture(String picture){
+		this.picture=picture;
+	}
+	
+	public String getAuthToken() {
+		return authToken;
+	}
 
+	public void setAuthToken(String authToken) {
+		this.authToken = authToken;
+	}
+
+	public String getAuthSite() {
+		return authSite;
+	}
+
+	public void setAuthSite(String authSite) {
+		this.authSite = authSite;
+	}
+
+	public void setIdUser(long idUser) {
+		this.idUser = idUser;
+	}
+
+	public long getIdUser() {
+		return idUser;
+	}
+	
 	public int getGrad(){
 		return grad;
 	}
@@ -17,13 +52,6 @@ public class User {
 		this.grad=grad;
 	}
 	
-	public long getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
 
 	public String getNume() {
 		return nume;

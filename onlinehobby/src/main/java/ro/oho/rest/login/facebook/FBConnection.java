@@ -16,6 +16,10 @@ public class FBConnection {
 
 	static String accessToken = "";
 
+	public FBConnection() {
+		this.accessToken="";
+	}
+	
 	public String getFBAuthUrl() {
 		String fbLoginUrl = "";
 		try {

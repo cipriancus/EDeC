@@ -34,15 +34,14 @@ public class ManageFacebookLogin extends HttpServlet {
   
 		UserFacade userFacade=new UserFacade();
 		try {
-			if(userFacade.loginUser(user.getEmail())==false){//nu are cont facut
-			userFacade.createUser(user);
-			}
 			
+			if(userFacade.loginUser(user.getIdUser())==false){//nu are cont facut
+			userFacade.createUser(user);
+			}else{
 			HttpSession sessionUser = req.getSession();
 			sessionUser.setAttribute("user", user);
-			
-			
-			RequestDispatcher rd1 = req.getRequestDispatcher("jsp/welcome_page_user.jsp");
+			}
+			RequestDispatcher rd1 = req.getRequestDispatcher("jsp/first_page.jsp");
 			rd1.forward(req, res);
 			
 		} catch (SQLException e) {

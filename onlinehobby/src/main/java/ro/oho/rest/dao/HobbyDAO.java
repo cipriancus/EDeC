@@ -60,12 +60,12 @@ public class HobbyDAO {
 		return hobby;
 	}
 
-	public List<Hobby> getAllUserHobby(int id) {
+	public List<Hobby> getAllUserHobby(long id) {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		List<Hobby> list = new ArrayList<Hobby>();
 		try {
 			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_USER_HOBBY);
-			prepareStatement.setInt(1, id);
+			prepareStatement.setLong(1, id);
 			ResultSet resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				Hobby hobby = new Hobby();
