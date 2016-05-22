@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="../css/chat.css">
 
 <title>OHO- Chat page</title>
-<script type="text/javascript" src="../scripting/comunicare.js"></script>
 </head>
 
 <body>
@@ -45,7 +44,8 @@
 </div>
 	<div id="bigone">
 	<div id="leftList">
-  <ul>
+  <ul id="hobbies">
+    	<button class="button_next" onclick="apeendAlert(); return false;"> Less </button>
     <li>
       <img src="http://lorempixum.com/100/100/nature/1" >
       <h3>The Grasslands</h3>
@@ -69,6 +69,8 @@
       <h3>Headline</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
     </li>
+    	<button class="button_next" id="btnNextHobby" onclick="loadDoc()"> More </button>
+    
   </ul>
 </div>
 	<div class="grupCentru">
@@ -126,5 +128,7 @@ România este țară danubiană deoarece întreg sectorul inferior al fluviului 
   </ul>
 	 </div>
 	 </div>
+	 
+<script type="text/javascript" src="../scripting/comunicare.js"></script>
 </body>
 </html>

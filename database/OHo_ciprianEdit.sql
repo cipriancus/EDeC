@@ -1129,19 +1129,21 @@ END;
 
 /
 
-/* procedura neterminata!!!*/
-CREATE OR REPLACE PROCEDURE "CIPRIAN"."PAGINARE_HOBBY_RECOMANDAT" (v_oprire IN integer, p_idUser number,c1 OUT SYS_REFCURSOR)  as
-  v_max_rownum number:=v_oprire*3+3;
-  v_max_rn number:=v_oprire*3;
+CREATE OR REPLACE PROCEDURE "CIPRIAN"."PAGINARE_HOBBY_RECOMANDAT" (v_oprire IN integer, p_idUser number, c1 OUT sys_refcursor) as
+  v_max_rownum number:=v_oprire*2+2;
+  v_max_rn number:=v_oprire*2;
 begin
   open c1 for SELECT *
   FROM ( SELECT tmp.*, rownum rn
-           FROM ( SELECT *
-                    FROM usersoho where idUser=p_idUser
-                   ORDER BY iduser ASC
+           FROM ( select hobbyname, description from hobby h1 where h1.idHobby in 
+           (select * from (select * from ( (select idHobby from userHobby where idUser in (
+            SELECT  B.idUser FROM userhobby B WHERE b.idHobby =
+                  (SELECT * FROM (select idHobby from userHobby where idUser=p_idUser) A 
+                                            WHERE A.idHobby = B.idHobby and b.idUser<>p_idUser)
+                      )) MINUS select idHobby from userhobby where idUser=p_idUser)) h2 where h1.idHobby=h2.idHobby)
                 ) tmp
           WHERE rownum <=v_max_rownum
           ) 
           WHERE rn >v_max_rn;
-end paginare;
-
+end paginare_hobby_recomandat;
+/

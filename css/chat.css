@@ -219,12 +219,10 @@ a:hover {
 	top: 1px;
 }
 /*                  Pana aici  css de la Ciprian                       */
+
 		textarea{
 			resize: none;
 			/*position: relative;*/
-		}
-		#bigone{
-			
 		}
 .obx{
 	    height: 500px;
@@ -243,26 +241,28 @@ a:hover {
 }
 
 .grupCentru{
-			width: 550px;
+			width: 40%;
 			margin-top: 50px;
 			/*float:left;*/
 			display: inline-block;
+			height: 60%;
 		}
 #leftList {
-  margin: 10px;
+  margin: 3%;
+  margin-left: 1%;
   float: left;
   display: inline-block;
-  float: left;
-  height: 400px;
+  height: 60%;
+  width: 25%;
 	/*overflow-y: auto;
 	-webkit-animation: fadeIn 0.65s ease forwards;
 	animation: fadeIn 0.65s ease forwards;*/
 }
 .grupRight{
+	margin-top: 3%;
 	float: right;
-	    margin: 10px;
-    width: 400px;
-    height: 400px;
+    width: 30%;
+    height: 60%;
     display: inline-block;
 }
 #formText
@@ -316,3 +316,20 @@ border:1px solid #26759e;-webkit-box-shadow: #FEFFFF 0px 1px 3px inset;-moz-box-
  background-image: -o-linear-gradient(top, #26759E, #133D5B);
  background-image: linear-gradient(to bottom, #26759E, #133D5B);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759E, endColorstr=#133D5B);
 }
+ .button_next{
+ 	border: 0;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+	font-weight: 500;
+	padding: 7px 10px;
+	margin-top: 1%;
+	border-radius: 3px;
+	font-size: 15px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+	color: white;
+	width: 100%;
+}
+.button_next:active {
+   border-top-color: #ffffff;
+   background: #ffffff;
+   }
