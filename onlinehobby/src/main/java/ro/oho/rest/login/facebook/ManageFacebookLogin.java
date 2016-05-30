@@ -39,6 +39,9 @@ public class ManageFacebookLogin extends HttpServlet {
 			userFacade.createUser(user);
 			}else{
 			HttpSession sessionUser = req.getSession();
+			//iau gradul, il pun in user si fac update daca nu cumva a schimbat pe fb
+			user.setGrad(userFacade.getUserById(user.getIdUser()).getGrad());
+			userFacade.updateUser(user);
 			sessionUser.setAttribute("user", user);
 			}
 			RequestDispatcher rd1 = req.getRequestDispatcher("jsp/first_page.jsp");

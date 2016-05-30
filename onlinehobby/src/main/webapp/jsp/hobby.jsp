@@ -14,23 +14,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/profile.css">
+<link rel="stylesheet" type="text/css"
+	href="/onlinehobby/css/profile.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="images/logo.png">
+<link rel="icon" href="/onlinehobby/images/logo.png">
 <title>Oho</title>
 </head>
-<body onload="loadDoc(); loadMembers(); loadPosts();">
+<body onload="loadDoc(); loadMembers(); loadPosts(); addUserToHobby;">
 	<%
 		HttpSession sessionUser = request.getSession(false);
 		User user = (User) sessionUser.getAttribute("user");
 
+		String hobbyRequest = (String) request.getAttribute("urlString");
+
+		StringBuilder hobbyIDString = new StringBuilder();
+
+		for (int iterator = hobbyRequest.indexOf("hobby/"); iterator < hobbyRequest.length(); iterator++) {
+			if (Character.isDigit(hobbyRequest.charAt(iterator)) == true) {
+				hobbyIDString.append(hobbyRequest.charAt(iterator));
+			}
+		}
+		int hobbyId = 0;
+
+		if (hobbyIDString.length() != 0) {
+			hobbyId = Integer.parseInt(hobbyIDString.toString());
+		}
+
+		Hobby hobby = new Hobby();
 		HobbyFacade hobbyFacade = new HobbyFacade();
+		hobby = hobbyFacade.getHobbyForId(hobbyId);
+
 		List<Hobby> allHobby = hobbyFacade.getAllUserHobby(user.getIdUser());
-
-		PostariFacade postariFacade = new PostariFacade();
-		List<Postare> allPostari = postariFacade.getAllPostariForId(user.getIdUser());
-
-		UserFacade userFacade = new UserFacade();
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -43,7 +57,7 @@
 
 									<li><a href="http://localhost:8017/onlinehobby/home"><img
 											align="center" width="40px" height="40px"
-											src="images/logo.png" /></a></li>
+											src="/onlinehobby/images/logo.png" /></a></li>
 
 
 									<li><a
@@ -82,8 +96,6 @@
 								<div class="profilFeed">
 									<div class="profile">
 										<div class="profileContent">
-
-
 											<div class="hobbies">
 												<div class="head">
 													<a>Hobbies you follow</a>
@@ -100,6 +112,7 @@
 
 											</div>
 
+
 										</div>
 									</div>
 								</div>
@@ -107,45 +120,54 @@
 									<div class="feedContent">
 										<div class="comments-container">
 
-											<ul id="comments-list" class="comments-list">
-												<%
-													out.print("<li><div class=\"comment-main-level\"><div class=\"comment-avatar\"><img" + " src=\""
-															+ user.getPicture() + "\"" + "alt=\"Profile picture\">" + "</div>" + "<div class=\"comment-box\">"
-															+ "<div class=\"comment-head\">");
-													out.print("<a href=\"#\">I like </a>");
-													out.print("<input type=\"text\" placeholder=\"Hobby\" id=\"hobby\">");
-													out.print("<a href=\"#\"> because </a>");
-													out.print("<input type=\"text\" placeholder=\"Reasons\" id=\"reasons\">");
-													out.print("&nbsp");
-													out.print("&nbsp");
-													out.print("<input type=\"submit\" placeholder=\"Post\" id=\"hobby\"></div>");
-												%>
-												<%
-													for (Postare iterator : allPostari) {
-														User userPost = new User();
-														userPost = userFacade.getUserById(iterator.getIdUser());
+											<div id="hobbyContainer"
+												style="
+											background:url('<%out.print(hobby.getImageURL());%>');
+											background-size: contain;
+											">
 
-														out.print("<li><div class=\"comment-main-level\"><div class=\"comment-avatar\"><img" + " src=\""
-																+ userPost.getPicture() + "\"" + "alt=\"Profile picture\">" + "</div>"
-																+ "<div class=\"comment-box\">" + "<div class=\"comment-head\">"
-																+ "<h6 class=\"comment-name by-author\">");
-														out.print("<a href=\"http://localhost:8017/onlinehobby/usr/" + userPost.getIdUser() + "\">"
-																+ userPost.getNume() + " " + userPost.getPrenume() + "</a>");
-														out.print("</h6><span> At " + iterator.getDate_of_post()
-																+ " in <a href=\"http://localhost:8017/onlinehobby/hobby/" + iterator.getIdHobby() + "\">"
-																+ hobbyFacade.getHobbyNameForId(iterator.getIdHobby())
-																+ "</a></span><i class=\"fa fa-reply\"></i></div>");
-														out.print("<div class=\"comment-content\">" + iterator.getMesaj() + "</div></div></div></li>");
-													}
-												%>
-											</ul>
+												<div id='hobby_container'>
+
+													<div id='info_box'>
+														<div id="profile_img">
+															<img src='<%out.print(hobby.getImageURL());%>' />
+														</div>
+
+														<div id="info-box">
+															<div id="info-name">
+																<b> <%
+ 	out.print(hobby.getHobbyName());
+ %>
+																</b>
+															</div>
+															<a onClick="addUserToHobby()"
+																id="addButton">Add Hobby</a>
+														</div>
+													</div>
+
+												</div>
+
+												<div id="container-content">
+													<h2>
+														<%
+															out.print(hobby.getDescription());
+														%>
+													</h2>
+													<!-- <div id="" style="overflow-y: scroll; height:400px;">
+													 -->
+													<iframe width="560" height="315"
+														src="<%out.print(hobby.getVideoURL());%>" frameborder="0"
+														allowfullscreen></iframe>
+
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="hobby_suggestions">
 								<div id="hobbies"></div>
-								
+
 							</div>
 						</div>
 					</div>
@@ -153,7 +175,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="/onlinehobby/js/comunicare.js"></script>
-
+		<script type="text/javascript" src="/onlinehobby/js/comunicare.js"></script>
+	
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import ro.oho.rest.dao.PostareDAO;
 import ro.oho.rest.model.Postare;
+import ro.oho.rest.model.User;
 
 public class PostariFacade {
 
@@ -18,7 +19,11 @@ public class PostariFacade {
 		return postareRepository.getAllUserPostariForId(id);
 	}
 	
-	public boolean postInHobby(String username,String hobbyName,String message)throws SQLException{
-		return postareRepository.postInHobby(username, hobbyName, message);
+	public boolean postInHobby(User user,String hobbyName,String message)throws SQLException{
+		return postareRepository.postInHobby(user.getIdUser(), hobbyName, message);
+	}
+	
+	public List<Postare> getAllHobbyPost(int id){
+		return postareRepository.getAllHobbyPost(id);
 	}
 }

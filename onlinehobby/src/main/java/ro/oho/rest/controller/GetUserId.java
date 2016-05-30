@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet pentru identificare unui user ex /user/56684648 da userul cu nr
- * acesta
+ * Servlet pentru identificare unui user ex /usr/56684648 da userul cu nr acesta
  */
 @WebServlet("/usr/*")
 public class GetUserId extends HttpServlet {
@@ -31,8 +30,8 @@ public class GetUserId extends HttpServlet {
 					RequestDispatcher rd1 = request.getRequestDispatcher("/jsp/user.jsp");
 					request.setAttribute("urlString", request.getRequestURI());
 					rd1.forward(request, response);
-				} else{
-					out.print("eroare");
+				} else {
+					response.setStatus(HttpServletResponse.SC_FORBIDDEN);
 				}
 			}
 		} finally {

@@ -1,6 +1,7 @@
 html {
 	background-image: url("../images/beach.jpg");
 	background-size: cover;
+	overflow-y: scroll;
 }
 
 body {
@@ -15,8 +16,10 @@ header {
 }
 
 .header-wrapper {
+	position: fixed;
 	list-style-type: none;
 	float: left;
+	z-index: 100;
 	background-color: black;
 	width: 100%;
 	height: 10%;
@@ -26,6 +29,7 @@ header {
 .header-wrapper .leftMenuBar {
 	width: 40%;
 	float: left;
+	display: inline;
 }
 
 .header-wrapper .rightMenuBar {
@@ -37,6 +41,10 @@ header {
 	float: left;
 	padding-right: 20px;
 	padding-top: 10px;
+}
+
+.header-wrapper .leftMenuBar li {
+	display: inline;
 }
 
 .header-wrapper .rightMenuBar ul {
@@ -59,27 +67,6 @@ a {
 
 a:hover {
 	color: cornsilk;
-}
-
-.searchButton {
-	width: 50px;
-	height: 50px;
-}
-
-.searchButton:hover {
-	background-color: lightgray;
-	border-radius: 25px;
-}
-
-.searchBox {
-	border-radius: 25px;
-	width: 50%;
-	height: 25px;
-	padding-left: 5px;
-	font-size: 20px;
-	font-family: "Arial Narrow", serif;
-	background-color: lightgray;
-	height: 25px;
 }
 
 .content .main {
@@ -106,29 +93,33 @@ a:hover {
 	width: 75%;
 }
 
-.profile .profileContent .profilePicture{
-	margin-top: 2%; 
-    background: #FCFCFC;
-    padding: 20px;
-    border-bottom: 1px solid #E5E5E5;
-    border-radius:10px;
+.profilePlusFeed {
+	margin-top: 5%;
 }
 
-.profile .profileContent .profilePictureVisitor{
-	margin-top: 20%; 
-    background: #FCFCFC;
-    padding: 20px;
-    border-bottom: 1px solid #E5E5E5;
-    border-radius:10px;
+.profile .profileContent .profilePicture {
+	margin-top: 2%;
+	background: #FCFCFC;
+	padding: 20px;
+	border-bottom: 1px solid #E5E5E5;
+	border-radius: 10px;
 }
 
-.profile .profileContent .profilePictureVisitor img{
-	width:200px;
+.profile .profileContent .profilePictureVisitor {
+	margin-top: 20%;
+	background: #FCFCFC;
+	padding: 20px;
+	border-bottom: 1px solid #E5E5E5;
+	border-radius: 10px;
+}
+
+.profile .profileContent .profilePictureVisitor img {
+	width: 200px;
 	height: 200px;
 }
 
-.profile .profileContent .profilePicture a{
-		color: #283035;
+.profile .profileContent .profilePicture a {
+	color: #283035;
 }
 
 .main .profile .profileContent {
@@ -145,7 +136,7 @@ a:hover {
 	list-style: none;
 }
 
- .profile .profileContent .hobbies .head {
+.hobbies .head {
 	margin-top: 50%;
 	background: #FCFCFC;
 	padding: 10px 12px;
@@ -156,8 +147,8 @@ a:hover {
 	border-radius: 4px 4px 0 0;
 }
 
-.hobbies a{
-		color: #283035;
+.hobbies a {
+	color: #283035;
 }
 
 .comments-list .comment-main-level  input {
@@ -167,13 +158,13 @@ a:hover {
 	outline: none;
 	border: none;
 	border-bottom: 1px dashed blue;
-	width: 15%;
 	overflow: hidden;
 	resize: none;
 	height: 20px;
 	color: blue;
 }
-.hobbies .hobby-content{
+
+.hobbies .hobby-content {
 	background: #FFF;
 	padding: 12px;
 	font-size: 15px;
@@ -221,7 +212,7 @@ a:hover {
 	text-shadow: 0px 1px 0px #b23e35;
 }
 
-#settingsForm button:hover {
+#settingsForm x:hover {
 	background-color: #eb675e;
 }
 
@@ -262,7 +253,7 @@ a:hover {
 
 .feed .feedContent .comments-container {
 	margin: 60px auto 15px;
-	width: 768px;
+	width: 90%;
 }
 
 .feed .feedContent .comments-container h1 {
@@ -323,7 +314,6 @@ a:hover {
 	width: 65px;
 	height: 65px;
 	position: relative;
-	z-index: 99;
 	float: left;
 	border: 3px solid #FFF;
 	-webkit-border-radius: 4px;
@@ -349,7 +339,7 @@ a:hover {
 }
 
 .feed .feedContent .comments-list .comment-box {
-	width: 680px;
+	width: 90%;
 	float: right;
 	position: relative;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
@@ -464,7 +454,7 @@ a:hover {
 .hobby_suggestions {
 	float: right;
 	width: 15%;
-	margin-top: 2%;
+	margin-top: 7%;
 }
 
 .hobby_suggestions .head {
@@ -490,4 +480,340 @@ a:hover {
 	border-bottom: 1px solid #E5E5E5;
 }
 
-/*-------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------PENTRU PAGINA DE HOBBY-----------------------------------------*/
+#container-content {
+	border: solid 1px #cccccc;
+	padding: 20px;
+	color: black;
+	background: white;
+}
+
+#info_box {
+	padding: 60px 50px 0px 10px;
+	border: solid 1px #dedede;
+	width: 100%;
+	background-color: #fcfcfc;
+	margin-top: 40%;
+}
+
+#profile_img {
+	background-color: #FFFFFF;
+	border: 1px solid #DEDEDE;
+	margin-left: 10px;
+	margin-top: -100px;
+	position: absolute;
+	width: 86px;
+	height: 86px;
+	float: left;
+}
+
+#profile_img img {
+	width: 100%;
+	height: 100%;
+}
+
+.avatar_img {
+	padding: 3px;
+}
+
+#hobby_container {
+	overflow: auto;
+	width: 100%;
+}
+
+#info-box {
+	margin-left: 115px;
+	margin-top: -50px;
+	position: absolute;
+	color: black;
+	font-size: 30px;
+	width: 50%;
+}
+
+#info-name {
+	float: left;
+	overflow: hidden;
+	word-wrap: break-word;
+	margin-right: 40%;
+}
+
+#info-content {
+	margin-left: 170px;
+	width: 290px;
+}
+
+#addButton {
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff
+		), color-stop(1, #f6f6f6));
+	background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+		endColorstr='#f6f6f6', GradientType=0);
+	background-color: #ffffff;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+#addButton:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6
+		), color-stop(1, #ffffff));
+	background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6',
+		endColorstr='#ffffff', GradientType=0);
+	background-color: #f6f6f6;
+}
+
+#addButton:active {
+	position: relative;
+	top: 1px;
+}
+/*------------------------------PENTRU PAGINA DE SETTINGS-------------------------*/
+#bigone textarea {
+	resize: none;
+}
+
+#bigone .obx {
+	height: 350px;
+	overflow-y: auto;
+	/*display: none;**/
+}
+
+#bigone ::-webkit-scrollbar {
+	width: 8px;
+	border-radius: 10px;
+}
+
+#bigone ::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-left: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+#bigone ::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+	border-radius: 10px;
+}
+
+#bigone ::-webkit-scrollbar-thumb:hover {
+	background-color: #aaa;
+	border-radius: 10px;
+}
+
+#bigone .grupCentru {
+	width: 40%;
+	margin-top: 7%;
+	display: inline-block;
+	height: 50%;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 30px 0px;
+	border-radius: 10px;
+}
+
+#bigone #leftList {
+	margin: 3%;
+	margin-left: 1%;
+	margin-bottom: 0%;
+	margin-top:7%;
+	float: left;
+	display: inline-block;
+	height: 60%;
+	width: 25%;
+}
+
+#bigone .grupRight {
+	margin-top: 7%;
+	float: right;
+	width: 30%;
+	height: 500px;
+	display: inline-block;
+}
+
+#bigone #members {
+	height: 50%;
+	overflow-y: auto;
+}
+
+#bigone #myhobbies {
+	height: 50%;
+	overflow-y: auto;
+}
+
+#bigone #textToAppend {
+	border-radius: 6%;
+	font-size: 15px;
+	width: 80%;
+}
+
+#bigone #editInput {
+	margin-bottom: 11%;
+}
+
+.
+#bigone styleText {
+	display: inline;
+}
+
+#bigone #textSize {
+	width: 32px;
+}
+
+#bigone .h3styl {
+	display: inline;
+	font-size: 20px;
+}
+
+#bigone .specialul {
+	list-style-type: none;
+	width: 300px;
+}
+
+#bigone .specialh3 {
+	font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+#bigone .specialli img {
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+#bigone .specialli .specialip {
+	font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+#bigone .specialli {
+	padding: 10px;
+	overflow: auto;
+}
+
+#bigone .specialli:hover {
+	background: #eee;
+	cursor: pointer;
+}
+
+#bigone .sendButton {
+	-moz-box-shadow: inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #97c4fe;
+	box-shadow: inset 0px 1px 0px 0px #97c4fe;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3d94f6
+		), color-stop(1, #1e62d0));
+	background: -moz-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	background: -webkit-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	background: -o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	background: -ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
+	background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6',
+		endColorstr='#1e62d0', GradientType=0);
+	background-color: #3d94f6;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #337fed;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #1570cd;
+}
+
+#bigone .sendButton:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1e62d0
+		), color-stop(1, #3d94f6));
+	background: -moz-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	background: -webkit-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	background: -o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	background: -ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
+	background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0',
+		endColorstr='#3d94f6', GradientType=0);
+	background-color: #1e62d0;
+}
+
+#bigone .sendButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.button_next {
+	border: 0;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+	font-weight: 500;
+	padding: 7px 10px;
+	margin-top: 1%;
+	border-radius: 3px;
+	font-size: 15px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 2px 2px 5px 0
+		rgba(0, 0, 0, 0.1);
+	color: white;
+	width: 100%;
+}
+
+.button_next:active {
+	border-top-color: #ffffff;
+	background: #ffffff;
+}
+
+.hobbiesComunicare .head {
+	margin-top: 3%;
+	background: #FCFCFC;
+	padding: 10px 12px;
+	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.hobbiesComunicare a {
+	color: #283035;
+}
+
+.hobbiesComunicare .hobby-content {
+	background: #FFF;
+	padding: 12px;
+	font-size: 15px;
+	color: #595959;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+#bigone #inputSend {
+	width: 100%;
+	height: 100px;
+}
+
+#bigone #inputText {
+	float: left;
+	width: 85%;
+}
+
+#bigone #buttonDiv {
+	float: right;
+	width: 15%;
+	margin-top: 3%;
+}

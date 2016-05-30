@@ -15,7 +15,6 @@
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
 			<div class="cover-container">
-
 				<div class="content">
 					<div class="login-wrapper">
 						<script>
@@ -65,8 +64,7 @@
 								<div class="login-form-buttons">
 									<p>Login:</p>
 									<br> <a href="<%=fbConnection.getFBAuthUrl()%>"
-										class="btn btn-fb"> <i class="fa fa-facebook"></i>Sign in
-										with Facebook
+										class="btn btn-fb"> <i class="fa fa-facebook"></i>Sign &nbsp;Facebook
 									</a>
 									<div class="g-signin2" data-onsuccess="onSignIn"></div>
 								</div>

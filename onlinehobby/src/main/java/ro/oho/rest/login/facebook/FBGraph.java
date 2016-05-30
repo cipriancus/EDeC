@@ -54,7 +54,7 @@ public class FBGraph {
 			user.setAuthToken(accessToken.substring(13));
 			user.setAuthSite("Facebook");
 			user.setPicture(json.getJSONObject("picture").getJSONObject("data").getString("url"));
-			user.setGrad(1);
+			user.setGrad(2);
 		} catch (JSONException e) {
 			e.printStackTrace();
 			throw new RuntimeException("ERROR in parsing FB graph data. " + e);

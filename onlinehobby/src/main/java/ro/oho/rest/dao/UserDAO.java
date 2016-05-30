@@ -28,7 +28,7 @@ public class UserDAO {
 
 	private static final String LOGIN_USER = "{call userSkills.loginUser(?)}";
 
-	private static final String UPDATE_USER = "{call userSkills.updateUser(?, ?, ?, ?, ?)}";
+	private static final String UPDATE_USER = "{call userSkills.updateUser(?,?,?,?,?,?,?,?)}";
 
 	private static final String GET_USER = "{call paginare(?, ?)}";
 
@@ -125,10 +125,14 @@ public class UserDAO {
 	public boolean updateUser(User userEntity) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		CallableStatement cstmt = con.prepareCall(UPDATE_USER);
+		cstmt.setLong(1, userEntity.getIdUser());
 		cstmt.setString(2, userEntity.getNume());
 		cstmt.setString(3, userEntity.getPrenume());
-		cstmt.setString(4, userEntity.getDataNasterii().substring(0, 10));
+		cstmt.setString(4, userEntity.getDataNasterii());
 		cstmt.setString(5, userEntity.getEmail());
+		cstmt.setString(6, userEntity.getAuthToken());
+		cstmt.setString(7, userEntity.getAuthSite());
+		cstmt.setString(8, userEntity.getPicture());
 		cstmt.execute();
 		return true;
 	}
