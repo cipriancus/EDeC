@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Thursday-May-19-2016   
+--  File created - Monday-May-30-2016   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table GRADES
@@ -21,7 +21,9 @@
    (	"IDHOBBY" NUMBER, 
 	"HOBBYNAME" VARCHAR2(20 BYTE), 
 	"DESCRIPTION" VARCHAR2(1500 BYTE), 
-	"APPROVED" NUMBER
+	"APPROVED" NUMBER, 
+	"videoURL" VARCHAR2(1500 BYTE), 
+	"IMAGEURL" VARCHAR2(1500 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -99,23 +101,35 @@ REM INSERTING into CIPRIAN.GRADES
 SET DEFINE OFF;
 REM INSERTING into CIPRIAN.HOBBY
 SET DEFINE OFF;
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (1,'Fotbal','Fotbalul este un sport de echipã ce se disputã între douã echipe alcãtuite din 11 jucãtori fiecare. La începutul secolului al XXI-lea era jucat de peste 250 de milioane de jucãtori în peste 200 de ?ãri, ceea ce îl face cel mai popular sport din lume',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (2,'Box','Boxul (sau pugilismul) este un sport mar?ial strãvechi (probabil cel mai vechi sport mar?ial, cu origini preistorice), în care doi concuren?i, cu greutã?i similare, luptã cu ajutorul pumnilor, într-o serie de reprize, numite runde. Victoria este ob?inutã in urma punctelor date pentru lovituri de catre juriu, sau atunci când adversarul este doborât la pâmânt ?i nu reu?e?te sã se ridice înainte ca arbitrul sã termine de numãrat pânã la 10, (englezã Knockout sau KO) sau când adversarul este prea rãnit pentru a continua (englezã Technical Knockout sau TKO).',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (3,'Inot','Înotul este o mi?care de deplasare a oamenilor sau a animalelor prin apã, de obicei fãrã niciun fel de asisten?ã artificialã. Tipurile sau stilurile de înot sunt craul, bras, fluture sau spate, dar ?i anumite derivate ale acestora, de exemplu bras lung, spate dublu etc.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (4,'Baschet','Baschetul este unul dintre cele mai rãspândite sporturi de echipã din lume; se caracterizeazã prin fine?ea, precizia ?i fantezia exerci?iilor tehnice ?i tactice, prin talia înaltã ?i calitã?ile fizice deosebite ale sportivilor, toate acestea implicate într-o luptã sportivã care pretinde spirit de echipã ?i de sacrificiu, inteligen?ã ?i rezisten?ã nervoasã.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (5,'Tenis','Tenisul este un sport jucat fie între doi jucãtori (simplu), fie între douã echipe a câte doi jucãtori (dublu). Jucãtorii folosesc o rachetã pe bazã de racordaj pentru a lovi o minge de cauciuc acoperitã cu pâslã peste fileu, mingea trebuind sã ajungã în terenul adversarului.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (6,'Pescuit','Pescuitul este activitatea de a prinde cu ajutorul unor instrumente speciale diverse varietã?i de pe?te sau alte vietã?i acvatice. Pescuitul mai poate fi considerat ca o extrac?ie a organismelor acvatice, din mediul în care au crescut, cu diverse scopuri, precum alimentare, recreere (pescuit sportiv), ornamentare (captura speciilor ornamentale) sau ?eluri industriale.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (7,'Dans','Dansul este un mijloc artistic de exprimare a unui mesaj printr-o succesiune de mi?cãri ritmice, variate ?i expresive ale corpului, executate în ritmul muzicii, având caracter religios, de artã sau de divertisment.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (8,'Muzica','Muzica (din gr. mousik?) este arta combinãrii notelor în succesiune ?i simultan într-o formã plãcutã estetic, organizarea ritmicã a acestor note ?i integrarea lor într-o lucrare completã.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (9,'Bucatarie','Bucãtãria reprezintã arta ?i tehnica preparãrii alimentelor destinate consumului uman. Bucãtãria poate cuprinde toate no?iunile practice referitoare la ingrediente, prepararea lor, instrumentele folosite, modurile de gãtit ?i diferen?ele între acestea. Este asociatã artei mesei ?i gastronomiei.',1);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED) values (10,'Gradinarit','Grãdinãritul reprezintã activitatea de cultivare a unor plante ornamentale sau nu în spa?ii special amenajate (grãdini). Grãdinãritul poate fi realizat de amatori sau grãdinari profesioni?ti.',1);
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (1,'Fotbal','Fotbalul este un sport de echipã ce se disputã între douã echipe alcãtuite din 11 jucãtori fiecare. La începutul secolului al XXI-lea era jucat de peste 250 de milioane de jucãtori în peste 200 de ?ãri, ceea ce îl face cel mai popular sport din lume',1,'https://www.youtube.com/embed/-NSvbGxzpKk','http://bucurestifm.ro/wp-content/uploads/sites/2/2015/09/fotbal-2.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (2,'Box','Boxul (sau pugilismul) este un sport mar?ial strãvechi (probabil cel mai vechi sport mar?ial, cu origini preistorice), în care doi concuren?i, cu greutã?i similare, luptã cu ajutorul pumnilor, într-o serie de reprize, numite runde. Victoria este ob?inutã in urma punctelor date pentru lovituri de catre juriu, sau atunci când adversarul este doborât la pâmânt ?i nu reu?e?te sã se ridice înainte ca arbitrul sã termine de numãrat pânã la 10, (englezã Knockout sau KO) sau când adversarul este prea rãnit pentru a continua (englezã Technical Knockout sau TKO).',1,'https://www.youtube.com/embed/humDRT29mAM','http://www.beyondsports.ro/img/box1.gif');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (3,'Inot','Înotul este o mi?care de deplasare a oamenilor sau a animalelor prin apã, de obicei fãrã niciun fel de asisten?ã artificialã. Tipurile sau stilurile de înot sunt craul, bras, fluture sau spate, dar ?i anumite derivate ale acestora, de exemplu bras lung, spate dublu etc.',1,'https://www.youtube.com/embed/GxlFhK817R8','http://www.ancada.com/_Files/News/Attachments/2011/10/25/inot-95965.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (4,'Baschet','Baschetul este unul dintre cele mai rãspândite sporturi de echipã din lume; se caracterizeazã prin fine?ea, precizia ?i fantezia exerci?iilor tehnice ?i tactice, prin talia înaltã ?i calitã?ile fizice deosebite ale sportivilor, toate acestea implicate într-o luptã sportivã care pretinde spirit de echipã ?i de sacrificiu, inteligen?ã ?i rezisten?ã nervoasã.',1,'https://www.youtube.com/embed/J8sWBdHJB2M','http://blog.cursuribaschet.ro/wp-content/uploads/2014/12/baschet-generic-03-500x300-1748x984.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (5,'Tenis','Tenisul este un sport jucat fie între doi jucãtori (simplu), fie între douã echipe a câte doi jucãtori (dublu). Jucãtorii folosesc o rachetã pe bazã de racordaj pentru a lovi o minge de cauciuc acoperitã cu pâslã peste fileu, mingea trebuind sã ajungã în terenul adversarului.',1,'https://www.youtube.com/embed/lMinfVMfH9k','http://bucurestifm.ro/wp-content/uploads/sites/2/2014/11/Tenis.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (6,'Pescuit','Pescuitul este activitatea de a prinde cu ajutorul unor instrumente speciale diverse varietã?i de pe?te sau alte vietã?i acvatice. Pescuitul mai poate fi considerat ca o extrac?ie a organismelor acvatice, din mediul în care au crescut, cu diverse scopuri, precum alimentare, recreere (pescuit sportiv), ornamentare (captura speciilor ornamentale) sau ?eluri industriale.',1,null,null);
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (7,'Dans','Dansul este un mijloc artistic de exprimare a unui mesaj printr-o succesiune de mi?cãri ritmice, variate ?i expresive ale corpului, executate în ritmul muzicii, având caracter religios, de artã sau de divertisment.',1,null,null);
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (8,'Muzica','Muzica (din gr. mousik?) este arta combinãrii notelor în succesiune ?i simultan într-o formã plãcutã estetic, organizarea ritmicã a acestor note ?i integrarea lor într-o lucrare completã.',1,null,null);
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (9,'Bucatarie','Bucãtãria reprezintã arta ?i tehnica preparãrii alimentelor destinate consumului uman. Bucãtãria poate cuprinde toate no?iunile practice referitoare la ingrediente, prepararea lor, instrumentele folosite, modurile de gãtit ?i diferen?ele între acestea. Este asociatã artei mesei ?i gastronomiei.',1,null,null);
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (10,'Gradinarit','Grãdinãritul reprezintã activitatea de cultivare a unor plante ornamentale sau nu în spa?ii special amenajate (grãdini). Grãdinãritul poate fi realizat de amatori sau grãdinari profesioni?ti.',1,null,null);
 REM INSERTING into CIPRIAN.HOBBYPOST
 SET DEFINE OFF;
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (1,1,1343923862291333,'Ciprian',to_date('01-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (7,1,1343923862291333,'Tocmai ce am postat
+',to_date('30-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (2,1,1343923862291333,'A doua postare',to_date('02-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (3,2,1343923862291333,'A treia postare',to_date('04-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (6,2,1343923862291333,'Postare de acum',to_date('21-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (4,2,1155743477821938,'Sunt Maria',to_date('04-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (5,2,1628126750843339,'Sunt mama lui Ciprian',to_date('04-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (8,1,1343923862291333,'Ciprian testeaza postarile
+',to_date('30-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (9,2,1628126750843339,'Ana are mere
+',to_date('30-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (10,2,1628126750843339,'Voie pleaca acasa
+',to_date('30-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (11,2,1628126750843339,'Alo alo
+',to_date('30-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (12,1,1343923862291333,null,to_date('30-MAY-16','DD-MON-RR'));
 REM INSERTING into CIPRIAN.NUMEFAMSG
 SET DEFINE OFF;
 Insert into CIPRIAN.NUMEFAMSG (NF) values ('Iereminciuc');
@@ -2466,17 +2480,18 @@ Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,1);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,2);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,3);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1155743477821938,2);
-Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1628126750843339,2);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,4);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,5);
 REM INSERTING into CIPRIAN.USERSOHO
 SET DEFINE OFF;
 Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1155743477821938,'Maria','Anghelache',to_date('03-AUG-95','DD-MON-RR'),'maria.anghelache@yahoo.com',2,'EAAWea65wWZAIBAOjWv9ZAdvrb7NzxJ4HqwSQC7HxHexy5DAqBfttgbF3Mqpi4uiNTISBuT3oTjsXrc7D1lHZB5i7PS5fGpO7FxuLZBHypqpEJq33UaqExxcHvsi31q4Y2l5xln6NnKpLXFOPUnxoB1YdrkFQ65IZD&expires=5183841
 ','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.2.50.50/p50x50/12301546_1041987689197518_5855819531228058744_n.jpg?oh=489bb024c86840aefa4008ea76e7a76e&oe=57DD8CBB');
-Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1628126750843339,'Gabriela','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'gabrielacusm@gmail.com',2,'EAAWea65wWZAIBANJpmaUhUuhHnPFDTaCHHZAia3AJnJw4bpSHOZCUHRpeLv1vdECwR1K6xEVmbKGZCCMXanBI0BaZBDDr8OveFMQWRR1yfsVmkS5KlMfJBCB1Lseg72jYVBwzISaZCF9MtRoPECTwZAmWDSk3ZApCozqw6BE0yWWKQZDZD&expires=5183510
-','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.19.50.50/p50x50/12439219_1554899798166035_1610282242355468738_n.jpg?oh=297705f12b2c2d1c5938ca91279d3829&oe=57A7B196');
+Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1628126750843339,'Gabriela','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'gabrielacusm@gmail.com',2,'EAAWea65wWZAIBAOCAF005MZCKhpVz0x8ZCetSw41PXc8pPZB4eqZCecTMwuGbVoQB4bGZCH7Nv7GQvq7VtE70NfG6cJMYnLkovpAeA5Eyf2hHUtOBI8OCePPp6fb7PvCvQOLlem10tL4u6NTZA2EoG00UFBzs5mwRsZD&expires=5167278
+','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.19.50.50/p50x50/12439219_1554899798166035_1610282242355468738_n.jpg?oh=a7cad59d0235d6396077e4d77158cfe1&oe=57CF3E96');
 Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1097717203618851,'Grosu','Ilie Andrei',to_date('03-AUG-95','DD-MON-RR'),'an3y_capitano@yahoo.com',2,'EAAWea65wWZAIBAHz6PF4TQrDZAtBbXLYk3NjjkgZAi27XVu7GgzEDZA6mZC3Gc6rqovqwOjcV9AhSjYRQ9UtNNBUdrm1eMHPu1RqWK2pN2OZCOyCDBBLDYUUPOjJXZA9Din8DIODmwM3K3cDu3ZBxXbVrufQa4D6m99BIunE4mnfVQZDZD&expires=5183999
 ','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13082690_1085366341520604_6505151982216895306_n.jpg?oh=caa3a8ccd479cd0959a616fe5f3b6a08&oe=579C4B5F');
-Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1343923862291333,'Ciprian','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'cipc_20002002@yahoo.com',1,'EAAWea65wWZAIBAKRDZCRvmUzXbbk8Fqw3Ta8VMsPPmU3qG4OZBl5mTjc7rDvGW6HVvIItQGYY3DUuWt00Q8W6Hq5RA7bPUbZCZBlqZBu9BMg9wxhUzCZBnwYxwfmR54L5BzG13qw9LVSnxjnHicQTakM5Aaq7b3SHtSgZBFZBvjbCgwZDZD&expires=5157357
-','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c8.0.50.50/p50x50/1380170_752111984805860_9520347_n.jpg?oh=dcf9f3417545fd712b2e8f35c800cab1&oe=57A83903');
+Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1343923862291333,'Ciprian','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'cipc_20002002@yahoo.com',1,'EAAWea65wWZAIBAFM49hMgsRC6VTAgbidRWpaDZCOdRmrsm8ngYBlePZAGbVJkyz72RqkEXGpz4QVXXZAF2lpveEy367u6B8uVFib03qQ1EctrUR3XrD9qRazZAJe3k00O5XIIZCqOHqahpAwk4EhcXpmVHuISehZAjbfgEAeAErEAZDZD&expires=5157227
+','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c8.0.50.50/p50x50/1380170_752111984805860_9520347_n.jpg?oh=6ea4e8295cc81afb84064aac123db4d3&oe=57CFC603');
 --------------------------------------------------------
 --  Constraints for Table USERSOHO
 --------------------------------------------------------
@@ -2484,6 +2499,32 @@ Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,ID
   ALTER TABLE "CIPRIAN"."USERSOHO" MODIFY ("EMAIL" NOT NULL ENABLE);
   ALTER TABLE "CIPRIAN"."USERSOHO" MODIFY ("SURNAMEUSER" NOT NULL ENABLE);
   ALTER TABLE "CIPRIAN"."USERSOHO" MODIFY ("NAMEUSER" NOT NULL ENABLE);
+--------------------------------------------------------
+--  DDL for Trigger AUTOINCREMENTIDHOBBY
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "CIPRIAN"."AUTOINCREMENTIDHOBBY" after insert on Hobby
+  declare
+    v_lastid number;
+  begin
+    select max(idHobby) into v_lastid from Hobby;
+    update Hobby set idHobby=v_lastid+1 where idHobby=0;
+  end;
+/
+ALTER TRIGGER "CIPRIAN"."AUTOINCREMENTIDHOBBY" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger AUTOINCREMENTIDPOST
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "CIPRIAN"."AUTOINCREMENTIDPOST" after insert on HobbyPost
+  declare
+    v_lastid number;
+  begin
+    select max(idPost) into v_lastid from hobbypost;
+    update hobbypost set idPost=v_lastid+1 where idPost=0;
+  end;
+/
+ALTER TRIGGER "CIPRIAN"."AUTOINCREMENTIDPOST" ENABLE;
 --------------------------------------------------------
 --  DDL for Package ADMINSKILLS
 --------------------------------------------------------
@@ -2510,12 +2551,12 @@ END generator;
 --------------------------------------------------------
 
   CREATE OR REPLACE PACKAGE "CIPRIAN"."USERSKILLS" IS
-     procedure loginUser(p_idUser number);
-    PROCEDURE addUser (p_idUser number, p_nameUser varchar2, p_surnameUser varchar2, p_dataBirth varchar2, p_email varchar2,p_authToken varchar2,p_authSite varchar2, p_photoURL varchar2);
-     PROCEDURE joinToNewHobby(p_email varchar2, p_nameHobby varchar2);
-     PROCEDURE postIt(p_email varchar2, p_hobby varchar2, p_message varchar2);
-     PROCEDURE updateUser(p_idUser number, p_name varchar2, p_surname varchar2, p_date_of_birth varchar2, p_email varchar2);
-     PROCEDURE newHobby(p_nameHobby varchar2, p_description varchar2);
+     PROCEDURE loginUser(p_idUser number);
+     PROCEDURE addUser (p_idUser number, p_nameUser varchar2, p_surnameUser varchar2, p_dataBirth varchar2, p_email varchar2,p_authToken varchar2,p_authSite varchar2, p_photoURL varchar2);
+     PROCEDURE joinToNewHobby(p_idUser number, p_idHobby number);
+     PROCEDURE postIt(p_idUser number, p_hobby varchar2, p_message varchar2);
+     PROCEDURE updateUser(p_idUser number, p_name varchar2, p_surname varchar2, p_date_of_birth varchar2, p_email varchar2,p_authToken varchar2,p_authSite varchar2, p_photoURL varchar);
+     PROCEDURE newHobby(p_nameHobby varchar2, p_description varchar2,p_videoUrl varchar2,p_imageUrl varchar2);
 END userSkills;
 
 /
@@ -2783,40 +2824,30 @@ END generator;
           raise_application_error (-20008, 'Acest user exista deja in baza de date.');
   END addUser;
     
-    PROCEDURE joinToNewHobby(p_email varchar2, p_nameHobby varchar2) as
-          denumire_hobby_invalida EXCEPTION;
-            PRAGMA EXCEPTION_INIT(denumire_hobby_invalida, -20010);
-          hobby_inexistent EXCEPTION;
+    PROCEDURE joinToNewHobby(p_idUser number, p_idHobby number) as
+         hobby_inexistent EXCEPTION;
             PRAGMA EXCEPTION_INIT(hobby_inexistent, -20011);
             v_existHobby number;
             v_rightName number;
             v_existUser number;
         BEGIN
-          select count(*) into v_existUser from UsersOho where email=p_email;
+          select count(*) into v_existUser from UsersOho where idUser=p_idUser;
           if(v_existUser=0) then raise user_inexistent;
             else
-            v_rightName:=validator.validateFlName(p_nameHobby);
-            if(v_rightName=0) then raise denumire_hobby_invalida;
-              else
-              select count(*) into v_existHobby from Hobby where hobbyname=p_nameHobby and approved=1;
+              select count(*) into v_existHobby from Hobby where idHobby=p_idHobby and approved=1;
               if(v_existHobby=0) then raise hobby_inexistent;
                 else
-                  select idUser into v_existUser from UsersOho where email=p_email;
-                  select idHobby into v_rightName from Hobby where hobbyname=p_nameHobby;-- rescriu valoarea lui v_rightName si pun in aceasta variabila
-                  insert into userhobby values(v_existUser, v_rightName);                    -- id-ul hobbiului dorit
+                  insert into userhobby values(p_idUser, p_idHobby);                    -- id-ul hobbiului dorit
               end if;
             end if;
-        end if;
         EXCEPTION
-              WHEN denumire_hobby_invalida THEN
-                raise_application_error (-20010,'Denumire hobby invalida.');
               WHEN hobby_inexistent THEN
-                raise_application_error (-20011, 'Hobby-ul cu numele '|| p_nameHobby || ' nu exista in baza de date.');
+                raise_application_error (-20011, 'Hobby-ul cu id ul '|| p_idHobby || ' nu exista in baza de date.');
               WHEN user_inexistent THEN
-                raise_application_error (-20012, 'Utilizatorul cu email-ul '|| p_email || ' nu exista in baza de date.');
+                raise_application_error (-20012, 'Utilizatorul cu id-ul '|| p_idUser || ' nu exista in baza de date.');
         END joinToNewHobby;
     
-    PROCEDURE postIt(p_email varchar2, p_hobby varchar2, p_message varchar2) as
+     PROCEDURE postIt(p_idUser number, p_hobby varchar2, p_message varchar2) as
         denumire_hobby_invalida EXCEPTION;
           PRAGMA EXCEPTION_INIT(denumire_hobby_invalida, -20040);
         hobby_inexistent EXCEPTION;
@@ -2825,50 +2856,45 @@ END generator;
           PRAGMA EXCEPTION_INIT(hobby_necorespunzator, -20042);
           v_flag number;
           v_idHobby number;
-          v_idUser number;
       BEGIN
-        v_flag:=validator.validateEmail(p_email);
         if(v_flag=0) then raise email_invalid;
         else
-          select count(*) into v_flag from usersoho where email=p_email;
+          select count(*) into v_flag from usersoho where idUser=p_idUser;
           if(v_flag=0) then raise user_inexistent;
           else
               select count(*) into v_flag from Hobby where hobbyname=p_hobby and approved=1;
               if(v_flag=0) then raise hobby_inexistent;
               else
-                select idUser into v_idUser from usersoho where email=p_email;
                 select idHobby into v_idHobby from hobby where hobbyname=p_hobby;
-                select count(*) into v_flag from userhobby where idUser=v_idUser and idHobby=v_idHobby;
+                select count(*) into v_flag from userhobby where idUser=p_idUser and idHobby=v_idHobby;
                 if(v_flag=0) then raise hobby_necorespunzator;
                 else
-                  insert into hobbypost values(0,v_idHobby, v_idUser, p_message, current_date);
+                  insert into hobbypost values(0,v_idHobby, p_idUser, p_message, current_date);
                 end if;
               end if;
           end if;
         end if;
         EXCEPTION
-            WHEN email_invalid THEN
-              raise_application_error (-20005,'Email-ul '|| p_email || ' este invalid.');
             WHEN user_inexistent THEN
-              raise_application_error (-20012, 'Utilizatorul cu email-ul '|| p_email || ' nu exista in baza de date.');
+              raise_application_error (-20012, 'Utilizatorul cu id-ul '|| p_idUser || ' nu exista in baza de date.');
             WHEN denumire_hobby_invalida THEN
               raise_application_error (-20040,'Hobby-ul cu numele '|| p_hobby || ' nu poate fi adaugat in baza de date.');
             WHEN hobby_inexistent THEN
               raise_application_error (-20041,'Hobby-ul cu numele '|| p_hobby || ' nu exista in baza de date.');
             WHEN hobby_necorespunzator THEN
-              raise_application_error (-20042, 'Userul cu email-ul '|| p_email || ' nu poate posta in hobby-ul ' || p_hobby || ' .');
+              raise_application_error (-20042, 'Userul cu cu id-ul '|| p_idUser  || ' nu poate posta in hobby-ul ' || p_hobby || ' .');
       END postIt;
       
       -- aceasta procedura se apleaza doar daca login-ul s-a realizat cu succes!!!! ==========================================
-    PROCEDURE updateUser(p_idUser number, p_name varchar2, p_surname varchar2, p_date_of_birth varchar2, p_email varchar2) AS 
+   PROCEDURE updateUser(p_idUser number, p_name varchar2, p_surname varchar2, p_date_of_birth varchar2, p_email varchar2,p_authToken varchar2,p_authSite varchar2, p_photoURL varchar) AS 
                                                 -- asta e automata daca detecteaza modificari
         user_invalid EXCEPTION;
           PRAGMA EXCEPTION_INIT(user_invalid, -20045);
         v_CursorID NUMBER; -- Variable assigned to value from OPEN_CURSOR
-        v_CreateTableString VARCHAR2(500); -- SQL stored as string to create table
+        v_CreateTableString VARCHAR2(4000); -- SQL stored as string to create table
         v_NUMRows INTEGER; -- Number of rows processed - of no use
         v_flag number;
-        v_set varchar2(500):='';
+        v_set varchar2(4000):='';
         v_nume varchar2(50);
         v_prenume varchar2(50);
         v_birth varchar2(20);
@@ -2890,9 +2916,10 @@ END generator;
                  end if;
                  if(p_date_of_birth <> v_birth) then
                     v_set:=v_set||' date_of_birth = to_date('''||p_date_of_birth||''',''mm/dd/yyyy'') ,';
-                 end if;
+                 end if;--p_authToken varchar2,p_authSite varchar2, p_photoURL varchar
+                    v_set:=v_set||' authToken='''||p_authToken||''' , authSite='''||p_authSite||''' , photoURL='''||p_photoURL||''' ';
                  if (v_set is not null) then
-                     v_set:=substr(v_set, 0, length(v_set)-2);
+                    -- v_set:=substr(v_set, 0, length(v_set)-2);
                      v_CursorID := DBMS_SQL.OPEN_CURSOR; -- Get the Cursor ID
                      v_CreateTableString := ' UPDATE UsersOho SET' || v_set || ' WHERE idUser= '''|| p_idUser ||'''';
                       -- Write SQL code to create table  -- pun un A in fata, nu vrea sa recunoasca un numar ca nume de tabela
@@ -2908,7 +2935,7 @@ END generator;
             raise_application_error (-20045,'User invalid.'); 
       END updateUser;
     
-  PROCEDURE newHobby(p_nameHobby varchar2, p_description varchar2) is
+  PROCEDURE newHobby(p_nameHobby varchar2, p_description varchar2,p_videoUrl varchar2,p_imageUrl varchar2) is
       nume_hobby_invalid EXCEPTION;
         PRAGMA EXCEPTION_INIT(nume_hobby_invalid, -20035);
       nume_hobby_existent EXCEPTION;
@@ -2926,7 +2953,7 @@ END generator;
               else
                 v_description:=p_description;
             end if;
-            insert into hobby values(0,p_nameHobby,v_description,0);
+            insert into hobby values(0,p_nameHobby,v_description,p_videoUrl ,p_imageUrl,0);
         end if;
       end if;
     EXCEPTION
@@ -3332,6 +3359,30 @@ begin
           ) 
           WHERE rn >v_max_rn;
 end paginare;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure PAGINARE_HOBBY_RECOMANDAT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "CIPRIAN"."PAGINARE_HOBBY_RECOMANDAT" (v_oprire IN integer, p_idUser number, c1 OUT sys_refcursor) as
+  v_max_rownum number:=v_oprire*2+2;
+  v_max_rn number:=v_oprire*2;
+begin
+  open c1 for SELECT *
+  FROM ( SELECT tmp.*, rownum rn
+           FROM ( select * from hobby h1 where h1.idHobby in 
+           (select * from (select * from ( (select idHobby from userHobby where idUser in (
+            SELECT  B.idUser FROM userhobby B WHERE b.idHobby =
+                  (SELECT * FROM (select idHobby from userHobby where idUser=p_idUser) A 
+                                            WHERE A.idHobby = B.idHobby and b.idUser<>p_idUser)
+                      )) MINUS select idHobby from userhobby where idUser=p_idUser)) h2 where h1.idHobby=h2.idHobby)
+                ) tmp
+          WHERE rownum <=v_max_rownum
+          ) 
+          WHERE rn >v_max_rn;
+end paginare_hobby_recomandat;
 
 /
 --------------------------------------------------------
