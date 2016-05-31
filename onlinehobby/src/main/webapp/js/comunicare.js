@@ -1,5 +1,13 @@
 
 var pagenr = 0;
+function start()
+{
+	loadDoc();
+	loadMembers();
+	loadPosts();
+	loadMyHObbies();
+	loadAllHObbies();
+}
 
 document.getElementById("textSize").onchange = function() {
 	changeTextSize();
@@ -195,3 +203,17 @@ function loadPosts() {
 	xhttp.open("GET", url, true);
 	xhttp.send();
 }
+
+function loadAllHObbies() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	      {
+	    		document.getElementById("hobbiuri").innerHTML = xhttp.responseText;
+	      }
+	    }
+	  };
+	  var url="http://localhost:8017/onlinehobby/OurHobbies";
+	  xhttp.open("GET", url, true);
+	  xhttp.send();
+	 }

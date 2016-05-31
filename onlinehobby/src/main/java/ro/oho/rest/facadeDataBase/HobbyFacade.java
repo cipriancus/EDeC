@@ -37,4 +37,8 @@ public class HobbyFacade {
 	public List<User> getAllUsersForHobby(int id) throws SQLException{
 		return hobbyDAO.getAllUsersForHobby(id);
 	}
+	
+	public List<String> getAllHobbies() throws SQLException {
+		return hobbyDAO.getAllHobbies();
+	}
 }

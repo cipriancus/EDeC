@@ -19,7 +19,7 @@
 <link rel="icon" href="images/logo.png">
 <title>Oho</title>
 </head>
-<body onload="loadDoc(); loadMembers(); loadPosts();">
+<body onload="start();">
 	<%
 		HttpSession sessionUser = request.getSession(false);
 		User user = (User) sessionUser.getAttribute("user");
@@ -31,6 +31,8 @@
 		List<Postare> allPostari = postariFacade.getAllPostariForId(user.getIdUser());
 
 		UserFacade userFacade = new UserFacade();
+		
+		List<String> allNetworkHobby=new HobbyFacade().getAllHobbies();
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -86,6 +88,7 @@
 
 											<div class="hobbies">
 												<div class="head">
+
 													<a>Hobbies you follow</a>
 												</div>
 												<%
@@ -106,14 +109,20 @@
 								<div class="feed">
 									<div class="feedContent">
 										<div class="comments-container">
-
+											<datalist id="hobbiuri">
+												<%
+											for(String iterator:allNetworkHobby){
+												out.print("<option value=\""+iterator+"\">");
+											}
+											%>
+											</datalist>
 											<ul id="comments-list" class="comments-list">
 												<%
 													out.print("<li><div class=\"comment-main-level\"><div class=\"comment-avatar\"><img" + " src=\""
 															+ user.getPicture() + "\"" + "alt=\"Profile picture\">" + "</div>" + "<div class=\"comment-box\">"
 															+ "<div class=\"comment-head\">");
 													out.print("<a href=\"#\">I like </a>");
-													out.print("<input type=\"text\" placeholder=\"Hobby\" id=\"hobby\">");
+													out.print("<input list=\"hobbiuri\" type=\"text\" placeholder=\"Hobby\" id=\"hobby\">");
 													out.print("<a href=\"#\"> because </a>");
 													out.print("<input type=\"text\" placeholder=\"Reasons\" id=\"reasons\">");
 													out.print("&nbsp");
@@ -145,7 +154,7 @@
 							</div>
 							<div class="hobby_suggestions">
 								<div id="hobbies"></div>
-								
+
 							</div>
 						</div>
 					</div>

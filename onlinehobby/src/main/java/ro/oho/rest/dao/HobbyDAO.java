@@ -19,6 +19,7 @@ public class HobbyDAO {
 	private static final String GET_HOBBY_ID = "select * from hobby where hobbyname=?";
 	private static final String ADD_USER = "{call userskills.joinToNewHobby(?,?)}";
 	private static final String GET_RECOMMENDED_HOBBY = "{call paginare_hobby_recomandat(?, ?, ?)}";
+	private static final String GET_ALL_HOBBY="select hobbyname from Hobby";
 	private static final String GET_ALL_USERS_HOBBY="select * from UsersOho u join UserHobby h on h.idUser=u.idUser where idHobby=?";
 	
 	public boolean addUserToHobby(Long idUser, int idHobby) throws SQLException {
@@ -29,6 +30,19 @@ public class HobbyDAO {
 		cstmt.execute();
 		return true;
 	}
+	
+	public List<String> getAllHobbies() throws SQLException {
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_HOBBY);
+		ResultSet resultSet = prepareStatement.executeQuery();
+		List<String> allHobby=new ArrayList<String>();
+		while(resultSet.next()){
+			allHobby.add(resultSet.getString("hobbyname"));
+		}
+		
+		return allHobby;
+	}
+	
 	
 	public List<Hobby> getRecommendation(int page,long id) throws SQLException{
 		Connection con = ConnectionHelperClass.getOracleConnection();
