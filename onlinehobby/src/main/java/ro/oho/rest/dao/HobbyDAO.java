@@ -14,13 +14,15 @@ import ro.oho.rest.model.Hobby;
 import ro.oho.rest.model.User;
 
 public class HobbyDAO {
-	private static final String GET_ALL_USER_HOBBY = "select * from hobby h join userhobby u on h.idhobby=u.idhobby where u.iduser=?";
-	private static final String GET_HOBBY_NAME = "select * from hobby where idhobby=?";
-	private static final String GET_HOBBY_ID = "select * from hobby where hobbyname=?";
+	private static final String GET_ALL_USER_HOBBY = "select * from hobby h join userhobby u on h.idhobby=u.idhobby where u.iduser=? and approved=1";
+	private static final String GET_HOBBY_NAME = "select * from hobby where idhobby=? and approved=1";
+	private static final String GET_HOBBY_ID = "select * from hobby where hobbyname=? and approved=1";
+	private static final String GET_HOBBY_ID_UNAPROVED = "select * from hobby where hobbyname=? ";
 	private static final String ADD_USER = "{call userskills.joinToNewHobby(?,?)}";
+	private static final String ADD_HOBBY = "{call userskills.newHobby(?,?,?,?)}";
 	private static final String GET_RECOMMENDED_HOBBY = "{call paginare_hobby_recomandat(?, ?, ?)}";
-	private static final String GET_ALL_HOBBY="select hobbyname from Hobby";
-	private static final String GET_ALL_USERS_HOBBY="select * from UsersOho u join UserHobby h on h.idUser=u.idUser where idHobby=?";
+	private static final String GET_ALL_HOBBY="select hobbyname from Hobby where approved=1";
+	private static final String GET_ALL_USERS_HOBBY="select * from UsersOho u join UserHobby h on h.idUser=u.idUser join Hobby hob on hob.idHobby=h.idHobby where h.idHobby=? and hob.approved=1";
 	
 	public boolean addUserToHobby(Long idUser, int idHobby) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
@@ -28,6 +30,7 @@ public class HobbyDAO {
 		cstmt.setLong(1, idUser);
 		cstmt.setInt (2, idHobby);
 		cstmt.execute();
+		cstmt.close();
 		return true;
 	}
 	
@@ -40,6 +43,7 @@ public class HobbyDAO {
 			allHobby.add(resultSet.getString("hobbyname"));
 		}
 		
+		prepareStatement.close();
 		return allHobby;
 	}
 	
@@ -64,6 +68,9 @@ public class HobbyDAO {
 			hobby.setApproved(rs.getInt("approved"));
 			list.add(hobby);
 		}
+		
+		rs.close();
+		cstmt.close();
 		return list;
 	}
 
@@ -90,6 +97,9 @@ public class HobbyDAO {
 			user.setGrad(resultSet.getInt("idgrad"));			
 			list.add(user);
 		}
+		
+		resultSet.close();
+		cstmt.close();
 		return list;
 	}
 	
@@ -106,9 +116,14 @@ public class HobbyDAO {
 			hobby.setHobbyName(resultSet.getString("hobbyname"));
 			hobby.setImageURL(resultSet.getString("imageURL"));
 			hobby.setVideoURL(resultSet.getString("videoURL"));
+			
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
 		}
+		
 		return hobby;
 	}
 
@@ -125,8 +140,33 @@ public class HobbyDAO {
 			hobby.setHobbyName(resultSet.getString("hobbyname"));
 			hobby.setImageURL(resultSet.getString("imageURL"));
 			hobby.setVideoURL(resultSet.getString("videoURL"));
+			
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		return hobby;
+	}
+	
+	public Hobby getHobbyForNameUnaproved(String name) {
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		Hobby hobby = new Hobby();
+		try {
+			PreparedStatement prepareStatement = con.prepareStatement(GET_HOBBY_ID_UNAPROVED);
+			prepareStatement.setString(1, name);
+			ResultSet resultSet = prepareStatement.executeQuery();
+			resultSet.next();
+			hobby.setIdHobby(resultSet.getInt("idHobby"));
+			hobby.setDescription(resultSet.getString("description"));
+			hobby.setHobbyName(resultSet.getString("hobbyname"));
+			hobby.setImageURL(resultSet.getString("videoURL"));
+			hobby.setVideoURL(resultSet.getString("imageURL"));
+			
+			resultSet.close();
+			prepareStatement.close();
+		} catch (SQLException e) {
+			return null;
 		}
 		return hobby;
 	}
@@ -138,6 +178,7 @@ public class HobbyDAO {
 			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_USER_HOBBY);
 			prepareStatement.setLong(1, id);
 			ResultSet resultSet = prepareStatement.executeQuery();
+
 			while (resultSet.next()) {
 				Hobby hobby = new Hobby();
 				hobby.setIdHobby(resultSet.getInt("idHobby"));
@@ -147,9 +188,24 @@ public class HobbyDAO {
 				hobby.setVideoURL(resultSet.getString("videoURL"));
 				list.add(hobby);
 			}
+			
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public boolean addNewHobby(String HobbyName, String HobbyDescription, String HobbyVideo, String HobbyURL) throws SQLException{
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		CallableStatement cstmt = con.prepareCall(ADD_HOBBY);
+		cstmt.setString(1, HobbyName);
+		cstmt.setString(2, HobbyDescription);
+		cstmt.setString(3, HobbyVideo);
+		cstmt.setString(4, HobbyURL);
+		cstmt.execute();		
+		cstmt.close();
+		return true;
 	}
 }

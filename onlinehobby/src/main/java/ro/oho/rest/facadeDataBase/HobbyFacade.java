@@ -21,6 +21,12 @@ public class HobbyFacade {
 	public int getHobbyIdForName(String name){
 		return hobbyDAO.getHobbyForName(name).getIdHobby();
 	}
+		
+	public int getHobbyForNameUnaproved(String name){
+		Hobby hobby=hobbyDAO.getHobbyForNameUnaproved(name);
+		if(hobby==null) return -1;
+			return hobby.getIdHobby();
+	}
 	
 	public List<Hobby> getAllUserHobby(long id){
 		return hobbyDAO.getAllUserHobby(id);
@@ -30,8 +36,12 @@ public class HobbyFacade {
 		return hobbyDAO.getRecommendation(page,user.getIdUser());
 	}
 	
-	public boolean addUserToHobby(User user,int idHobby) throws SQLException{
+	public boolean addUserToHobby(User user,int idHobby){
+		try{
 		return hobbyDAO.addUserToHobby(user.getIdUser(),idHobby);
+		}catch(SQLException e){
+			return false;
+		}
 	}
 	
 	public List<User> getAllUsersForHobby(int id) throws SQLException{
@@ -40,5 +50,14 @@ public class HobbyFacade {
 	
 	public List<String> getAllHobbies() throws SQLException {
 		return hobbyDAO.getAllHobbies();
+	}
+	
+	public boolean addNewHobby(String HobbyName, String HobbyDescription, String HobbyVideo, String HobbyURL){
+		try {
+			hobbyDAO.addNewHobby( HobbyName,  HobbyDescription,  HobbyVideo,  HobbyURL);
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 }

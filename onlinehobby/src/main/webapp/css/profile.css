@@ -1,6 +1,5 @@
 html {
 	background-image: url("../images/beach.jpg");
-	background-size: cover;
 	overflow-y: scroll;
 }
 
@@ -164,12 +163,31 @@ a:hover {
 	color: blue;
 }
 
+.comments-list .comment-main-level  .wrong-input {
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 3px dashed red;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+	color: blue;
+}
+
 .hobbies .hobby-content {
 	background: #FFF;
 	padding: 12px;
 	font-size: 15px;
 	color: #595959;
 	border-bottom: 1px solid #E5E5E5;
+}
+
+#error {
+	color: red;
+	font-size: 10px;
+	visibility: hidden;
 }
 /*------------------------------PENTRU PAGINA DE SETTINGS-------------------------*/
 #settingsForm {
@@ -527,7 +545,7 @@ a:hover {
 	position: absolute;
 	color: black;
 	font-size: 30px;
-	width: 50%;
+	width: 30%;
 }
 
 #info-name {
@@ -635,7 +653,7 @@ a:hover {
 	margin: 3%;
 	margin-left: 1%;
 	margin-bottom: 0%;
-	margin-top:7%;
+	margin-top: 7%;
 	float: left;
 	display: inline-block;
 	height: 60%;
@@ -816,4 +834,95 @@ a:hover {
 	float: right;
 	width: 15%;
 	margin-top: 3%;
+}
+/*-------------------------------------------PENTRU CREARE DE HOBBY--------------------------------------*/
+.dashed_class {
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 1px dashed blue;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+	width: 70%; display : block;
+	color: blue;
+	display: block;
+}
+
+.dashed_class_wrong_input{
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 2px dashed red;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+	width: 70%; display : block;
+	color: blue;
+	display: block;	
+}
+
+.text_area_class {
+	resize: none;
+	border: 3px double #CCCCCC;
+	width: 100%;
+	height: 100px;
+}
+
+.text_area_class_wrong {
+	resize: none;
+	border: 3px double red;
+	width: 100%;
+	height: 100px;
+}
+
+
+#info_box_noMargin {
+	padding: 60px 50px 0px 10px;
+	border: solid 1px #dedede;
+	width: 100%;
+	background-color: #fcfcfc;
+}
+
+.facebookB {
+	-moz-box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));
+	background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+	background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+	background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+	background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+	background-color:#007dc1;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+}
+.facebookB:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+	background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
+	background-color:#0061a7;
+}
+.facebookB:active {
+	position:relative;
+	top:1px;
 }

@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import oracle.jdbc.OracleTypes;
-import oracle.jdbc.oracore.OracleType;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 
 import ro.oho.rest.model.ConnectionHelperClass;
 import ro.oho.rest.model.User;
@@ -38,6 +36,7 @@ public class UserDAO {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		CallableStatement cstmt = con.prepareCall(GENERATE_CVS);
 		cstmt.execute();
+		cstmt.close();
 		return true;
 	}
 
@@ -55,6 +54,7 @@ public class UserDAO {
 		cstmt.setString(7, user.getAuthSite());
 		cstmt.setString(8, user.getPicture());
 		cstmt.execute();
+		cstmt.close();
 		return true;
 	}
 
@@ -67,12 +67,16 @@ public class UserDAO {
 
 		ResultSet rs = (ResultSet) cstmt.getObject(2);
 		List<String> list = new ArrayList<String>();
+
 		while (rs.next()) {
 			String user = rs.getInt("idUser") + " " + rs.getString("nameuser") + " " + rs.getString("surnameuser") + " "
 					+ rs.getDate("date_of_birth") + " " + rs.getString("email") + " " + rs.getString("username") + " "
 					+ rs.getInt("idgrad");
 			list.add(user);
 		}
+		 
+		rs.close();
+		cstmt.close();
 		return list;
 	}
 
@@ -81,6 +85,8 @@ public class UserDAO {
 		CallableStatement cstmt = con.prepareCall(ADMIN_USER);
 		cstmt.setString(1, username);
 		cstmt.execute();
+		 
+		cstmt.close();
 		return true;
 	}
 
@@ -90,6 +96,8 @@ public class UserDAO {
 			CallableStatement cstmt = con.prepareCall(LOGIN_USER);
 			cstmt.setLong(1, idUser);
 			cstmt.execute();
+			 
+			cstmt.close();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -116,6 +124,9 @@ public class UserDAO {
 			user.setAuthSite(resultSet.getString("authSite"));
 			user.setPicture(resultSet.getString("photourl"));
 			user.setGrad(resultSet.getInt("idgrad"));
+			 
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -134,6 +145,8 @@ public class UserDAO {
 		cstmt.setString(7, userEntity.getAuthSite());
 		cstmt.setString(8, userEntity.getPicture());
 		cstmt.execute();
+		cstmt.close();
+
 		return true;
 	}
 
@@ -142,6 +155,8 @@ public class UserDAO {
 		CallableStatement cstmt = con.prepareCall(DELETE_USER);
 		cstmt.setString(1, username);
 		cstmt.execute();
+		cstmt.close();
+
 		return true;
 	}
 

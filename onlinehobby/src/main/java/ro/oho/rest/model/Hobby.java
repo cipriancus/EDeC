@@ -1,7 +1,7 @@
 package ro.oho.rest.model;
 
 
-public class Hobby {
+public class Hobby implements Cloneable{
 	private int idHobby;
 	private String hobbyName;
 	private String description;
@@ -112,4 +112,14 @@ public class Hobby {
 		return true;
 	}
 	
+	public Hobby clone(){
+		Hobby hobby=new Hobby();
+		hobby.setApproved(this.approved);
+		hobby.setDescription(this.description);
+		hobby.setHobbyName(this.hobbyName);
+		hobby.setIdHobby(this.idHobby);
+		hobby.setImageURL(this.imageURL);
+		hobby.setVideoURL(this.videoURL);
+		return hobby;
+	}
 }

@@ -12,10 +12,10 @@ import ro.oho.rest.model.ConnectionHelperClass;
 import ro.oho.rest.model.Postare;
 
 public class PostareDAO {
-	private static final String GET_ALL_POSTARI_ID = "select * from hobbypost p join userhobby	h on p.idhobby=	h.idhobby where h.iduser=? order by date_of_post desc";
-	private static final String GET_ALL_USER_POSTARI_ID = "select * from hobbypost p join userhobby	h on p.idhobby=h.idhobby where p.iduser=? order by date_of_post desc";
+	private static final String GET_ALL_POSTARI_ID = "select * from hobbypost p join userhobby	h on p.idhobby=	h.idhobby  join hobby hob on hob.IDHOBBY=h.IDHOBBY where h.iduser=? and hob.APPROVED=1 order by date_of_post desc";
+	private static final String GET_ALL_USER_POSTARI_ID = "select * from hobbypost p join userhobby	h on p.idhobby=h.idhobby  join hobby hob on hob.idHobby=h.IDHOBBY where p.iduser=? and hob.APPROVED=1 order by date_of_post desc";
 	private static final String INSERT_POST = "{call userSkills.postIt(?,?,?)}";
-	private static final String GET_ALL_HOBBY_POST="select * from hobbypost h join usersoho us on h.idUser=us.idUser and idHobby=? order by h.idPost desc";
+	private static final String GET_ALL_HOBBY_POST="select * from hobbypost h  join usersoho us on h.idUser=us.idUser  join Hobby hob on hob.IDHOBBY=h.IDHOBBY where hob.APPROVED=1 and h.idHobby=? order by h.idPost desc";
 	
 	public List<Postare> getAllPostariForId(long id) {
 		Connection con = ConnectionHelperClass.getOracleConnection();
@@ -24,6 +24,7 @@ public class PostareDAO {
 			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_POSTARI_ID);
 			prepareStatement.setLong(1, id);
 			ResultSet resultSet = prepareStatement.executeQuery();
+
 			while (resultSet.next()) {
 				Postare postare = new Postare();
 				postare.setIdHobby(resultSet.getInt("idHobby"));
@@ -33,9 +34,13 @@ public class PostareDAO {
 				postare.setIdPost(resultSet.getInt("idPost"));
 				list.add(postare);
 			}
+			 
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return list;
 	}
 	
@@ -46,6 +51,7 @@ public class PostareDAO {
 			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_HOBBY_POST);
 			prepareStatement.setInt(1, id);
 			ResultSet resultSet = prepareStatement.executeQuery();
+
 			while (resultSet.next()) {
 				Postare postare = new Postare();
 				postare.setIdHobby(resultSet.getInt("idHobby"));
@@ -55,6 +61,9 @@ public class PostareDAO {
 				postare.setIdPost(resultSet.getInt("idPost"));
 				list.add(postare);
 			}
+			 
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -69,6 +78,7 @@ public class PostareDAO {
 			PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_USER_POSTARI_ID);
 			prepareStatement.setLong(1, id);
 			ResultSet resultSet = prepareStatement.executeQuery();
+
 			while (resultSet.next()) {
 				Postare postare = new Postare();
 				postare.setIdHobby(resultSet.getInt("idHobby"));
@@ -78,6 +88,9 @@ public class PostareDAO {
 				postare.setIdPost(resultSet.getInt("idPost"));
 				list.add(postare);
 			}
+			 
+			resultSet.close();
+			prepareStatement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -91,6 +104,8 @@ public class PostareDAO {
 		cstmt.setString(2, hobbyName);
 		cstmt.setString(3, message);
 		cstmt.execute();
+		cstmt.close();
+
 		return true;
 
 	}

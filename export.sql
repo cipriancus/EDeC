@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Monday-May-30-2016   
+--  File created - Friday-June-03-2016   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table GRADES
@@ -101,23 +101,33 @@ REM INSERTING into CIPRIAN.GRADES
 SET DEFINE OFF;
 REM INSERTING into CIPRIAN.HOBBY
 SET DEFINE OFF;
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (1,'Fotbal','Fotbalul este un sport de echipã ce se disputã între douã echipe alcãtuite din 11 jucãtori fiecare. La începutul secolului al XXI-lea era jucat de peste 250 de milioane de jucãtori în peste 200 de ?ãri, ceea ce îl face cel mai popular sport din lume',1,'https://www.youtube.com/embed/-NSvbGxzpKk','http://bucurestifm.ro/wp-content/uploads/sites/2/2015/09/fotbal-2.jpg');
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (2,'Box','Boxul (sau pugilismul) este un sport mar?ial strãvechi (probabil cel mai vechi sport mar?ial, cu origini preistorice), în care doi concuren?i, cu greutã?i similare, luptã cu ajutorul pumnilor, într-o serie de reprize, numite runde. Victoria este ob?inutã in urma punctelor date pentru lovituri de catre juriu, sau atunci când adversarul este doborât la pâmânt ?i nu reu?e?te sã se ridice înainte ca arbitrul sã termine de numãrat pânã la 10, (englezã Knockout sau KO) sau când adversarul este prea rãnit pentru a continua (englezã Technical Knockout sau TKO).',1,'https://www.youtube.com/embed/humDRT29mAM','http://www.beyondsports.ro/img/box1.gif');
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (3,'Inot','Înotul este o mi?care de deplasare a oamenilor sau a animalelor prin apã, de obicei fãrã niciun fel de asisten?ã artificialã. Tipurile sau stilurile de înot sunt craul, bras, fluture sau spate, dar ?i anumite derivate ale acestora, de exemplu bras lung, spate dublu etc.',1,'https://www.youtube.com/embed/GxlFhK817R8','http://www.ancada.com/_Files/News/Attachments/2011/10/25/inot-95965.jpg');
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (4,'Baschet','Baschetul este unul dintre cele mai rãspândite sporturi de echipã din lume; se caracterizeazã prin fine?ea, precizia ?i fantezia exerci?iilor tehnice ?i tactice, prin talia înaltã ?i calitã?ile fizice deosebite ale sportivilor, toate acestea implicate într-o luptã sportivã care pretinde spirit de echipã ?i de sacrificiu, inteligen?ã ?i rezisten?ã nervoasã.',1,'https://www.youtube.com/embed/J8sWBdHJB2M','http://blog.cursuribaschet.ro/wp-content/uploads/2014/12/baschet-generic-03-500x300-1748x984.jpg');
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (5,'Tenis','Tenisul este un sport jucat fie între doi jucãtori (simplu), fie între douã echipe a câte doi jucãtori (dublu). Jucãtorii folosesc o rachetã pe bazã de racordaj pentru a lovi o minge de cauciuc acoperitã cu pâslã peste fileu, mingea trebuind sã ajungã în terenul adversarului.',1,'https://www.youtube.com/embed/lMinfVMfH9k','http://bucurestifm.ro/wp-content/uploads/sites/2/2014/11/Tenis.jpg');
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (6,'Pescuit','Pescuitul este activitatea de a prinde cu ajutorul unor instrumente speciale diverse varietã?i de pe?te sau alte vietã?i acvatice. Pescuitul mai poate fi considerat ca o extrac?ie a organismelor acvatice, din mediul în care au crescut, cu diverse scopuri, precum alimentare, recreere (pescuit sportiv), ornamentare (captura speciilor ornamentale) sau ?eluri industriale.',1,null,null);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (7,'Dans','Dansul este un mijloc artistic de exprimare a unui mesaj printr-o succesiune de mi?cãri ritmice, variate ?i expresive ale corpului, executate în ritmul muzicii, având caracter religios, de artã sau de divertisment.',1,null,null);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (8,'Muzica','Muzica (din gr. mousik?) este arta combinãrii notelor în succesiune ?i simultan într-o formã plãcutã estetic, organizarea ritmicã a acestor note ?i integrarea lor într-o lucrare completã.',1,null,null);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (9,'Bucatarie','Bucãtãria reprezintã arta ?i tehnica preparãrii alimentelor destinate consumului uman. Bucãtãria poate cuprinde toate no?iunile practice referitoare la ingrediente, prepararea lor, instrumentele folosite, modurile de gãtit ?i diferen?ele între acestea. Este asociatã artei mesei ?i gastronomiei.',1,null,null);
-Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (10,'Gradinarit','Grãdinãritul reprezintã activitatea de cultivare a unor plante ornamentale sau nu în spa?ii special amenajate (grãdini). Grãdinãritul poate fi realizat de amatori sau grãdinari profesioni?ti.',1,null,null);
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (1,'Football','Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal. Unqualified, the word football is understood to refer to whichever form of football is the most popular in the regional context in which the word appears. Sports commonly called ''football'' in certain places include: association football (known as soccer in some countries); gridiron football (specifically American football or Canadian football); Australian rules football; rugby football (either rugby league or rugby union); and Gaelic football.[1][2] These different variations of football are known as football codes.',1,'https://www.youtube.com/embed/-NSvbGxzpKk','http://bucurestifm.ro/wp-content/uploads/sites/2/2015/09/fotbal-2.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (2,'Box','Boxing is a martial art and combat sport in which two people wearing protective gloves throw punches at each other for a predetermined set of time in a boxing ring.
+
+Amateur boxing is both an Olympic and Commonwealth sport and is a common fixture in most international games—it also has its own World Championships. Boxing is supervised by a referee over a series of one- to three-minute intervals called rounds. The result is decided when an opponent is deemed incapable to continue by a referee, is disqualified for breaking a rule, resigns by throwing in a towel, or is pronounced the winner or loser based on the judges'' scorecards at the end of the contest. In the event that both fighters gain equal scores from the judges, the fight is considered a draw (professional boxing). In Olympic boxing, due to the fact that a winner must be declared, in the case of a draw - the judges use technical criteria to choose the most deserving winner of the bout.',1,'https://www.youtube.com/embed/humDRT29mAM','http://www.beyondsports.ro/img/box1.gif');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (3,'Swimming','Human swimming is the self-propulsion of a person through water or another liquid, usually for recreation, sport, exercise, or survival. Locomotion is achieved through coordinated movement of the limbs, the body, or both. Humans can hold their breath underwater and undertake rudimentary locomotive swimming within weeks of birth, as an evolutionary response',1,'https://www.youtube.com/embed/GxlFhK817R8','http://www.ancada.com/_Files/News/Attachments/2011/10/25/inot-95965.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (4,'Basketball','Basketball is a sport played by two teams of five players on a rectangular court. The objective is to shoot a ball through a hoop 18 inches (46 cm) in diameter and 10 feet (3.048 m) high mounted to a backboard at each end.',1,'https://www.youtube.com/embed/J8sWBdHJB2M','http://blog.cursuribaschet.ro/wp-content/uploads/2014/12/baschet-generic-03-500x300-1748x984.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (5,'Tennis','Tennis is a racket sport that can be played individually against a single opponent (singles) or between two teams of two players each (doubles). Each player uses a tennis racket that is strung with cord to strike a hollow rubber ball covered with felt over or around a net and into the opponent''s court. The object of the game is to play the ball in such a way that the opponent is not able to play a valid return. The player who is unable to return the ball will not gain a point, while the opposite player will.',1,'https://www.youtube.com/embed/lMinfVMfH9k','http://bucurestifm.ro/wp-content/uploads/sites/2/2014/11/Tenis.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (6,'Fishing','Fishing is the activity of trying to catch fish. Fish are normally caught in the wild. Techniques for catching fish include hand gathering, spearing, netting, angling and trapping.
+
+Fishing may include catching other aquatic animals, such as molluscs, cephalopods, crustaceans, and echinoderms. The term is not normally applied to catching farmed fish, or to aquatic mammals, and marine mammals, such as whales, where the term whaling is more appropriate.',1,'https://www.youtube.com/embed/8cVxb2yremw','https://upload.wikimedia.org/wikipedia/commons/b/b9/Stilts_fishermen_Sri_Lanka_02.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (7,'Dance','Dance is a performance art form consisting of purposefully selected sequences of human movement. This movement has aesthetic and symbolic value, and is acknowledged as dance by performers and observers within a particular culture.[nb 1] Dance can be categorized and described by its choreography, by its repertoire of movements, or by its historical period or place of origin.',1,'https://www.youtube.com/embed/W8n6yji9ZOY','https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (8,'Music','Music is an art form and cultural activity whose medium is sound and silence. The common elements of music are pitch (which governs melody and harmony), rhythm (and its associated concepts tempo, meter, and articulation), dynamics (loudness and softness), and the sonic qualities of timbre and texture (which are sometimes termed the "color" of a musical sound). Different styles or types of music may emphasize, de-emphasize or omit some of these elements. Music is performed with a vast range of instruments and with vocal techniques ranging from singing to rapping, and there are solely instrumental pieces, solely vocal pieces (such as songs without instrumental accompaniment) and pieces that combine singing and instruments. The word derives from Greek ??????? (mousike; "art of the Muses").[1] In its most general form, the activities describing music as an art form include the production of works of music (songs, tunes, symphonies, and so on), the criticism of music, the study of the history of music, and the aesthetic examination of music.',1,'https://www.youtube.com/embed/7jTyvm27EsE','https://upload.wikimedia.org/wikipedia/commons/e/e3/Billie_Holiday%2C_Downbeat%2C_New_York%2C_N.Y.%2C_ca._Feb._1947_%28William_P._Gottlieb_04251%29.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (9,'Cooking','Cooking or cookery is the art, technology and craft of preparing food for consumption with the use of heat. Cooking techniques and ingredients vary widely across the world, from grilling food over an open fire to using electric stoves, to baking in various types of ovens, reflecting unique environmental, economic, and cultural traditions and trends. The ways or types of cooking also depend on the skill and type of training an individual cook has. Cooking is done both by people in their own dwellings and by professional cooks and chefs in restaurants and other food establishments. Cooking can also occur through chemical reactions without the presence of heat, most notably with ceviche, a traditional South American dish where fish is cooked with the acids in lemon or lime juice.',1,'https://www.youtube.com/embed/VGQSVuNy1r4','https://upload.wikimedia.org/wikipedia/commons/4/4e/U.S._Navy_Culinary_Specialist_Seaman_Lavonne_Centeno_cooks_steak_in_the_galley_aboard_the_aircraft_carrier_USS_Nimitz_%28CVN_68%29_June_10%2C_2013%2C_while_underway_in_the_Indian_Ocean_130610-N-LP801-018.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (10,'Gardening','Gardening is the practice of growing and cultivating plants as part of horticulture. In gardens, ornamental plants are often grown for their flowers, foliage, or overall appearance; useful plants, such as root vegetables, leaf vegetables, fruits, and herbs, are grown for consumption, for use as dyes, or for medicinal or cosmetic use. Gardening is considered to be a relaxing activity for many people.',1,'https://www.youtube.com/embed/-iDsYcFp4RQ','https://upload.wikimedia.org/wikipedia/commons/0/0f/Parterre2.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (11,'Beatboxing','Beatboxing &#40;also beat boxing or b-boxing&#41; is a form of vocal percussion primarily involving the art of mimicking drum machines using one&#39;s mouth, lips, tongue, and voice. It may also involve vocal imitation of turntablism, and other musical instruments. Beatboxing today is connected with hip-hop culture, often referred to as &#34;the fifth element&#34; of hip-hop, although it is not limited to hip-hop music',1,'https://www.youtube.com/embed/GNZBSZD16cY','https://upload.wikimedia.org/wikipedia/commons/e/ed/Biz_Markie_at_Amager_Bio_1.jpg');
+Insert into CIPRIAN.HOBBY (IDHOBBY,HOBBYNAME,DESCRIPTION,APPROVED,"videoURL",IMAGEURL) values (12,'Ciprian','E super smecher',0,'www.google.com','www.google.com');
 REM INSERTING into CIPRIAN.HOBBYPOST
 SET DEFINE OFF;
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (1,1,1343923862291333,'Ciprian',to_date('01-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (18,2,1343923862291333,'pa',to_date('03-JUN-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (7,1,1343923862291333,'Tocmai ce am postat
 ',to_date('30-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (2,1,1343923862291333,'A doua postare',to_date('02-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (3,2,1343923862291333,'A treia postare',to_date('04-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (13,5,1343923862291333,'&#60;script&#62;window.alert&#40;&#34;sometext&#34;&#41;&#59;&#60;script&#62;',to_date('31-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (14,5,1343923862291333,'&#60;script&#62;window.alert&#40;&#34;sometext&#34;&#41;&#59;&#60;&#47;script&#62;
+',to_date('31-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (6,2,1343923862291333,'Postare de acum',to_date('21-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (4,2,1155743477821938,'Sunt Maria',to_date('04-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (5,2,1628126750843339,'Sunt mama lui Ciprian',to_date('04-MAY-16','DD-MON-RR'));
@@ -125,11 +135,17 @@ Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) value
 ',to_date('30-MAY-16','DD-MON-RR'));
 Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (9,2,1628126750843339,'Ana are mere
 ',to_date('30-MAY-16','DD-MON-RR'));
-Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (10,2,1628126750843339,'Voie pleaca acasa
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (10,2,1628126750843339,'Voi pleaca acasa
 ',to_date('30-MAY-16','DD-MON-RR'));
-Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (11,2,1628126750843339,'Alo alo
-',to_date('30-MAY-16','DD-MON-RR'));
-Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (12,1,1343923862291333,null,to_date('30-MAY-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (17,3,1343923862291333,'Am postat si eu aici acum',to_date('02-JUN-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (19,12,1343923862291333,'I like Ciprian because e frumos',to_date('03-JUN-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (21,5,1343923862291333,'da
+',to_date('03-JUN-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (20,7,1343923862291333,'I like Dance because ceva',to_date('03-JUN-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (22,5,1343923862291333,'dada
+',to_date('03-JUN-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (15,10,1343923862291333,'Am postat si eu aici',to_date('02-JUN-16','DD-MON-RR'));
+Insert into CIPRIAN.HOBBYPOST (IDPOST,IDHOBBY,IDUSER,MESSAGE,DATE_OF_POST) values (16,10,1343923862291333,'Am postat si eu aici acum',to_date('02-JUN-16','DD-MON-RR'));
 REM INSERTING into CIPRIAN.NUMEFAMSG
 SET DEFINE OFF;
 Insert into CIPRIAN.NUMEFAMSG (NF) values ('Iereminciuc');
@@ -2476,22 +2492,46 @@ Insert into CIPRIAN.NUMESG (N) values ('Pamela');
 Insert into CIPRIAN.NUMESG (N) values ('Paraschiva');
 REM INSERTING into CIPRIAN.USERHOBBY
 SET DEFINE OFF;
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1155743477821938,2);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,1);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,2);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,3);
-Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1155743477821938,2);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,4);
 Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,5);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,6);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,7);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,10);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,11);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1343923862291333,12);
+Insert into CIPRIAN.USERHOBBY (IDUSER,IDHOBBY) values (1628126750843339,1);
 REM INSERTING into CIPRIAN.USERSOHO
 SET DEFINE OFF;
 Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1155743477821938,'Maria','Anghelache',to_date('03-AUG-95','DD-MON-RR'),'maria.anghelache@yahoo.com',2,'EAAWea65wWZAIBAOjWv9ZAdvrb7NzxJ4HqwSQC7HxHexy5DAqBfttgbF3Mqpi4uiNTISBuT3oTjsXrc7D1lHZB5i7PS5fGpO7FxuLZBHypqpEJq33UaqExxcHvsi31q4Y2l5xln6NnKpLXFOPUnxoB1YdrkFQ65IZD&expires=5183841
 ','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.2.50.50/p50x50/12301546_1041987689197518_5855819531228058744_n.jpg?oh=489bb024c86840aefa4008ea76e7a76e&oe=57DD8CBB');
-Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1628126750843339,'Gabriela','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'gabrielacusm@gmail.com',2,'EAAWea65wWZAIBAOCAF005MZCKhpVz0x8ZCetSw41PXc8pPZB4eqZCecTMwuGbVoQB4bGZCH7Nv7GQvq7VtE70NfG6cJMYnLkovpAeA5Eyf2hHUtOBI8OCePPp6fb7PvCvQOLlem10tL4u6NTZA2EoG00UFBzs5mwRsZD&expires=5167278
+Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1628126750843339,'Gabriela','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'gabrielacusm@gmail.com',2,'EAAWea65wWZAIBAKOmO2JZAdZAKSlEJHpacImPehKnlReRD0OLXmxN5ZAg60djWQ35daqyYt6l3QmZCcNRT5xZBHk5e7vTeQlOWZAnkLO2oHXbfNKV42D0ZA4CXANnMCd8jwTXvSwoOXzZCMU2vyMDP8tQ3VQF7m6Pgs0ZD&expires=5174692
 ','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c0.19.50.50/p50x50/12439219_1554899798166035_1610282242355468738_n.jpg?oh=a7cad59d0235d6396077e4d77158cfe1&oe=57CF3E96');
 Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1097717203618851,'Grosu','Ilie Andrei',to_date('03-AUG-95','DD-MON-RR'),'an3y_capitano@yahoo.com',2,'EAAWea65wWZAIBAHz6PF4TQrDZAtBbXLYk3NjjkgZAi27XVu7GgzEDZA6mZC3Gc6rqovqwOjcV9AhSjYRQ9UtNNBUdrm1eMHPu1RqWK2pN2OZCOyCDBBLDYUUPOjJXZA9Din8DIODmwM3K3cDu3ZBxXbVrufQa4D6m99BIunE4mnfVQZDZD&expires=5183999
 ','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13082690_1085366341520604_6505151982216895306_n.jpg?oh=caa3a8ccd479cd0959a616fe5f3b6a08&oe=579C4B5F');
-Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1343923862291333,'Ciprian','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'cipc_20002002@yahoo.com',1,'EAAWea65wWZAIBAFM49hMgsRC6VTAgbidRWpaDZCOdRmrsm8ngYBlePZAGbVJkyz72RqkEXGpz4QVXXZAF2lpveEy367u6B8uVFib03qQ1EctrUR3XrD9qRazZAJe3k00O5XIIZCqOHqahpAwk4EhcXpmVHuISehZAjbfgEAeAErEAZDZD&expires=5157227
+Insert into CIPRIAN.USERSOHO (IDUSER,NAMEUSER,SURNAMEUSER,DATE_OF_BIRTH,EMAIL,IDGRAD,AUTHTOKEN,AUTHSITE,PHOTOURL) values (1343923862291333,'Ciprian','Cusmuliuc',to_date('03-AUG-95','DD-MON-RR'),'cipc_20002002@yahoo.com',1,'EAAWea65wWZAIBAHHCNEfZCtj9iOn1N7dqp3BEZBhCYRArRGWeQY1LKZBCEGgDLO0QTKyftWJbTBYM4rVBbOIKarZC3INAH24x8arY0KV50LPmTCnHFPnXKlxA1VqotjZAl4HG7ZCVj8j1zsV5I8CpqCCsuDl7N5zCY4co7dwQkPZAQZDZD&expires=5157884
 ','Facebook','https://scontent.xx.fbcdn.net/v/t1.0-1/c8.0.50.50/p50x50/1380170_752111984805860_9520347_n.jpg?oh=6ea4e8295cc81afb84064aac123db4d3&oe=57CFC603');
+--------------------------------------------------------
+--  DDL for Index PK_IDS
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "CIPRIAN"."PK_IDS" ON "CIPRIAN"."USERHOBBY" ("IDUSER", "IDHOBBY") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table USERHOBBY
+--------------------------------------------------------
+
+  ALTER TABLE "CIPRIAN"."USERHOBBY" ADD CONSTRAINT "PK_IDS" PRIMARY KEY ("IDUSER", "IDHOBBY")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
 --------------------------------------------------------
 --  Constraints for Table USERSOHO
 --------------------------------------------------------
@@ -2834,7 +2874,7 @@ END generator;
           select count(*) into v_existUser from UsersOho where idUser=p_idUser;
           if(v_existUser=0) then raise user_inexistent;
             else
-              select count(*) into v_existHobby from Hobby where idHobby=p_idHobby and approved=1;
+              select count(*) into v_existHobby from Hobby where idHobby=p_idHobby;
               if(v_existHobby=0) then raise hobby_inexistent;
                 else
                   insert into userhobby values(p_idUser, p_idHobby);                    -- id-ul hobbiului dorit
@@ -2862,7 +2902,7 @@ END generator;
           select count(*) into v_flag from usersoho where idUser=p_idUser;
           if(v_flag=0) then raise user_inexistent;
           else
-              select count(*) into v_flag from Hobby where hobbyname=p_hobby and approved=1;
+              select count(*) into v_flag from Hobby where hobbyname=p_hobby;
               if(v_flag=0) then raise hobby_inexistent;
               else
                 select idHobby into v_idHobby from hobby where hobbyname=p_hobby;
@@ -2953,7 +2993,7 @@ END generator;
               else
                 v_description:=p_description;
             end if;
-            insert into hobby values(0,p_nameHobby,v_description,p_videoUrl ,p_imageUrl,0);
+            insert into hobby values(0,p_nameHobby,v_description,0,p_videoUrl ,p_imageUrl);
         end if;
       end if;
     EXCEPTION

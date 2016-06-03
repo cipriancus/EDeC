@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.javafx.collections.MappingChange.Map;
 
 import ro.oho.rest.facadeDataBase.HobbyFacade;
 import ro.oho.rest.facadeDataBase.PostariFacade;
@@ -27,20 +30,42 @@ public class AsyncPOSTController extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private List<AsyncContext> contexts = new LinkedList<>();
+	private HashMap<Integer, LinkedList<AsyncContext>> contexts = new HashMap<Integer,LinkedList<AsyncContext>>();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String hobbyRequest = (String) request.getParameter("hobby");
+
+		StringBuilder hobbyIDString = new StringBuilder();
+
+		for (int iterator = hobbyRequest.indexOf("hobby/"); iterator < hobbyRequest.length(); iterator++) {
+			if (Character.isDigit(hobbyRequest.charAt(iterator)) == true) {
+				hobbyIDString.append(hobbyRequest.charAt(iterator));
+			}
+		}
+		int hobbyId = 0;
+
+		if (hobbyIDString.length() != 0) {
+			hobbyId = Integer.parseInt(hobbyIDString.toString());
+		
+		
 		final AsyncContext asyncContext = request.startAsync(request, response);
 		asyncContext.setTimeout(10 * 60 * 1000);
-		contexts.add(asyncContext);
+		
+		LinkedList<AsyncContext> list=new LinkedList<>();
+		if(contexts.get(new Integer(hobbyId))!=null)		
+			list.addAll(contexts.get(new Integer(hobbyId)));
+
+		list.add(asyncContext);
+		contexts.put(new Integer(hobbyId),list);
+		}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<AsyncContext> asyncContexts = new ArrayList<>(this.contexts);
+		HashMap<Integer, LinkedList<AsyncContext>> asyncContexts = new HashMap<Integer,LinkedList<AsyncContext>>(this.contexts);
 		this.contexts.clear();
 
 		User user = (User) request.getSession().getAttribute("user");
@@ -90,8 +115,10 @@ public class AsyncPOSTController extends HttpServlet {
 							sc.setAttribute("nume", htmlMessage + currentMessages);
 						}
 
-						for (AsyncContext asyncContext : asyncContexts) {
+						List<AsyncContext> listOfContex=asyncContexts.get(hobby.getIdHobby());
+						for (AsyncContext asyncContext : listOfContex) {
 							try (PrintWriter writer = asyncContext.getResponse().getWriter()) {
+								
 								writer.println(htmlMessage);
 								writer.flush();
 								asyncContext.complete();

@@ -63,8 +63,6 @@ public class AddUserToHobbyController extends HttpServlet {
 					}
 				}
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} finally {
 			out.close();
 		}

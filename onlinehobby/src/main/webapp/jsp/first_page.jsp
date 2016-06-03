@@ -20,6 +20,28 @@
 <title>Oho</title>
 </head>
 <body onload="start();">
+
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '1581560208841106',
+				xfbml : true,
+				version : 'v2.6'
+			});
+		};
+
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<%
 		HttpSession sessionUser = request.getSession(false);
 		User user = (User) sessionUser.getAttribute("user");
@@ -31,8 +53,8 @@
 		List<Postare> allPostari = postariFacade.getAllPostariForId(user.getIdUser());
 
 		UserFacade userFacade = new UserFacade();
-		
-		List<String> allNetworkHobby=new HobbyFacade().getAllHobbies();
+
+		List<String> allNetworkHobby = new HobbyFacade().getAllHobbies();
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -63,7 +85,6 @@
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/home">Home</a></li>
 
-									<li id="menuItem"><a href="#">Hobbies</a></li>
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/usr/<%out.print(user.getIdUser());%>">Profile</a></li>
 									<%
@@ -110,11 +131,12 @@
 									<div class="feedContent">
 										<div class="comments-container">
 											<datalist id="hobbiuri">
+
 												<%
-											for(String iterator:allNetworkHobby){
-												out.print("<option value=\""+iterator+"\">");
-											}
-											%>
+													for (String iterator : allNetworkHobby) {
+														out.print("<option value=\"" + iterator + "\">");
+													}
+												%>
 											</datalist>
 											<ul id="comments-list" class="comments-list">
 												<%
@@ -122,12 +144,13 @@
 															+ user.getPicture() + "\"" + "alt=\"Profile picture\">" + "</div>" + "<div class=\"comment-box\">"
 															+ "<div class=\"comment-head\">");
 													out.print("<a href=\"#\">I like </a>");
-													out.print("<input list=\"hobbiuri\" type=\"text\" placeholder=\"Hobby\" id=\"hobby\">");
+													out.print("<input list=\"hobbiuri\" type=\"text\" placeholder=\"Hobby\"  id=\"iLikeHobby\">");
 													out.print("<a href=\"#\"> because </a>");
 													out.print("<input type=\"text\" placeholder=\"Reasons\" id=\"reasons\">");
 													out.print("&nbsp");
 													out.print("&nbsp");
-													out.print("<input type=\"submit\" placeholder=\"Post\" id=\"hobby\"></div>");
+													out.print(
+															"<input onclick=\"postHobby()\" type=\"submit\" placeholder=\"Post\" id=\"hobbyPost\"><a id=\"error\" > &nbspError, please try again</a><button style=\"padding: 8px;\" class=\"facebookB\" id=\"shareBtn\">Share</button></div>");
 												%>
 												<%
 													for (Postare iterator : allPostari) {
@@ -163,6 +186,41 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="/onlinehobby/js/comunicare.js"></script>
+	<script>
+		document.getElementById('shareBtn').onclick = function() {
+			var iLikeHobby = document.getElementById("iLikeHobby").value;
+			var reasons = document.getElementById("reasons").value;
+			var number = 0;
 
+			if (iLikeHobby.length < 1) {
+				number++;
+				document.getElementById("iLikeHobby").className = "wrong-input";
+			} else {
+				document.getElementById("iLikeHobby").className = "";
+			}
+
+			if (reasons.length < 1) {
+				document.getElementById("reasons").className = "wrong-input";
+				number++;
+			} else {
+				document.getElementById("reasons").className = "";
+			}
+
+			if (number == 0) {
+				FB.ui({
+					method : 'share',
+					display : 'popup',
+					href : 'http://cipriancus.github.io/OHO/web-vechi/index.html',
+					hashtag : '#' + iLikeHobby,
+					quote : 'I like ' + iLikeHobby + ' because ' + reasons,
+					redirect_uri:"http://localhost:8017/onlinehobby/jsp/close.html"
+
+				}, function(response) {
+					document.getElementById("iLikeHobby").value="";
+					document.getElementById("reasons").value="";
+				});
+			}
+		}
+	</script>
 </body>
 </html>

@@ -56,7 +56,7 @@
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/home">Home</a></li>
 
-									<li id="menuItem"><a href="#">Hobbies</a></li>
+
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/usr/<%out.print(user.getIdUser());%>">Profile</a></li>
 									<%

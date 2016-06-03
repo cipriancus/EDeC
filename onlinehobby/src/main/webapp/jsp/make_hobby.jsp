@@ -18,37 +18,18 @@
 	href="/onlinehobby/css/profile.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/onlinehobby/images/logo.png">
-<title>Oho</title>
-</head >
-<body onload="loadDoc(); loadMembers(); loadPosts();">
+<title>OHO Create Hobbby</title>
+</head>
+<body onload="loadDoc(); loadMembers(); loadPosts(); addUserToHobby;">
 	<%
 		HttpSession sessionUser = request.getSession(false);
 		User user = (User) sessionUser.getAttribute("user");
-
-		String userRequest = (String) request.getAttribute("urlString");
-
-		StringBuilder userIDString = new StringBuilder();
-
-		for (int iterator = userRequest.indexOf("usr/"); iterator < userRequest.length(); iterator++) {
-			if (Character.isDigit(userRequest.charAt(iterator)) == true) {
-				userIDString.append(userRequest.charAt(iterator));
-			}
-		}
-		long userId = 0;
-
-		if (userIDString.length() != 0) {
-			userId = Long.parseLong(userIDString.toString());
-		}
-
-		User userVisited;
-		UserFacade userFacade = new UserFacade();
-		userVisited = userFacade.getUserById(userId);
-
 		HobbyFacade hobbyFacade = new HobbyFacade();
-		List<Hobby> allHobby = hobbyFacade.getAllUserHobby(userVisited.getIdUser());
 
-		PostariFacade postariFacade = new PostariFacade();
-		List<Postare> allPostari = postariFacade.getAllUserPostariForId(userVisited.getIdUser());//apelat doar pt acest usr
+		String HobbyName=(String) request.getAttribute("HobbyName");
+
+		
+		List<Hobby> allHobby = hobbyFacade.getAllUserHobby(user.getIdUser());
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -59,11 +40,9 @@
 							<div class="leftMenuBar">
 								<ul>
 
-									<li>
 									<li><a href="http://localhost:8017/onlinehobby/home"><img
 											align="center" width="40px" height="40px"
 											src="/onlinehobby/images/logo.png" /></a></li>
-									
 
 
 									<li><a
@@ -81,6 +60,7 @@
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/home">Home</a></li>
 
+
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/usr/<%out.print(user.getIdUser());%>">Profile</a></li>
 									<%
@@ -92,6 +72,7 @@
 
 								</ul>
 							</div>
+
 						</div>
 					</header>
 					<div class="main">
@@ -100,20 +81,9 @@
 								<div class="profilFeed">
 									<div class="profile">
 										<div class="profileContent">
-
-											<div class="profilePictureVisitor">
-												<a
-													href="http://localhost:8017/onlinehobby/usr/<%out.print(userVisited.getIdUser());%>">
-													<img src="<%out.print(userVisited.getPicture());%>"
-													alt="Profile Picture" />
-												</a>
-											</div>
-
-
-
 											<div class="hobbies">
 												<div class="head">
-													<a>Hobbies that the user follows:</a>
+													<a>Hobbies you follow</a>
 												</div>
 												<%
 													for (Hobby iterator : allHobby) {
@@ -127,26 +97,6 @@
 
 											</div>
 
-											<div class="hobbies">
-												<div class="head">
-													<a>User info's:</a>
-												</div>
-												<%
-													out.print("<div class=\"hobby-content\"> Name:");
-													out.print(userVisited.getNume());
-													out.print("</div>");
-													out.print("<div class=\"hobby-content\"> Second Name:");
-													out.print(userVisited.getPrenume());
-													out.print("</div>");
-													out.print("<div class=\"hobby-content\"> Birthday: ");
-													out.print(userVisited.getDataNasterii());
-													out.print("</div>");
-													out.print("<div class=\"hobby-content\"> Email: ");
-													out.print(userVisited.getEmail());
-													out.print("</div>");
-												%>
-
-											</div>
 
 										</div>
 									</div>
@@ -155,26 +105,32 @@
 									<div class="feedContent">
 										<div class="comments-container">
 
-											<ul id="comments-list" class="comments-list">
-												<%
-													for (Postare iterator : allPostari) {
-														User userPost = new User();
-														userPost = userFacade.getUserById(iterator.getIdUser());
+												<div id='hobby_container'>
 
-														out.print("<li><div class=\"comment-main-level\"><div class=\"comment-avatar\"><img" + " src=\""
-																+ userPost.getPicture() + "\"" + "alt=\"Profile picture\">" + "</div>"
-																+ "<div class=\"comment-box\">" + "<div class=\"comment-head\">"
-																+ "<h6 class=\"comment-name by-author\">");
-														out.print("<a href=\"http://localhost:8017/onlinehobby/usr/" + userPost.getIdUser() + "\">"
-																+ userPost.getNume() + " " + userPost.getPrenume() + "</a>");
-														out.print("</h6><span> At " + iterator.getDate_of_post()
-																+ " in <a href=\"http://localhost:8017/onlinehobby/hobby/" + iterator.getIdHobby() + "\">"
-																+ hobbyFacade.getHobbyNameForId(iterator.getIdHobby())
-																+ "</a></span><i class=\"fa fa-reply\"></i></div>");
-														out.print("<div class=\"comment-content\">" + iterator.getMesaj() + "</div></div></div></li>");
-													}
-												%>
-											</ul>
+													<div id='info_box_noMargin'>
+														
+														<div id="info-box">
+															<div id="info-name">
+													
+															<b ><%out.print(HobbyName);%></b>
+															</div>
+															<a onClick="addNewHobby()" id="addButton">Add Hobby</a>
+														</div>
+													</div>
+
+												</div>
+
+												<div id="container-content">
+													<textarea
+													 class="text_area_class" id="HobbyDescription" placeholder="Hobby Description"></textarea>
+
+													<input class="dashed_class" placeholder="Enter hobby picture url ex: http://www.ebay.com or www.google.com"   id="HobbyVideo"> 
+													&nbsp;
+													<input class="dashed_class" placeholder="Enter youtube embeded url ex: https://www.youtube.com/embed/qFFejoQn9C" id="HobbyURL">
+													&nbsp;
+													<p> The hobby and message will not appear until validated by an administrator</p>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -188,7 +144,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	<script type="text/javascript" src="/onlinehobby/js/comunicare.js"></script>
 
 </body>

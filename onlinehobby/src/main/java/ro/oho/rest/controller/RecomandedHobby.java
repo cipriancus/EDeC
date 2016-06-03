@@ -70,6 +70,6 @@ public class RecomandedHobby extends HttpServlet
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        requestProc(request,response);
+		response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 	}
 }

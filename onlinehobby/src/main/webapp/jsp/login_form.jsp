@@ -38,20 +38,6 @@
 							}(document, 'script', 'facebook-jssdk'));
 						</script>
 						
-						<script src="https://apis.google.com/js/platform.js" async defer></script>
-					
-						<script>
-						function onSignIn(googleUser) {
-							  var id_token = googleUser.getAuthResponse().id_token;
-							  var xhr = new XMLHttpRequest();
-							  xhr.open('POST', 'http://localhost:8017/onlinehobby/glogin');
-							  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-							  xhr.onload = function() {
-							    console.log('Signed in as: ' + xhr.responseText);
-							  };
-							  xhr.send('idtoken=' + id_token);
-							}
-						</script>
 					
 						<div class="login-form">
 
@@ -66,9 +52,8 @@
 									<br> <a href="<%=fbConnection.getFBAuthUrl()%>"
 										class="btn btn-fb"> <i class="fa fa-facebook"></i>Sign &nbsp;Facebook
 									</a>
-									<div class="g-signin2" data-onsuccess="onSignIn"></div>
 								</div>
-								<div class="fb-like" data-share="true" data-width="450"
+								<div style="margin-top: 20px;" class="fb-like" data-share="true" data-width="450"
 									data-show-faces="true"></div>
 							</div>
 
@@ -87,9 +72,8 @@
 									cookies !</a></b>
 
 							<p>
-								Follow us on: <a href="#"><img
-									src="images/mini/facebook.png" alt="facebook" /></a> <a href="#"><img
-									src="images/mini/twitter.png" alt="twitter" /></a>
+								Follow us on: <a href="https://www.facebook.com/OnlineHob/"><img
+									src="images/mini/facebook.png" alt="facebook" /></a> 
 
 							</p>
 						</div>
