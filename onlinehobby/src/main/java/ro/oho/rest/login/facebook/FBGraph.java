@@ -50,7 +50,7 @@ public class FBGraph {
 			user.setNume(json.getString("first_name"));
 			user.setPrenume(json.getString("last_name"));
 			user.setDataNasterii("08/03/1995");
-			user.setEmail(json.getString("email"));
+			user.setEmail(json.getString(("email")));
 			user.setAuthToken(accessToken.substring(13));
 			user.setAuthSite("Facebook");
 			user.setPicture(json.getJSONObject("picture").getJSONObject("data").getString("url"));

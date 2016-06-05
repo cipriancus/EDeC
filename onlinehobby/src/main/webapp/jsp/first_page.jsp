@@ -92,7 +92,9 @@
 											out.print("<li id=\"menuItem\"><a href=\"http://localhost:8017/onlinehobby/admin\">Admin</a></li>");
 										}
 									%>
-									<li id="menuItem"><a href="logout">Logout</a></li>
+									<li id="menuItem"><a
+										href="http://localhost:8017/onlinehobby/ContactPage">Contact</a></li>
+									<li id="menuItem"><a href="http://localhost:8017/onlinehobby/jsp/logout.jsp">Logout</a></li>
 
 								</ul>
 							</div>
@@ -124,6 +126,23 @@
 
 											</div>
 
+
+											<div class="hobbies">
+												<div class="head">
+
+													<a>Groups you follow</a>
+												</div>
+												<%
+													for (Hobby iterator : allHobby) {
+														out.print("<div class=\"hobby-content\"><a href=\"http://localhost:8017/onlinehobby/hobby/");
+														out.print(iterator.getIdHobby());
+														out.print("\">");
+														out.print(iterator.getHobbyName());
+														out.print("</a></div>");
+													}
+												%>
+
+											</div>
 										</div>
 									</div>
 								</div>

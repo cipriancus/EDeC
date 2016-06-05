@@ -72,10 +72,11 @@
 									cookies !</a></b>
 
 							<p>
-								Follow us on: <a href="https://www.facebook.com/OnlineHob/"><img
-									src="images/mini/facebook.png" alt="facebook" /></a> 
-
-							</p>
+						Follow us on: <a href="https://www.facebook.com/OnlineHob/">
+						<img src="images/mini/facebook.png" alt="" /></a> 
+							<a href="https://twitter.com/10_oho">
+							<img src="images/mini/twitter.png" alt="" /></a>
+					</p>
 						</div>
 					</div>
 				</div>

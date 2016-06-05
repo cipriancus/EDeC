@@ -208,4 +208,67 @@ public class HobbyDAO {
 		cstmt.close();
 		return true;
 	}
+	
+	private static final String GET_ALL_NEW_HOBBY= "select * from hobby where approved=0";
+	private static final String UPDATE_HOBBY= "update hobby set approved=1 , hobbyname=? ,VIDEOURL=? , description=? , imageurl=?  where idhobby=?";
+	private static final String DELETE_HOBBY= "delete from  hobby where hobbyname=?";
+	
+	/**
+	 * Unaproved
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Hobby> getAllHobby() throws SQLException
+	{
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_NEW_HOBBY);
+		ResultSet resultSet = prepareStatement.executeQuery();
+		List<Hobby> allHobby=new ArrayList<Hobby>();
+		
+		while (resultSet.next()) {
+			Hobby hobby = new Hobby();
+			hobby.setIdHobby(resultSet.getInt("idHobby"));
+			hobby.setDescription(resultSet.getString("description"));
+			hobby.setHobbyName(resultSet.getString("hobbyname"));
+			hobby.setImageURL(resultSet.getString("imageURL"));
+			hobby.setVideoURL(resultSet.getString("videoURL"));
+			allHobby.add(hobby);
+		}
+		
+		resultSet.close();
+		
+		return allHobby;
+
+	}
+	public boolean updateHobby(String hobbyID, String hobbyName, String hobbyDescription, String hobbyImage,String hobbyVideo)
+	{
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		try {
+			PreparedStatement prepareStatement = con.prepareStatement(UPDATE_HOBBY);
+			prepareStatement.setInt(5, Integer.parseInt(hobbyID));
+			prepareStatement.setString(1, hobbyName);
+			prepareStatement.setString(3, hobbyDescription);
+			prepareStatement.setString(4, hobbyImage);
+			prepareStatement.setString(2, hobbyVideo);
+			prepareStatement.executeQuery();
+			
+			return true;
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public void deleteHobby(String hobbyName)
+	{
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		try {
+			PreparedStatement prepareStatement = con.prepareStatement(DELETE_HOBBY);
+			prepareStatement.setString(1, hobbyName);
+			prepareStatement.executeQuery();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

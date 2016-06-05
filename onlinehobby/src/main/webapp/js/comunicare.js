@@ -8,6 +8,8 @@ function start() {
 	postHobby();
 	addNewHobby();
 	share();
+	approveHobby();
+	deleteHobby();
 }
 
 document.getElementById("textSize").onchange = function() {
@@ -174,8 +176,9 @@ function getMessages() {
 						+ contentElement.innerHTML;
 			}
 		}
-		var url="http://localhost:8017/onlinehobby/Shout?hobby="+window.location.pathname+"&t="+ new Date();
-		xmlhttp.open("GET",url, true);
+		var url = "http://localhost:8017/onlinehobby/Shout?hobby="
+				+ window.location.pathname + "&t=" + new Date();
+		xmlhttp.open("GET", url, true);
 		xmlhttp.send();
 	}
 }
@@ -267,7 +270,7 @@ function postHobby() {
 										newItem,
 										listOfPostari.firstChild.nextSibling.nextSibling);
 
-						break
+						break;
 					case "true with add hobby":
 						// hobby message
 						var hobby = xhttp.getResponseHeader("hobby");
@@ -293,7 +296,7 @@ function postHobby() {
 						window.location = url;
 						localStorage.setItem("iLikeHobby", iLikeHobby);
 						localStorage.setItem("reasons", reasons);
-						break
+						break;
 					}
 				}
 			}
@@ -323,60 +326,158 @@ function addNewHobby() {
 		document.getElementById("HobbyDescription").className = "text_area_class";
 	}
 
-	if (HobbyURL.match(regex) ) {
+	if (HobbyURL.match(regex)) {
 		document.getElementById("HobbyURL").className = "dashed_class";
 	} else {
 		document.getElementById("HobbyURL").className = "dashed_class_wrong_input";
 		number++;
 	}
 
-	if (HobbyVideo.match(regex) ) {
+	if (HobbyVideo.match(regex)) {
 		document.getElementById("HobbyVideo").className = "dashed_class";
 	} else {
 		document.getElementById("HobbyVideo").className = "dashed_class_wrong_input";
 		number++;
 	}
-	
-	if(number==0){
+
+	if (number == 0) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
-			if (xhttp.readyState==4&&xhttp.status == 200) {
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
 				{
 
 					var newItem = document.createElement("div"); // Create a
 					var list = document.getElementById("container-content");
-					
+
 					switch (xhttp.getResponseHeader("response")) {
 					case "true":
 						var message = "<p style=\"color:green;margin-left:5%;margin-bottom:5%;\">The hobby was added successfully<p>";
-						newItem.innerHTML+=message;
+						newItem.innerHTML += message;
 						break;
 
 					case "false":
 						var message = "<p style=\"color:red;margin-left:5%;margin-bottom:5%;\There has been a problem, please try again<p>";
-						newItem.innerHTML+=message;
+						newItem.innerHTML += message;
 						break;
 					}
 
-					list.insertBefore(newItem,list.firstChild);
-					
-					window.setTimeout(function(){
-						window.location=xhttp.getResponseHeader("redirect");
+					list.insertBefore(newItem, list.firstChild);
+
+					window.setTimeout(function() {
+						window.location = xhttp.getResponseHeader("redirect");
 					}, 5000);
 				}
 			}
 		};
 		var url = "http://localhost:8017/onlinehobby/MakeHobby";
-		xhttp.open("POST", url, true);	
-		var iLikeHobby= window.localStorage.getItem("iLikeHobby");
-		xhttp.setRequestHeader("iLikeHobby",iLikeHobby);
+		xhttp.open("POST", url, true);
+		var iLikeHobby = window.localStorage.getItem("iLikeHobby");
+		xhttp.setRequestHeader("iLikeHobby", iLikeHobby);
 		window.localStorage.removeItem("iLikeHobby");
-		var reasons= window.localStorage.getItem("reasons");
-		xhttp.setRequestHeader("reasons",reasons);
+		var reasons = window.localStorage.getItem("reasons");
+		xhttp.setRequestHeader("reasons", reasons);
 		window.localStorage.removeItem("reasons");
 		xhttp.setRequestHeader("HobbyDescription", HobbyDescription);
 		xhttp.setRequestHeader("HobbyVideo", HobbyVideo);
 		xhttp.setRequestHeader("HobbyURL", HobbyURL);
+		xhttp.send();
+	}
+}
+
+function approveHobby() {
+
+	var hobbyname = document.getElementById("hobbyInput").value;
+
+	var hobbyID = document.getElementById("id" + hobbyname).innerHTML;
+	var hobbyName = document.getElementById("NAMEnewHobby" + hobbyname).value;
+	var hobbyDescription = document.getElementById("DESCnewHobby" + hobbyname).value;
+	var hobbyImage = document.getElementById("IMGnewHobby" + hobbyname).value;
+	var hobbyVideo = document.getElementById("VIDEOnewHobby" + hobbyname).value;
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			{
+				document.getElementById("servletResponse").innerHTML = xhttp.responseText;
+				
+				if(xhttp.responseText.localeCompare("The Hobby has been approved")==0){
+				var element = document.getElementById("hobby" + hobbyname);
+
+				element.parentNode.removeChild(element);
+				document.getElementById("hobbyInput").value="";
+				
+				}
+			}
+		}
+	};
+
+	if (hobbyname != "" && hobbyID != "" && hobbyname != ""
+			&& hobbyDescription != "" && hobbyImage != "" & hobbyVideo != "") {
+		var url = "http://localhost:8017/onlinehobby/adminValidation?hobbyID="
+				+ hobbyID + "&hobbyName=" + hobbyName + "&hobbyDescription="
+				+ hobbyDescription + "&hobbyImage=" + hobbyImage
+				+ "&hobbyVideo=" + hobbyVideo;
+		xhttp.open("GET", url, true);
+		xhttp.send();
+	}
+}
+
+function adminUser() {
+
+	var inputUser = document.getElementById("inputUser").value;
+
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			{
+				document.getElementById("servletResponseAdmin").innerHTML = xhttp.responseText;
+				
+				if(xhttp.responseText.localeCompare("The admin approval has been successful")==0){
+				var element = document.getElementById(inputUser);
+
+				element.parentNode.removeChild(element);
+				document.getElementById(inputUser).value="";
+				
+				}
+			}
+		}
+	};
+
+	if (inputUser != "" ) {
+		var url = "http://localhost:8017/onlinehobby/adminUser";
+		xhttp.open("POST", url, true);
+		xhttp.setRequestHeader("inputUser", inputUser);
+		xhttp.send();
+	}
+}
+
+function downloadPDF() {
+		window.open("http://localhost:8017/onlinehobby/admin/pdf", "PDF");
+}
+
+function downloadCSV() {
+	window.open("http://localhost:8017/onlinehobby/admin/csv", "CSV");
+}
+
+function downloadHTML() {
+	window.open("http://localhost:8017/onlinehobby/admin/html", "HTML");
+}
+
+function deleteHobby() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			{
+				document.getElementById("servletResponse").innerHTML = xhttp.responseText;
+			}
+		}
+	};
+	var hobbyname = document.getElementById("hobbyInput").value;
+	if (hobbyname != "") {
+		xhttp.open("GET",
+				"http://localhost:8017/onlinehobby/adminHobbyDeleting?deletedHobby="
+						+ hobbyname, true);
 		xhttp.send();
 	}
 }

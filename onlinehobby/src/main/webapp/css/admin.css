@@ -1,0 +1,433 @@
+html {
+	background-image: url("../images/beach.jpg");
+	background-size: cover;
+	overflow-y: scroll;
+}
+
+body {
+	background: inherit;
+	overflow: hidden;
+}
+
+header {
+	margin-left: -10px;
+	margin-top: -25px;
+	margin-right: -8px;
+}
+
+.header-wrapper {
+	position: fixed;
+	list-style-type: none;
+	float: left;
+	z-index: 100;
+	background-color: black;
+	width: 100%;
+	height: 10%;
+	padding-left: 0px;
+}
+
+.header-wrapper .leftMenuBar {
+	width: 40%;
+	float: left;
+	display: inline;
+}
+
+.header-wrapper .rightMenuBar {
+	width: 50%;
+	float: right;
+}
+
+.header-wrapper .leftMenuBar ul {
+	float: left;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+.header-wrapper .leftMenuBar li {
+	display: inline;
+}
+
+.header-wrapper .rightMenuBar ul {
+	float: right;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+#menuItem {
+	display: inline;
+	font-size: 20px;
+	padding: 15px 5px;
+}
+
+a {
+	text-decoration: none;
+	color: aliceblue;
+	font-family: "Verdana", serif;
+}
+
+a:hover {
+	color: cornsilk;
+}
+
+.content .main {
+	padding-left: 4vw;
+	padding-right: 4vw;
+}
+
+.main .profilFeed {
+	float: left;
+	width: 25%;
+}
+
+.main .main-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.main .profile {
+	float: left;
+}
+
+.profilePlusFeed {
+	float: left;
+	width: 75%;
+}
+
+.profilePlusFeed {
+	margin-top: 5%;
+}
+
+
+
+.profile .profileContent .profilePictureVisitor {
+	margin-top: 20%;
+	background: #FCFCFC;
+	padding: 20px;
+	border-bottom: 1px solid #E5E5E5;
+	border-radius: 10px;
+}
+
+.profile .profileContent .profilePictureVisitor img {
+	width: 200px;
+	height: 200px;
+}
+
+.profile .profileContent .profilePicture a {
+	color: #283035;
+}
+
+.main .profile .profileContent {
+	padding-top: 5%;
+}
+
+.main .feed {
+	width: 65%;
+	float: right;
+	padding-top: 2%;
+}
+
+.main .groups .group-wrapper ul {
+	list-style: none;
+}
+
+.hobbies .head {
+	margin-top: 50%;
+	
+	padding: 10px 12px;
+	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+
+.hobbies a {
+	color: white;
+	font-size: larger;
+	margin:20px;
+	
+	
+}
+
+
+
+.comments-list .comment-main-level  input {
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 1px dashed blue;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+	color: blue;
+}
+
+.hobbies .hobby-content {
+	background: #FFF;
+	padding: 12px;
+	font-size: 15px;
+	color: #595959;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.feed .feedContent {
+	color: #fff;
+		margin-top:20%;
+	
+	background: rgba(0, 0, 0, 0.2);
+	padding: 30px 0px;
+	border-radius: 10px;
+}
+
+.feed .feedContent * {
+	margin: 10px;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.feed .feedContent a {
+	color: #03658c;
+	text-decoration: none;
+}
+
+.feed .feedContent ul {
+	list-style-type: none;
+}
+
+.feed .feedContent body {
+	font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
+	background: #dee1e3;
+}
+
+.feed .feedContent .comments-container {
+	margin: 60px auto 15px;
+	width: 90%;
+}
+
+.feed .feedContent .comments-container h1 {
+	font-size: 36px;
+	color: #283035;
+	font-weight: 400;
+}
+
+.feed .feedContent .comments-container h1 a {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.feed .feedContent .comments-list {
+	margin-top: 30px;
+	position: relative;
+}
+
+
+
+.feed .feedContent .comments-list li {
+	margin-bottom: 15px;
+	display: block;
+	position: relative;
+}
+
+.feed .feedContent .comments-list li:after {
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	width: 0;
+}
+
+.feed .feedContent .comments-list .comment-avatar {
+	width: 65px;
+	height: 65px;
+	position: relative;
+	float: left;
+	border: 3px solid #FFF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+}
+
+.feed .feedContent .comments-list .comment-avatar img {
+	width: 100%;
+	height: 100%;
+}
+
+.feed .feedContent .comment-main-level:after {
+	content: '';
+	width: 0;
+	height: 0;
+	display: block;
+	clear: both;
+}
+
+.feed .feedContent .comments-list .comment-box {
+	width: 90%;
+	float: right;
+	position: relative;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.feed .feedContent .comments-list .comment-box:before, .comments-list .comment-box:after
+	{
+	content: '';
+	height: 0;
+	width: 0;
+	position: absolute;
+	display: block;
+	border-width: 10px 12px 10px 0;
+	border-style: solid;
+	border-color: transparent #FCFCFC;
+	top: 8px;
+	left: -11px;
+}
+.newHobb
+{
+	color:black;
+	margin-left:100px;
+}
+.feed .feedContent .comments-list .comment-box:before {
+	border-width: 11px 13px 11px 0;
+	border-color: transparent rgba(0, 0, 0, 0.05);
+	left: -12px;
+}
+
+.feed .feedContent .comments-container .comment-head {
+	background: #FCFCFC;
+	padding: 0px 10px;
+	margin-bottom:2%;
+	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	-webkit-border-radius: 4px 4px 0 0;
+	-moz-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+}
+.approveInput{
+
+    padding: 30px 32px;
+	margin:50px;
+    text-decoration: none;
+    display: inline;
+    font-size: 20px;
+    width: 70%;  
+    height: 40px;
+}
+.approveButton  .approveInput{
+	display:inline;
+}
+.approveButton{
+	background-color: rgba(255, 128, 64, 0.44);
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 4px 3px;
+    width: 20%;  height: 20%;
+    transition: width 2s;
+}
+.approveButton:hover{
+	background-color: rgb(210, 70, 0);
+}
+.inputhobby{
+	border: none;
+}
+
+.buttonDownload{
+	background-color: #a7d36b;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 3px;
+    width: 70%;  height: 60%;
+    cursor: pointer;
+    transition: width 1s;
+}
+
+
+.buttonDownload:hover{
+	width: 80% ;
+}
+.feed .feedContent .comment-box .comment-head i {
+	float: right;
+	margin-left: 14px;
+	position: relative;
+	top: 2px;
+	color: #A6A6A6;
+	cursor: pointer;
+	-webkit-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+}
+
+.feed .feedContent .comment-box .comment-head i:hover {
+	color: #03658c;
+}
+
+.feed .feedContent .comment-box .comment-name {
+	color: #283035;
+	font-size: 14px;
+	font-weight: 700;
+	float: left;
+	margin-right: 10px;
+}
+
+.feed .feedContent .comment-box .comment-name a {
+	color: #283035;
+}
+
+.feed .feedContent .comment-box .comment-head span {
+	float: left;
+	color: #999;
+	font-size: 13px;
+	position: relative;
+	top: 1px;
+}
+
+
+@media only screen and (max-width: 766px) {
+	.feed .feedContent .comments-container {
+		width: 480px;
+	}
+	.feed .feedContent .comments-list .comment-box {
+		width: 390px;
+	}
+}
+
+
+.text_area_class {
+	resize: none;
+	border: 3px double #CCCCCC;
+	width: 100%;
+	height: 100px;
+}
+
+.dashed_class {
+	font-style: italic;
+	padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 1px dashed blue;
+	overflow: hidden;
+	resize: none;
+	height: 20px;
+	width: 70%; display : block;
+	color: blue;
+	display: block;
+}

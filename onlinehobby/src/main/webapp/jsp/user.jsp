@@ -88,7 +88,9 @@
 											out.print("<li id=\"menuItem\"><a href=\"http://localhost:8017/onlinehobby/admin\">Admin</a></li>");
 										}
 									%>
-									<li id="menuItem"><a href="logout">Logout</a></li>
+									<li id="menuItem"><a
+										href="http://localhost:8017/onlinehobby/ContactPage">Contact</a></li>
+									<li id="menuItem"><a href="http://localhost:8017/onlinehobby/jsp/logout.jsp">Logout</a></li>
 
 								</ul>
 							</div>

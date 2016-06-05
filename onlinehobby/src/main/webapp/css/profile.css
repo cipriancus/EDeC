@@ -189,7 +189,28 @@ a:hover {
 	font-size: 10px;
 	visibility: hidden;
 }
-/*------------------------------PENTRU PAGINA DE SETTINGS-------------------------*/
+
+.footer {
+	margin-left: -8px;
+	position: absolute;
+	bottom: 0;
+	width: 90%;
+}
+
+.footer .footer_wrapper {
+	width: 55%;
+	float: left;
+}
+
+.footer_wrapper .footer_content {
+	float: right;
+	text-align: center;
+}
+
+.footer_wrapper .footer_content a{
+	color:white;
+}
+
 #settingsForm {
 	padding: 2%;
 }

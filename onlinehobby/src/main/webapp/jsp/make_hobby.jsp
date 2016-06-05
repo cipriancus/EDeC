@@ -68,7 +68,9 @@
 											out.print("<li id=\"menuItem\"><a href=\"http://localhost:8017/onlinehobby/admin\">Admin</a></li>");
 										}
 									%>
-									<li id="menuItem"><a href="logout">Logout</a></li>
+									<li id="menuItem"><a
+										href="http://localhost:8017/onlinehobby/ContactPage">Contact</a></li>
+									<li id="menuItem"><a href="http://localhost:8017/onlinehobby/jsp/logout.jsp">Logout</a></li>
 
 								</ul>
 							</div>
@@ -121,7 +123,7 @@
 												</div>
 
 												<div id="container-content">
-													<textarea
+												<textarea
 													 class="text_area_class" id="HobbyDescription" placeholder="Hobby Description"></textarea>
 
 													<input class="dashed_class" placeholder="Enter hobby picture url ex: http://www.ebay.com or www.google.com"   id="HobbyVideo"> 

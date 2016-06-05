@@ -1,6 +1,7 @@
 package ro.oho.rest.facadeDataBase;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import ro.oho.rest.dao.UserDAO;
@@ -14,37 +15,46 @@ public class UserFacade {
 		return userRepository.getUserById(id);
 	}
 
-	public boolean adminUser(String username)throws SQLException {
-		return userRepository.adminUser(username);
+	public boolean adminUser(long idUser) throws SQLException {
+		return userRepository.adminUser(idUser);
 	}
-	
-	public boolean deleteUser(String username) throws SQLException{
+
+	public boolean deleteUser(String username) throws SQLException {
 		return userRepository.deleteUser(username);
 	}
 
-	public boolean updateUser(User user)throws SQLException{
+	public boolean updateUser(User user) throws SQLException {
 		return userRepository.updateUser(user);
 	}
-	
-	public boolean createUser(User user) throws SQLException{
+
+	public boolean createUser(User user) throws SQLException {
 		return userRepository.createUser(user);
 	}
 
-	public boolean loginUser(long idUser){
+	public boolean loginUser(long idUser) {
 		if (userRepository.login(idUser) != false) {
-			
+
 			User user = getUserById(idUser);
-			if (user.getIdUser()==idUser)
+			if (user.getIdUser() == idUser)
 				return true;
 		}
 		return false;
 	}
 
-	public List<String> getUserPage(int page) throws SQLException{
+	public List<String> getUserPage(int page) throws SQLException {
 		return userRepository.getUserPage(page);
 	}
-	
-	public boolean generateCVS()throws SQLException{
+
+	public boolean generateCVS() throws SQLException {
 		return userRepository.generateCVS();
+	}
+
+	public List<User> getAllUsers() {
+		try{
+			return userRepository.getAllUsers();
+		}catch(SQLException e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

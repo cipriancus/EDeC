@@ -29,6 +29,8 @@ public class UserDAO {
 	private static final String UPDATE_USER = "{call userSkills.updateUser(?,?,?,?,?,?,?,?)}";
 
 	private static final String GET_USER = "{call paginare(?, ?)}";
+	
+	private static final String GET_ALL_USERS="select * from usersoho where idGrad!=1";
 
 	private static final String GENERATE_CVS = "{call generate()}";
 
@@ -80,10 +82,10 @@ public class UserDAO {
 		return list;
 	}
 
-	public boolean adminUser(String username) throws SQLException {
+	public boolean adminUser(long idUSer) throws SQLException {
 		Connection con = ConnectionHelperClass.getOracleConnection();
 		CallableStatement cstmt = con.prepareCall(ADMIN_USER);
-		cstmt.setString(1, username);
+		cstmt.setLong(1, idUSer);
 		cstmt.execute();
 		 
 		cstmt.close();
@@ -160,4 +162,24 @@ public class UserDAO {
 		return true;
 	}
 
+	public List<User> getAllUsers() throws SQLException{
+		Connection con = ConnectionHelperClass.getOracleConnection();
+		PreparedStatement prepareStatement = con.prepareStatement(GET_ALL_USERS);
+		ResultSet resultSet = prepareStatement.executeQuery();
+		List<User> allUser=new ArrayList<>();
+		while(resultSet.next()){
+			User user=new User();
+			user.setIdUser(resultSet.getLong("idUser"));
+			user.setNume(resultSet.getString("nameuser"));
+			user.setPrenume(resultSet.getString("surnameuser"));
+			user.setDataNasterii(resultSet.getString("date_of_birth"));
+			user.setEmail(resultSet.getString("email"));
+			user.setAuthToken(resultSet.getString("authtoken"));
+			user.setAuthSite(resultSet.getString("authSite"));
+			user.setPicture(resultSet.getString("photourl"));
+			user.setGrad(resultSet.getInt("idgrad"));
+			allUser.add(user);
+		}
+		return allUser;
+	}
 }
