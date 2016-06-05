@@ -80,6 +80,19 @@ function enterPressed(eventEnter) {
 	}
 	return false;
 }
+
+function enterPressedGroup(eventEnter) {
+	if (event.keyCode === 13) {
+		if (event.shiftKey === false) {
+			postMessageGroup();
+			event.preventDefault;
+		}
+		document.getElementById("textToAppend").value = "";
+		event.preventDefault;
+	}
+	return false;
+}
+
 function lessFunctionOLDY() {
 	var buttonLess = document.getElementById("buttonLess");
 	var buttonMore = document.getElementById('btnNextHobby');
@@ -163,10 +176,48 @@ function postMessage() {
 		document.getElementById("textToAppend").value = "";
 }
 
+function postMessageGroup() {
+	var continutTextarea = document.getElementById("textToAppend").value;
+	if (continutTextarea != '\n') {
+		var xmlhttp = new XMLHttpRequest();
+		var url = "http://localhost:8017/onlinehobby/ShoutGroup?group=";
+		url += window.location.pathname;
+		xmlhttp.open("POST", url, true);
+		xmlhttp.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
+		var nameText = escape(document.getElementById("textToAppend").value);
+		document.getElementById("textToAppend").value = "";
+		xmlhttp.send("nume=" + nameText);
+	} else
+		document.getElementById("textToAppend").value = "";
+}
+
 var messagesWaiting = false;
 function getMessages() {
-	if (!messagesWaiting) {
-		messagesWaiting = true;
+		if (!messagesWaiting) {
+			messagesWaiting = true;
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					messagesWaiting = false;
+					var contentElement = document.getElementById("scroly");
+					contentElement.innerHTML = xmlhttp.responseText
+							+ contentElement.innerHTML;
+				}
+			}
+			var url = "http://localhost:8017/onlinehobby/Shout?hobby="
+					+ window.location.pathname + "&t=" + new Date();
+			xmlhttp.open("GET", url, true);
+			xmlhttp.send();
+		}
+}
+setInterval(getMessages, 1000);
+
+
+var messagesWaitingGroup = false;
+function getMessagesGroup() {
+	if (!messagesWaitingGroup) {
+		messagesWaitingGroup = true;
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -176,13 +227,13 @@ function getMessages() {
 						+ contentElement.innerHTML;
 			}
 		}
-		var url = "http://localhost:8017/onlinehobby/Shout?hobby="
+		var url = "http://localhost:8017/onlinehobby/ShoutGroup?group="
 				+ window.location.pathname + "&t=" + new Date();
 		xmlhttp.open("GET", url, true);
 		xmlhttp.send();
 	}
 }
-setInterval(getMessages, 1000);
+setInterval(getMessagesGroup, 1000);
 
 function loadMembers() {
 	var xhttp = new XMLHttpRequest();
@@ -192,6 +243,32 @@ function loadMembers() {
 		}
 	};
 	var url = "http://localhost:8017/onlinehobby/HobbysUsers?hobby=";
+	url = url + window.location.pathname;
+	xhttp.open("GET", url, true);
+	xhttp.send();
+}
+
+function loadMembersGroup() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("members").innerHTML = xhttp.responseText;
+		}
+	};
+	var url = "http://localhost:8017/onlinehobby/GroupUsers?group=";
+	url = url + window.location.pathname;
+	xhttp.open("GET", url, true);
+	xhttp.send();
+}
+
+function loadGroupPosts() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("scroly").innerHTML = xhttp.responseText;
+		}
+	};
+	var url = "http://localhost:8017/onlinehobby/LoadPostsGroups?group=";
 	url = url + window.location.pathname;
 	xhttp.open("GET", url, true);
 	xhttp.send();
@@ -399,13 +476,14 @@ function approveHobby() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			{
 				document.getElementById("servletResponse").innerHTML = xhttp.responseText;
-				
-				if(xhttp.responseText.localeCompare("The Hobby has been approved")==0){
-				var element = document.getElementById("hobby" + hobbyname);
 
-				element.parentNode.removeChild(element);
-				document.getElementById("hobbyInput").value="";
-				
+				if (xhttp.responseText
+						.localeCompare("The Hobby has been approved") == 0) {
+					var element = document.getElementById("hobby" + hobbyname);
+
+					element.parentNode.removeChild(element);
+					document.getElementById("hobbyInput").value = "";
+
 				}
 			}
 		}
@@ -426,25 +504,25 @@ function adminUser() {
 
 	var inputUser = document.getElementById("inputUser").value;
 
-
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4 && xhttp.status == 200) {
 			{
 				document.getElementById("servletResponseAdmin").innerHTML = xhttp.responseText;
-				
-				if(xhttp.responseText.localeCompare("The admin approval has been successful")==0){
-				var element = document.getElementById(inputUser);
 
-				element.parentNode.removeChild(element);
-				document.getElementById(inputUser).value="";
-				
+				if (xhttp.responseText
+						.localeCompare("The admin approval has been successful") == 0) {
+					var element = document.getElementById(inputUser);
+
+					element.parentNode.removeChild(element);
+					document.getElementById(inputUser).value = "";
+
 				}
 			}
 		}
 	};
 
-	if (inputUser != "" ) {
+	if (inputUser != "") {
 		var url = "http://localhost:8017/onlinehobby/adminUser";
 		xhttp.open("POST", url, true);
 		xhttp.setRequestHeader("inputUser", inputUser);
@@ -453,7 +531,7 @@ function adminUser() {
 }
 
 function downloadPDF() {
-		window.open("http://localhost:8017/onlinehobby/admin/pdf", "PDF");
+	window.open("http://localhost:8017/onlinehobby/admin/pdf", "PDF");
 }
 
 function downloadCSV() {

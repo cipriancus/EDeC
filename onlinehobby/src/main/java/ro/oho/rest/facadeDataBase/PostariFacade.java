@@ -23,7 +23,15 @@ public class PostariFacade {
 		return postareRepository.postInHobby(user.getIdUser(), hobbyName, message);
 	}
 	
+	public boolean postInGroup(User user,int groupId,String message)throws SQLException{
+		return postareRepository.postInGroup(user.getIdUser(), groupId, message);
+	}
+	
 	public List<Postare> getAllHobbyPost(int id){
 		return postareRepository.getAllHobbyPost(id);
+	}
+	
+	public List<Postare> getAllGroupPost(int id){
+		return postareRepository.getAllGroupPost(id);
 	}
 }

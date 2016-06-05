@@ -1,4 +1,4 @@
-package ro.oho.rest.controller.hobby;
+package ro.oho.rest.controller.group;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,15 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ro.oho.rest.facadeDataBase.HobbyFacade;
-import ro.oho.rest.model.User;
+import ro.oho.rest.facadeDataBase.GroupFacade;
 
-/**
- * Servlet pentru identificare unui hobby ex /hobby/56684648 da hobby ul cu nr
- * acesta
- */
-@WebServlet("/hobby/*")
-public class GetHobbyId extends HttpServlet {
+
+@WebServlet("/group/*")
+public class GetGrupId extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -31,31 +27,23 @@ public class GetHobbyId extends HttpServlet {
 
 			if (sessionUser != null) {
 				if (sessionUser.getAttribute("user") != null) {
-					HobbyFacade hobbyFacade = new HobbyFacade();
-					User user = (User) sessionUser.getAttribute("user");
 
-					StringBuilder hobbyIDString = new StringBuilder();
-					String hobbyRequest = (String) request.getRequestURI();
-					for (int iterator = hobbyRequest.indexOf("hobby/"); iterator < hobbyRequest.length(); iterator++) {
-						if (Character.isDigit(hobbyRequest.charAt(iterator)) == true) {
-							hobbyIDString.append(hobbyRequest.charAt(iterator));
+					StringBuilder groupIDString = new StringBuilder();
+					String groupRequest = (String) request.getRequestURI();
+					for (int iterator = groupRequest.indexOf("group/"); iterator < groupRequest.length(); iterator++) {
+						if (Character.isDigit(groupRequest.charAt(iterator)) == true) {
+							groupIDString.append(groupRequest.charAt(iterator));
 						}
 					}
-					int hobbyId = 0;
+					int groupId = 0;
 
-					if (hobbyIDString.length() != 0) {
-						hobbyId = Integer.parseInt(hobbyIDString.toString());
-						if (hobbyFacade.getAllUserHobby(user.getIdUser()).contains(hobbyFacade.getHobbyForId(hobbyId)) == false) {
-							RequestDispatcher rd1 = request.getRequestDispatcher("/jsp/hobby.jsp");
+					if (groupIDString.length() != 0) {
+						groupId = Integer.parseInt(groupIDString.toString());
 							request.setAttribute("urlString", request.getRequestURI());
-							rd1.forward(request, response);
-						} else {
-							request.setAttribute("urlString", request.getRequestURI());
-							String s=new HobbyFacade().getHobbyNameForId(hobbyId);
-							request.setAttribute("name", s);
-							RequestDispatcher rd1 = request.getRequestDispatcher("/jsp/comunicare.jsp");
+							request.setAttribute("name", new GroupFacade().getGroupForID(groupId).getDescription());
+							RequestDispatcher rd1 = request.getRequestDispatcher("/jsp/comunicare_grup.jsp");
 							rd1.forward(request, response);																																						// comunicare
-						}
+						
 					} else {
 						RequestDispatcher rd1 = request.getRequestDispatcher("/jsp/first_page.jsp");
 						request.setAttribute("urlString", request.getRequestURI());

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ro.oho.rest.facadeDataBase.GroupFacade;
 import ro.oho.rest.facadeDataBase.HobbyFacade;
 import ro.oho.rest.facadeDataBase.PostariFacade;
 import ro.oho.rest.model.Hobby;
@@ -80,6 +81,8 @@ public class ILikeHobby extends HttpServlet{
 								//succes adaugare hobby
 								//ar trebui sa ii dea si hobby ul ca sa faca append la hobby-urile sale
 								if(new PostariFacade().postInHobby(user, iLikeHobby, reasons)){
+									new GroupFacade().generateGroups(user.getIdUser());
+
 									//succes postare
 									String hobby="<div class=\"hobby-content\"><a href=\"http://localhost:8017/onlinehobby/hobby/"+iLikeHobbyObject.getIdHobby()+"\">"+iLikeHobbyObject.getHobbyName()+"</a></div>";
 									String message="<li><div class=\"comment-main-level\"><div class=\"comment-avatar\"><img" + " src=\""

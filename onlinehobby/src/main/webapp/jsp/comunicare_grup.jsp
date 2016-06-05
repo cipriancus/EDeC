@@ -5,6 +5,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="ro.oho.rest.model.User"%>
 <%@page import="ro.oho.rest.model.Hobby"%>
+<%@page import="ro.oho.rest.facadeDataBase.GroupFacade"%>
+<%@page import="ro.oho.rest.model.Group"%>
 <%@page import="ro.oho.rest.model.Postare"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -20,12 +22,13 @@
 <link rel="icon" href="/onlinehobby/images/logo.png">
 <title>OHO- Chat page</title>
 </head>
-<body onload="loadDoc(); loadMembers(); loadPosts();">
+<body onload="loadDoc(); loadMembersGroup(); loadGroupPosts();">
 	<%
 		HttpSession sessionUser = request.getSession(false);
 		User user = (User) sessionUser.getAttribute("user");
-		HobbyFacade hobbyFacade = new HobbyFacade();
-		List<Hobby> allHobby = hobbyFacade.getAllUserHobby(user.getIdUser());
+		
+		List<Group> allGroups=new GroupFacade().getAllUserGroups(user.getIdUser());
+
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -90,12 +93,12 @@
 											<div id="inputText">
 												<textarea name="nume" placeholder="Write me..." rows="4"
 													maxlength="500" id="textToAppend"
-													onkeyup="enterPressed(this)"></textarea>
+													onkeyup="enterPressedGroup(this)"></textarea>
 											</div>
 
 											<div id="buttonDiv">
 												<button id="sendBtn" class="sendButton"
-													onclick="postMessage()">SEND</button>
+													onclick="postMessageGroup()">SEND</button>
 											</div>
 										</form>
 									</div>
@@ -121,21 +124,21 @@
 							<div class="grupRight">
 								<div class="hobbiesComunicare">
 									<div class="head">
-										<a>Hobby members:</a>
+										<a>Group members of <% out.print(request.getAttribute("name"));%> :</a>
 									</div>
 									<div id="members"></div>
 								</div>
 
 								<div class="hobbiesComunicare">
 									<div class="head">
-										<a>Hobbies you follow</a>
+										<a>Groups you follow</a>
 									</div>
 									<%
-										for (Hobby iterator : allHobby) {
-											out.print("<div class=\"hobby-content\"><a href=\"http://localhost:8017/onlinehobby/hobby/");
-											out.print(iterator.getIdHobby());
+										for (Group iterator : allGroups) {
+											out.print("<div class=\"hobby-content\"><a href=\"http://localhost:8017/onlinehobby/group/");
+											out.print(iterator.getIdGroup());
 											out.print("\">");
-											out.print(iterator.getHobbyName());
+											out.print(iterator.getDescription());
 											out.print("</a></div>");
 										}
 									%>

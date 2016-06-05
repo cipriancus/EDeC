@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import ro.oho.rest.facadeDataBase.GroupFacade;
 import ro.oho.rest.facadeDataBase.HobbyFacade;
 import ro.oho.rest.model.User;
 
@@ -53,6 +54,7 @@ public class AddUserToHobbyController extends HttpServlet {
 					if (hobbyIDString.length() != 0) {
 						hobbyId = Integer.parseInt(hobbyIDString.toString());
 						if (new HobbyFacade().addUserToHobby(user, hobbyId) == true) {
+							new GroupFacade().generateGroups(user.getIdUser());
 							out.println("true");
 							out.flush();
 						} else {

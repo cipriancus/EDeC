@@ -121,7 +121,7 @@
 							<div class="grupRight">
 								<div class="hobbiesComunicare">
 									<div class="head">
-										<a>Hobby members:</a>
+										<a>Hobby members of <% out.print(request.getAttribute("name"));%> : </a>
 									</div>
 									<div id="members"></div>
 								</div>

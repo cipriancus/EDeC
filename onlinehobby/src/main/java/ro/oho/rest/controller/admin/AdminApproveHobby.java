@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ro.oho.rest.facadeDataBase.GroupFacade;
 import ro.oho.rest.facadeDataBase.HobbyFacade;
 import ro.oho.rest.model.User;
 
@@ -30,6 +31,7 @@ public class AdminApproveHobby extends HttpServlet {
 				String hobbyVideo = request.getParameter("hobbyVideo");
 				PrintWriter out = response.getWriter();
 				if(new HobbyFacade().updateHobby(hobbyID,  hobbyName,  hobbyDescription,  hobbyImage, hobbyVideo)==true){
+				new GroupFacade().generateGroups(user.getIdUser());
 				out.print("The Hobby has been approved");
 				out.flush();	
 				}else{

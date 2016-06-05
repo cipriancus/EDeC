@@ -2,9 +2,11 @@
 <%@page import="ro.oho.rest.facadeDataBase.HobbyFacade"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ro.oho.rest.facadeDataBase.UserFacade"%>
+<%@page import="ro.oho.rest.facadeDataBase.GroupFacade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="ro.oho.rest.model.User"%>
 <%@page import="ro.oho.rest.model.Hobby"%>
+<%@page import="ro.oho.rest.model.Group"%>
 <%@page import="ro.oho.rest.model.Postare"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -55,6 +57,8 @@
 		UserFacade userFacade = new UserFacade();
 
 		List<String> allNetworkHobby = new HobbyFacade().getAllHobbies();
+	
+		List<Group> allGroups=new GroupFacade().getAllUserGroups(user.getIdUser());
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -133,11 +137,11 @@
 													<a>Groups you follow</a>
 												</div>
 												<%
-													for (Hobby iterator : allHobby) {
-														out.print("<div class=\"hobby-content\"><a href=\"http://localhost:8017/onlinehobby/hobby/");
-														out.print(iterator.getIdHobby());
+													for (Group iterator : allGroups) {
+														out.print("<div class=\"hobby-content\"><a href=\"http://localhost:8017/onlinehobby/group/");
+														out.print(iterator.getIdGroup());
 														out.print("\">");
-														out.print(iterator.getHobbyName());
+														out.print(iterator.getDescription());
 														out.print("</a></div>");
 													}
 												%>
