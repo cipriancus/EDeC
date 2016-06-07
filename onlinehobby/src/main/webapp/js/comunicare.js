@@ -530,17 +530,39 @@ function adminUser() {
 	}
 }
 
-function downloadPDF() {
-	window.open("http://localhost:8017/onlinehobby/admin/pdf", "PDF");
+function downloadLongPDFPopular() {
+	window.open("http://localhost:8017/onlinehobby/admin/pdfBigPopular", "PDF");
 }
 
-function downloadCSV() {
-	window.open("http://localhost:8017/onlinehobby/admin/csv", "CSV");
+function downloadShortPDFPopular() {
+	window.open("http://localhost:8017/onlinehobby/admin/pdfShortPopular", "PDF");
 }
 
-function downloadHTML() {
-	window.open("http://localhost:8017/onlinehobby/admin/html", "HTML");
+function downloadCSVPopular() {
+	window.open("http://localhost:8017/onlinehobby/admin/csvPopular", "CSV");
 }
+
+function downloadHTMLPopular() {
+	window.open("http://localhost:8017/onlinehobby/admin/htmlPopular", "HTML");
+}
+
+
+function downloadLongPDFTime() {
+	window.open("http://localhost:8017/onlinehobby/admin/pdfBigTime", "PDF");
+}
+
+function downloadShortPDFTime() {
+	window.open("http://localhost:8017/onlinehobby/admin/pdfShortTime", "PDF");
+}
+
+function downloadCSVTime() {
+	window.open("http://localhost:8017/onlinehobby/admin/csvTime", "CSV");
+}
+
+function downloadHTMLTime() {
+	window.open("http://localhost:8017/onlinehobby/admin/htmlTime", "HTML");
+}
+
 
 function deleteHobby() {
 	var xhttp = new XMLHttpRequest();

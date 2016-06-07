@@ -24,12 +24,12 @@
 	<%
 		HttpSession sessionUser = request.getSession(false);
 		User user = (User) sessionUser.getAttribute("user");
-		
-		HobbyFacade newHobby= new HobbyFacade();
-		List<Hobby> newHobbyList= new ArrayList<Hobby>();
-		newHobbyList= newHobby.getAllNewHobby();
-		
-		List<User> allUsers=new UserFacade().getAllUsers();
+
+		HobbyFacade newHobby = new HobbyFacade();
+		List<Hobby> newHobbyList = new ArrayList<Hobby>();
+		newHobbyList = newHobby.getAllNewHobby();
+
+		List<User> allUsers = new UserFacade().getAllUsers();
 	%>
 	<div class="site-wrapper">
 		<div class="site-wrapper-inner">
@@ -69,7 +69,8 @@
 									%>
 									<li id="menuItem"><a
 										href="http://localhost:8017/onlinehobby/ContactPage">Contact</a></li>
-									<li id="menuItem"><a href="http://localhost:8017/onlinehobby/jsp/logout.jsp">Logout</a></li>
+									<li id="menuItem"><a
+										href="http://localhost:8017/onlinehobby/jsp/logout.jsp">Logout</a></li>
 
 								</ul>
 							</div>
@@ -83,20 +84,36 @@
 									<div class="profile">
 										<div class="profileContent">
 
-											<div class="profilePicture">
-												
-											</div>
-											
+											<div class="profilePicture"></div>
+
 											<div class="hobbies">
 												<div class="head">
-												<p></p>
-												<p></p>
-												<button onclick="return downloadPDF();" class="buttonDownload">Generate PDF Report</button>
-												<button onclick="return downloadCSV();" class="buttonDownload">Generate CSV Report</button>
-												<button onclick="return downloadHTML();" class="buttonDownload">Generate HTML Report</button>
-												</div>															
+													<p></p>
+													<h3>The most popular/rarest hobbies</h3>
+													<button onclick="return downloadLongPDFPopular();"
+														class="buttonDownload">Generate long PDF Report</button>
+													<button onclick="return downloadShortPDFPopular();"
+														class="buttonDownload">Generate short PDF Report</button>
+
+													<button onclick="return downloadCSVPopular();"
+														class="buttonDownload">Generate CSV Report</button>
+													<button onclick="return downloadHTMLPopular();"
+														class="buttonDownload">Generate HTML Report</button>
+												</div>
 												
-											
+												<div class="head">
+													<p></p>
+													<h3>Hobby evolution by time</h3>
+													<button onclick="return downloadLongPDFTime();"
+														class="buttonDownload">Generate long PDF Report</button>
+													<button onclick="return downloadShortPDFTime();"
+														class="buttonDownload">Generate short PDF Report</button>
+
+													<button onclick="return downloadCSVTime();"
+														class="buttonDownload">Generate CSV Report</button>
+													<button onclick="return downloadHTMLTime();"
+														class="buttonDownload">Generate HTML Report</button>
+												</div>
 											</div>
 
 										</div>
@@ -105,76 +122,77 @@
 								<div class="feed">
 									<div class="feedContent">
 										<div class="comments-container">
-														
+
 											<datalist id="hobbiuri">
-											<%
-											for(Hobby iterator:newHobbyList){
-												out.print("<option value=\""+iterator.getHobbyName()+"\">");
-											}
-											%>
+												<%
+													for (Hobby iterator : newHobbyList) {
+														out.print("<option value=\"" + iterator.getHobbyName() + "\">");
+													}
+												%>
 											</datalist>
 											<ul id="comments-list" class="comments-list">
 												<%
-													if(!newHobbyList.isEmpty())
-													{
-														out.print("<div class=\"inputHobby\"> <input id=\"hobbyInput\" list=\"hobbiuri\" type=\"text\" class=\"approveInput\" ></input></div>");
-														
-														out.print("<div class=\"buttonsHobby\"><input type=\"submit\" onclick=\"return approveHobby();\" value=\"APPROVE\" class=\"approveButton\"></input> ");
-														out.print("<input type=\"submit\" onclick=\"return deleteHobby();\" value=\"DELETE\" class=\"approveButton\"></input></div>");
+													if (!newHobbyList.isEmpty()) {
+														out.print(
+																"<div class=\"inputHobby\"> <input id=\"hobbyInput\" list=\"hobbiuri\" type=\"text\" class=\"approveInput\" ></input></div>");
+
+														out.print(
+																"<div class=\"buttonsHobby\"><input type=\"submit\" onclick=\"return approveHobby();\" value=\"APPROVE\" class=\"approveButton\"></input> ");
+														out.print(
+																"<input type=\"submit\" onclick=\"return deleteHobby();\" value=\"DELETE\" class=\"approveButton\"></input></div>");
 														out.print("<div id=\"servletResponse\"></div>");
-														for(Hobby iterator:newHobbyList)
-														{
-															out.println("<div class=\"comment-head\" id=\"hobby"+iterator.getHobbyName()+"\">");
-															out.print("<p class=\"newHobb\">A NEW HOBBY HAS BEEN REQUESTED:<p id=\"id"+iterator.getHobbyName()+"\">"+iterator.getIdHobby()+"</p>"+
-																	"<input class=\"dashed_class\" id=\"NAMEnewHobby"+iterator.getHobbyName()+"\" value=\" "+iterator.getHobbyName()+"\">"+
-																	"<textarea  class=\"text_area_class\" id=\"DESCnewHobby"+iterator.getHobbyName()+"\">"+iterator.getDescription()+"</textarea>"+
-																	"<input class=\"dashed_class\" id=\"IMGnewHobby"+iterator.getHobbyName()+"\" value=\" "+iterator.getImageURL()+"\">"+
-																	"<input class=\"dashed_class\" id=\"VIDEOnewHobby"+iterator.getHobbyName()+"\" value=\" "+iterator.getVideoURL()+"\"></p>");
-															
-													
+														for (Hobby iterator : newHobbyList) {
+															out.println("<div class=\"comment-head\" id=\"hobby" + iterator.getHobbyName() + "\">");
+															out.print("<p class=\"newHobb\">A NEW HOBBY HAS BEEN REQUESTED:<p id=\"id" + iterator.getHobbyName()
+																	+ "\">" + iterator.getIdHobby() + "</p>" + "<input class=\"dashed_class\" id=\"NAMEnewHobby"
+																	+ iterator.getHobbyName() + "\" value=\" " + iterator.getHobbyName() + "\">"
+																	+ "<textarea  class=\"text_area_class\" id=\"DESCnewHobby" + iterator.getHobbyName() + "\">"
+																	+ iterator.getDescription() + "</textarea>"
+																	+ "<input class=\"dashed_class\" id=\"IMGnewHobby" + iterator.getHobbyName()
+																	+ "\" value=\" " + iterator.getImageURL() + "\">"
+																	+ "<input class=\"dashed_class\" id=\"VIDEOnewHobby" + iterator.getHobbyName()
+																	+ "\" value=\" " + iterator.getVideoURL() + "\"></p>");
+
 															out.println("</div>");
 														}
-													}
-													else
-													{
+													} else {
 														out.println("<h1> You have no hobby request</h1>");
 													}
-													
 												%>
 											</ul>
-											
-											
+
+
 											<h1>Admin User</h1>
 											<datalist id="allUsers">
-											<%
-											for(User iterator:allUsers){
-												out.print("<option value=\""+iterator.getIdUser()+" "+iterator.getNume()+" "+iterator.getPrenume()+"\">");
-											}
-											%>
+												<%
+													for (User iterator : allUsers) {
+														out.print("<option value=\"" + iterator.getIdUser() + " " + iterator.getNume() + " "
+																+ iterator.getPrenume() + "\">");
+													}
+												%>
 											</datalist>
 											<ul id="comments-list-admin" class="comments-list">
 												<%
-													if(!allUsers.isEmpty())
-													{
-														out.print("<div class=\"inputHobby\"> <input id=\"inputUser\" list=\"allUsers\" type=\"text\" class=\"approveInput\" ></input></div>");
-														
-														out.print("<div class=\"buttonsHobby\"><input type=\"submit\" onclick=\"return adminUser();\" value=\"ADMIN\" class=\"approveButton\"></input> ");
+													if (!allUsers.isEmpty()) {
+														out.print(
+																"<div class=\"inputHobby\"> <input id=\"inputUser\" list=\"allUsers\" type=\"text\" class=\"approveInput\" ></input></div>");
+
+														out.print(
+																"<div class=\"buttonsHobby\"><input type=\"submit\" onclick=\"return adminUser();\" value=\"ADMIN\" class=\"approveButton\"></input> ");
 														out.print("<div id=\"servletResponseAdmin\"></div>");
-														
-														for(User iterator:allUsers)
-														{
-															out.print("<div id=\""+iterator.getIdUser()+" "+iterator.getNume()+" "+iterator.getPrenume()+"\" class=\"comment-head\" ><p><h4 style=\"font-size:18px;color:black;margin-left:5%;\">" + "<img src=\""
-																	+ iterator.getPicture() + "\" alt=\"user photo\"/> "
-																	+ "<a href=\"http://localhost:8017/onlinehobby/usr/" + iterator.getIdUser() + "\">"
-																	+ iterator.getNume() + " " + iterator.getPrenume() + "</a></h4></p></div>");
-																												
+
+														for (User iterator : allUsers) {
+															out.print(
+																	"<div id=\"" + iterator.getIdUser() + " " + iterator.getNume() + " " + iterator.getPrenume()
+																			+ "\" class=\"comment-head\" ><p><h4 style=\"font-size:18px;color:black;margin-left:5%;\">"
+																			+ "<img src=\"" + iterator.getPicture() + "\" alt=\"user photo\"/> "
+																			+ "<a href=\"http://localhost:8017/onlinehobby/usr/" + iterator.getIdUser() + "\">"
+																			+ iterator.getNume() + " " + iterator.getPrenume() + "</a></h4></p></div>");
+
 														}
-													}
-													else
-													{
+													} else {
 														out.println("<h1> You have no hobby request</h1>");
 													}
-													
 												%>
 											</ul>
 										</div>
@@ -187,7 +205,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript" src="/onlinehobby/js/comunicare.js"></script>
 </body>
 </html>

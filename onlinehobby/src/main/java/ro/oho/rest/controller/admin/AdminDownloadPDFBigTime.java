@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ro.oho.rest.model.ConnectionHelperClass;
-import ro.oho.rest.utils.CSVReport;
+import ro.oho.rest.utils.PDFBigReport2;
 
-@WebServlet("/admin/csv")
-public class AdminDownloadCSV extends HttpServlet{
+@WebServlet("/admin/pdfBigTime")
+public class AdminDownloadPDFBigTime extends HttpServlet{
 
 	/**
 	 * 
@@ -26,8 +26,8 @@ public class AdminDownloadCSV extends HttpServlet{
 	protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         // reads input file from an absolute path
-		new CSVReport(ConnectionHelperClass.getOracleConnection());
-		String filePath = "C:/Users/Ciprian/workspace/onlinehobby/src/main/webapp/reports/report1.csv";
+		new PDFBigReport2(ConnectionHelperClass.getOracleConnection());
+		String filePath = "C:/Users/Ciprian/workspace/onlinehobby/src/main/webapp/reports/BigReport2.pdf";
         File downloadFile = new File(filePath);
         FileInputStream inStream = new FileInputStream(downloadFile);
          

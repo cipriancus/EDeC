@@ -592,8 +592,6 @@ a:hover {
 	background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
 	background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
 	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
-		endColorstr='#f6f6f6', GradientType=0);
 	background-color: #ffffff;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -618,8 +616,6 @@ a:hover {
 	background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
 	background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
 	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6',
-		endColorstr='#ffffff', GradientType=0);
 	background-color: #f6f6f6;
 }
 
@@ -653,12 +649,12 @@ a:hover {
 	background-color: #ccc;
 	border-radius: 10px;
 }
-
+/*
 #bigone ::-webkit-scrollbar-thumb:hover {
 	background-color: #aaa;
 	border-radius: 10px;
 }
-
+*/
 #bigone .grupCentru {
 	width: 40%;
 	margin-top: 7%;
@@ -708,7 +704,7 @@ a:hover {
 	margin-bottom: 11%;
 }
 
-.
+
 #bigone styleText {
 	display: inline;
 }
@@ -761,8 +757,6 @@ a:hover {
 	background: -o-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
 	background: -ms-linear-gradient(top, #3d94f6 5%, #1e62d0 100%);
 	background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6',
-		endColorstr='#1e62d0', GradientType=0);
 	background-color: #3d94f6;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -787,8 +781,6 @@ a:hover {
 	background: -o-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
 	background: -ms-linear-gradient(top, #1e62d0 5%, #3d94f6 100%);
 	background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0',
-		endColorstr='#3d94f6', GradientType=0);
 	background-color: #1e62d0;
 }
 
@@ -918,7 +910,6 @@ a:hover {
 	background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
 	background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
 	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
 	background-color:#007dc1;
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
@@ -939,7 +930,6 @@ a:hover {
 	background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
 	background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
 	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
 	background-color:#0061a7;
 }
 .facebookB:active {

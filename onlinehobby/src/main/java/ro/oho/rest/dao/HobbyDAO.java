@@ -202,8 +202,8 @@ public class HobbyDAO {
 		CallableStatement cstmt = con.prepareCall(ADD_HOBBY);
 		cstmt.setString(1, HobbyName);
 		cstmt.setString(2, HobbyDescription);
-		cstmt.setString(3, HobbyVideo);
-		cstmt.setString(4, HobbyURL);
+		cstmt.setString(3, HobbyURL);
+		cstmt.setString(4,HobbyVideo );
 		cstmt.execute();		
 		cstmt.close();
 		return true;

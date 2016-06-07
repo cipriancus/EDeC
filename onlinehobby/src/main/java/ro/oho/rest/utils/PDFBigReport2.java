@@ -1,5 +1,4 @@
 package ro.oho.rest.utils;
-
 import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 
 import java.sql.Connection;
@@ -18,69 +17,49 @@ import net.sf.dynamicreports.report.builder.chart.StackedBarChartBuilder;
 import net.sf.dynamicreports.report.builder.column.TextColumnBuilder;
 import net.sf.dynamicreports.report.exception.DRException;
 	 
-	public class PDFPercentageReport {
-	 
-	   public PDFPercentageReport(Connection connection) {
-		   try {
-		   
-			   build(connection);
-	        
-			   DatabaseMetaData databaseMetaData = connection.getMetaData();
-			   String   catalog          = null;
-			   String   schemaPattern    = null;
-			   String   tableNamePattern = null;
-			   String[] types            = null;
-
-			   ResultSet result = databaseMetaData.getTables(
-					   catalog, schemaPattern, tableNamePattern, types );
-
-			   while(result.next()) {
-				   String tableName = result.getString(3);
-				   System.out.println(tableName);
-			   }
-		   }
-		   		catch (SQLException e) {
-		         e.printStackTrace();
-		      }
-	   }
-	 
-	   private void build(Connection connection) {
-		   //interogarea care imi da statistica: cele mai populare/rarisime pasiuni
+	public class PDFBigReport2 {
+	 	 
+	   public PDFBigReport2(Connection connection) {
+		   //interogarea care imi da statistica: evolutia pasiunilor intr-un interval de timp
+		   String firstDate = "05-01-2016"; //aceasta data trebuie data de user
+		   String firstDateFormat = "trunc(TO_DATE('" + firstDate + "','MM-DD-YYYY'))";
+		   String secondDate = "06-06-2016"; //aceasta data trebuie data de user
+		   String secondDateFormat = "trunc(TO_DATE('" + secondDate + "','MM-DD-YYYY'))";
 		   String selectHobbySQL = 
-					  "SELECT hobbyname, COUNT(userhobby.idhobby) AS Nr_de_membri "
-					  + "FROM userhobby JOIN hobby ON userhobby.idhobby = hobby.idhobby "
-					  + "GROUP BY userhobby.idhobby, hobbyname "
-					  + "ORDER  BY COUNT(userhobby.idhobby) DESC";
-		   String sir=System.getProperty("user.dir")+"/PercentageReport1.pdf";
+				   "select hobby.HOBBYNAME AS nume, count(userhobby.IDHOBBY) AS Nr_de_membri from userhobby "
+				   + "join hobby on userhobby.IDHOBBY = hobby.IDHOBBY "
+				   + "WHERE DATAJOIN " //trebuie creat campul datajoin
+				   + "BETWEEN " + firstDateFormat + " AND " + secondDateFormat
+				   + " group by hobby.HOBBYNAME";
 		   JasperPdfExporterBuilder pdfExporter = export.
-						pdfExporter("C:/Users/Ciprian/workspace/onlinehobby/src/main/webapp/reports/PercentageReport1.pdf");
+						pdfExporter("C:/Users/Ciprian/workspace/onlinehobby/src/main/webapp/reports" + "/BigReport2.pdf");
 		   //coloanele tabelului
-		   TextColumnBuilder<String> hobbynameColumn = col.column("Nume Hobby", "hobbyname", type.stringType());
+		   TextColumnBuilder<String> hobbynameColumn = col.column("Nume Hobby", "nume", type.stringType());
 		   TextColumnBuilder<Integer> nrmembriColumn = col.column("Nr de membri", "Nr_de_membri", type.integerType());
 		      //diagrame dupa nrMembri / hobby
 	      BarChartBuilder barChart = cht.barChart()
-	         .setShowPercentages(true)
+	         .setShowPercentages(false)
 	         .setShowValues(true)
 	         .setPercentValuePattern("#,##0")
 	         .setCategory(hobbynameColumn)
 	         .series(cht.serie(nrmembriColumn));
 	      StackedBarChartBuilder stackedBarChart = cht.stackedBarChart()
-	         .setShowPercentages(true)
+	         .setShowPercentages(false)
 	         .setShowValues(true)
 	         .setCategory(hobbynameColumn)
 	         .series(cht.serie(nrmembriColumn));
 	      LineChartBuilder lineChart = cht.lineChart()
-	         .setShowPercentages(true)
+	         .setShowPercentages(false)
 	         .setShowValues(true)
 	         .setCategory(hobbynameColumn)
 	         .series(cht.serie(nrmembriColumn));
 	      AreaChartBuilder areaChart = cht.areaChart()
-	         .setShowPercentages(true)
+	         .setShowPercentages(false)
 	         .setShowValues(true)
 	         .setCategory(hobbynameColumn)
 	         .series(cht.serie(nrmembriColumn));
 	      StackedBar3DChartBuilder stackedBar3DChart = cht.stackedBar3DChart()
-	         .setShowPercentages(true)
+	         .setShowPercentages(false)
 	         .setShowValues(true)
 	         .setCategory(hobbynameColumn)
 	         .series(cht.serie(nrmembriColumn));
@@ -94,7 +73,7 @@ import net.sf.dynamicreports.report.exception.DRException;
 	         report()
 	            .setTemplate(Templates.reportTemplate)
 	            .columns(hobbynameColumn, nrmembriColumn)
-	            .title(Templates.createTitleComponent("Top pasiuni"))
+	            .title(Templates.createTitleComponent("Evolutie pasiuni"))
 	            .summary(
 	            		//pune cate doua diagrame pe rand
 	               cmp.horizontalList(barChart, stackedBarChart),
