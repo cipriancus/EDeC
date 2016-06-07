@@ -1,0 +1,174 @@
+html {
+	background-image: url("../images/beach.jpg");
+}
+
+body {
+	background: inherit;
+	overflow: hidden;
+}
+
+header {
+	margin-left: -10px;
+	margin-top: -25px;
+	margin-right: -8px;
+}
+
+.header-wrapper {
+	position: fixed;
+	list-style-type: none;
+	float: left;
+	z-index: 100;
+	background-color: black;
+	width: 100%;
+	height: 10%;
+	padding-left: 0px;
+}
+
+.header-wrapper .leftMenuBar {
+	width: 40%;
+	float: left;
+	display: inline;
+}
+
+.header-wrapper .rightMenuBar {
+	width: 50%;
+	float: right;
+}
+
+.header-wrapper .leftMenuBar ul {
+	float: left;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+.header-wrapper .leftMenuBar li {
+	display: inline;
+}
+
+.header-wrapper .rightMenuBar ul {
+	float: right;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+
+#menuItem {
+	display: inline;
+	font-size: 20px;
+	padding: 15px 5px;
+}
+
+a {
+	text-decoration: none;
+	color: aliceblue;
+	font-family: "Verdana", serif;
+}
+
+a:hover {
+	color: cornsilk;
+}
+
+.content .main {
+	padding-left: 4vw;
+	padding-right: 4vw;
+}
+
+.main .profilFeed {
+	float: left;
+	width: 25%;
+}
+
+.main .main-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.contact .heading {
+	width: 650px;
+	height: 130px;
+	margin: 0 auto;
+	background-color: #FFF8DC;
+	box-shadow: 0 0 10px 8px white;
+	margin-left: 20px;
+	margin-bottom: 50px;
+}
+
+.contact h1 {
+	color: #CE0C0C;
+	font-size: 40px;
+	margin-left: 200px;
+}
+
+.contact h5 {
+	color: rgb(218, 218, 218);
+	font-size: 20px;
+	font-style: italic;
+	color: rgb(0, 0, 0);
+}
+
+.contact .container {
+	width: 75%;
+	padding-left: 250px;
+	color: black;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.contact form {
+	padding-top:150px;
+	margin-left: 20%;
+}
+
+.contact input[type=submit] {
+	background-color: #575A57;
+	border-radius: 4px;
+	color: black;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+	width: 100px;
+	transition-duration: 0.7s;
+}
+
+.contact input[type=submit]:hover {
+	background-color: #7B2A0C;
+}
+
+.contact input, textarea {
+	padding: 10px;
+	width: 70%;
+}
+
+.contact label input, label textarea {
+	margin-top: 5px;
+}
+
+.contact label, input, textarea {
+	display: block;
+}
+
+.contact input, textarea {
+	margin-bottom: 10px;
+}
+
+
+.footer {
+	margin-left: -8px;
+	position: absolute;
+	bottom: 0;
+	width: 90%;
+}
+
+.footer .footer_wrapper {
+	width: 55%;
+	float: left;
+}
+
+.footer_wrapper .footer_content {
+	float: right;
+	text-align: center;
+}
+
+.footer_wrapper .footer_content a{
+	color:white;
+}
